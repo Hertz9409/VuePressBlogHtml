@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 11 章　期约与异步函数 | Hertz&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Hertz's Blog By VuePress">
+    
+    <link rel="preload" href="/VuePressBlogHtml/assets/css/0.styles.7994d51b.css" as="style"><link rel="preload" href="/VuePressBlogHtml/assets/js/app.a22e24ce.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/2.273354d5.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/47.297e0925.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/17.398b5375.js" as="script"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/10.2906bcb7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/11.44da5627.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/12.603be071.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/13.bbb59baa.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/14.37104393.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/15.622f6d38.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/16.e98dda23.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/18.87fb9473.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/19.35af09b5.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/20.0860f27f.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/21.80170eb6.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/22.32e3b412.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/23.71a3bc07.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/24.92a37d9c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/25.6c06b0ec.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/26.56de950a.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/27.389f6e4c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/28.93cf295c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/29.8299c662.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/3.82a8b2ed.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/30.030ded92.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/31.37328e23.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/32.33720530.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/33.dbf791bd.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/34.3f59d278.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/35.4db82d0c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/36.993714ab.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/37.d14d1abc.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/38.5d2531bd.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/39.04716fa1.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/4.89240616.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/40.af165ce2.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/41.be41ee81.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/42.9d0cef92.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/43.d679c459.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/44.d12455da.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/45.50996042.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/46.4ae0dc93.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/48.0b5098bb.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/49.2331b452.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/5.7f54006c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/50.ed621c31.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/51.ffa15a18.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/52.f023092e.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/53.dcf36f26.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/54.d2f28937.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/55.8d4c4343.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/56.bf7841ef.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/57.0cf87538.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/58.a33d519a.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/59.100761af.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/6.583fbbc7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/60.2547a25b.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/61.0a622c79.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/62.8bdae0f0.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/63.ae32cec9.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/64.3f841214.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/65.9967bc83.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/66.2b33b58e.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/67.5183b069.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/68.ac765712.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/69.278cdc53.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/7.d3e576f7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/70.1f5428d0.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/71.44ee8fdb.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/72.4c087926.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/73.2c3e7645.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/74.e2a67ac9.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/8.d70fcbe5.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/9.59956eee.js">
+    <link rel="stylesheet" href="/VuePressBlogHtml/assets/css/0.styles.7994d51b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/VuePressBlogHtml/" class="home-link router-link-active"><!----> <span class="site-name">Hertz's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/VuePressBlogHtml/FrontEnd/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/BackEnd/" class="nav-link">
+  后端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/GIS/" class="nav-link">
+  GIS
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/Others/" class="nav-link">
+  其他
+</a></div><div class="nav-item"><a href="https://github.com/Hertz9409" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/VuePressBlogHtml/FrontEnd/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/BackEnd/" class="nav-link">
+  后端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/GIS/" class="nav-link">
+  GIS
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/Others/" class="nav-link">
+  其他
+</a></div><div class="nav-item"><a href="https://github.com/Hertz9409" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>CSS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS1/" class="sidebar-link">CSS1</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS2/" class="sidebar-link">CSS2</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E5%8F%98%E6%8D%A2,%E8%BF%87%E6%B8%A1,%E5%8A%A8%E7%94%BB/" class="sidebar-link">CSS变换,过渡,动画</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E5%B1%82%E5%8F%A0%E6%80%A7/" class="sidebar-link">CSS层叠性</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="sidebar-link">CSS文本样式</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E6%B5%81/" class="sidebar-link">CSS流</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/" class="sidebar-link">CSS经典面试题</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/Flex%E5%B8%83%E5%B1%80/" class="sidebar-link">Flex布局</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/" class="sidebar-link">移动端适配</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/%E9%A2%9C%E8%89%B2%E4%B8%8E%E8%83%8C%E6%99%AF/" class="sidebar-link">颜色与背景</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>HTML</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/HTML/%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84%E8%AF%AD%E4%B9%89%E5%8C%96/" class="sidebar-link">页面结构语义化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/JS/Canvas%E5%9F%BA%E7%A1%80%E4%B8%80/" class="sidebar-link">Canvas基础一</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Canvas%E5%9F%BA%E7%A1%80%E4%BA%8C/" class="sidebar-link">Canvas基础二</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Cookie,Session,Token,Oauth%E5%92%8CJWT/" class="sidebar-link">Cookie,Session,Token,Oauth和JWT</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Echarts%E7%AE%80%E4%BB%8B/" class="sidebar-link">Echarts简介</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Event%20Loop/" class="sidebar-link">Event Loop</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/JavaScript%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E3%80%81%E9%97%AD%E5%8C%85/" class="sidebar-link">JavaScript执行上下文、作用域链、闭包</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Promise/" class="sidebar-link">Promise</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Web%20Workers/" class="sidebar-link">Web Workers</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/this%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="sidebar-link">this知识汇总</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E5%86%92%E6%B3%A1/" class="sidebar-link">事件捕获和冒泡</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="sidebar-link">函数防抖和节流</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE/" class="sidebar-link">前端浏览器本地存储数据</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E7%BB%A7%E6%89%BF/" class="sidebar-link">原型与继承</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0/" class="sidebar-link">断点续传</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/" class="sidebar-link">正则表达式基础</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS高级程序设计-第四版</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/1.%E4%BB%80%E4%B9%88%E6%98%AFJavaScript/" class="sidebar-link">1.什么是JavaScript</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/10.%E5%87%BD%E6%95%B0/" class="sidebar-link">10.函数</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" aria-current="page" class="active sidebar-link">11.期约与异步函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#第-11-章-期约与异步函数" class="sidebar-link">第 11 章　期约与异步函数</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-1-异步编程" class="sidebar-link">11.1 　异步编程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-1-1-同步与异步" class="sidebar-link">11.1.1 　同步与异步</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-1-2-以往的异步编程模式" class="sidebar-link">11.1.2 　以往的异步编程模式</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-2-期约" class="sidebar-link">11.2 　期约</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-2-1-promises-a-规范" class="sidebar-link">11.2.1 　 Promises/A+规范</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-2-2-期约基础" class="sidebar-link">11.2.2 　期约基础</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-2-3-期约的实例方法" class="sidebar-link">11.2.3 　期约的实例方法</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-2-4-期约连锁与期约合成" class="sidebar-link">11.2.4 　期约连锁与期约合成</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-2-5-期约扩展" class="sidebar-link">11.2.5 　期约扩展</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-3-异步函数" class="sidebar-link">11.3 　异步函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-3-1-异步函数" class="sidebar-link">11.3.1 　异步函数</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-3-2-停止和恢复执行" class="sidebar-link">11.3.2 　停止和恢复执行</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-3-3-异步函数策略" class="sidebar-link">11.3.3 　异步函数策略</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#_11-4-小结" class="sidebar-link">11.4 　小结</a></li></ul></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/" class="sidebar-link">12.BOM</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/13.%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/" class="sidebar-link">13.客户端检测</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/14.DOM/" class="sidebar-link">14.DOM</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/15.DOM%E6%89%A9%E5%B1%95/" class="sidebar-link">15.DOM扩展</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/2HTML%E4%B8%AD%E7%9A%84JavaScript/" class="sidebar-link">2HTML中的JavaScript</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/3.%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="sidebar-link">3.语言基础</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/4.%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/" class="sidebar-link">4.变量、作用域与内存</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/5.%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="sidebar-link">5.基本引用类型</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/6.%E9%9B%86%E5%90%88%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="sidebar-link">6.集合引用类型</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/7.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" class="sidebar-link">7.迭代器与生成器</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/8.%E5%AF%B9%E8%B1%A1%E3%80%81%E7%B1%BB%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="sidebar-link">8.对象、类与面向对象编程</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/" class="sidebar-link">9.代理与反射</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>VUE</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/VUE/My-Vue-Study-1/" class="sidebar-link">My-Vue-Study-1</a></li><li><a href="/VuePressBlogHtml/FrontEnd/VUE/My-Vue-Study-2/" class="sidebar-link">My-Vue-Study-2</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>其他</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/Https%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" class="sidebar-link">Https以及前端安全</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/http%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" class="sidebar-link">http缓存机制</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA/" class="sidebar-link">从输入url到界面展示</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>前端工程化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/WebPack%E5%9F%BA%E7%A1%80/" class="sidebar-link">WebPack基础</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%8E%86%E5%8F%B2%E8%BF%9B%E7%A8%8B/" class="sidebar-link">历史进程</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="第-11-章-期约与异步函数"><a href="#第-11-章-期约与异步函数" class="header-anchor">#</a> 第 11 章　期约与异步函数</h2> <blockquote><p><strong>本章内容</strong></p> <ul><li>异步编程</li> <li>期约</li> <li>异步函数</li></ul></blockquote> <p>ECMAScript 6 及之后的几个版本逐步加大了对异步编程机制的支持，提供了令人眼前一亮的新特性。ECMAScript 6 新增了正式的<code>Promise</code>（期约）引用类型，支持优雅地定义和组织异步逻辑。接下来几个版本增加了使用<code>async</code>和<code>await</code>关键字定义异步函数的机制。</p> <blockquote><p><strong>注意</strong>　本章示例将大量使用异步日志输出的方式<code>setTimeout(console.log, 0, .. params)</code>，旨在演示执行顺序及其他异步行为。异步输出的内容看起来虽然像是同步输出的，但实际上是异步打印的。这样可以让期约等返回的值达到其最终状态。</p> <p>此外，浏览器控制台的输出经常能打印出 JavaScript 运行中无法获取的对象信息（比如期约的状态）。这个特性在示例中广泛使用，以便辅助读者理解相关概念。</p></blockquote> <h2 id="_11-1-异步编程"><a href="#_11-1-异步编程" class="header-anchor">#</a> 11.1 　异步编程</h2> <p>同步行为和异步行为的对立统一是计算机科学的一个基本概念。特别是在 JavaScript 这种单线程事件循环模型中，同步操作与异步操作更是代码所要依赖的核心机制。异步行为是为了优化因计算量大而时间长的操作。如果在等待其他操作完成的同时，即使运行其他指令，系统也能保持稳定，那么这样做就是务实的。</p> <p>重要的是，异步操作并不一定计算量大或要等很长时间。只要你不想为等待某个异步操作而阻塞线程执行，那么任何时候都可以使用。</p> <h3 id="_11-1-1-同步与异步"><a href="#_11-1-1-同步与异步" class="header-anchor">#</a> 11.1.1 　同步与异步</h3> <p><strong>同步行为</strong>对应内存中顺序执行的处理器指令。每条指令都会严格按照它们出现的顺序来执行，而每条指令执行后也能立即获得存储在系统本地（如寄存器或系统内存）的信息。这样的执行流程容易分析程序在执行到代码任意位置时的状态（比如变量的值）。</p> <p>同步操作的例子可以是执行一次简单的数学计算：</p> <div class="language- extra-class"><pre class="language-text"><code>let x = 3;
+x = x + 4;
+</code></pre></div><p>在程序执行的每一步，都可以推断出程序的状态。这是因为后面的指令总是在前面的指令完成后才会执行。等到最后一条指定执行完毕，存储在<code>x</code>的值就立即可以使用。</p> <p>这两行 JavaScript 代码对应的低级指令（从 JavaScript 到 x86）并不难想象。首先，操作系统会在栈内存上分配一个存储浮点数值的空间，然后针对这个值做一次数学计算，再把计算结果写回之前分配的内存中。所有这些指令都是在单个线程中按顺序执行的。在低级指令的层面，有充足的工具可以确定系统状态。</p> <p>相对地，<strong>异步行为</strong>类似于系统中断，即当前进程外部的实体可以触发代码执行。异步操作经常是必要的，因为强制进程等待一个长时间的操作通常是不可行的（同步操作则必须要等）。如果代码要访问一些高延迟的资源，比如向远程服务器发送请求并等待响应，那么就会出现长时间的等待。</p> <p>异步操作的例子可以是在定时回调中执行一次简单的数学计算：</p> <div class="language- extra-class"><pre class="language-text"><code>let x = 3;
+setTimeout(() =&gt; x = x + 4, 1000);
+</code></pre></div><p>这段程序最终与同步代码执行的任务一样，都是把两个数加在一起，但这一次执行线程不知道<code>x</code>值何时会改变，因为这取决于回调何时从消息队列出列并执行。</p> <p>异步代码不容易推断。虽然这个例子对应的低级代码最终跟前面的例子没什么区别，但第二个指令块（加操作及赋值操作）是由系统计时器触发的，这会生成一个入队执行的中断。到底什么时候会触发这个中断，这对 JavaScript 运行时来说是一个黑盒，因此实际上无法预知（尽管可以保证这发生在当前线程的同步代码执行<strong>之后</strong>，否则回调都没有机会出列被执行）。无论如何，在排定回调以后基本没办法知道系统状态何时变化。</p> <p>为了让后续代码能够使用<code>x</code>，异步执行的函数需要在更新<code>x</code>的值以后通知其他代码。如果程序不需要这个值，那么就只管继续执行，不必等待这个结果了。</p> <p>设计一个能够知道<code>x</code>什么时候可以读取的系统是非常难的。JavaScript 在实现这样一个系统的过程中也经历了几次迭代。</p> <h3 id="_11-1-2-以往的异步编程模式"><a href="#_11-1-2-以往的异步编程模式" class="header-anchor">#</a> 11.1.2 　以往的异步编程模式</h3> <p>异步行为是 JavaScript 的基础，但以前的实现不理想。在早期的 JavaScript 中，只支持定义回调函数来表明异步操作完成。串联多个异步操作是一个常见的问题，通常需要深度嵌套的回调函数（俗称“回调地狱”）来解决。</p> <p>假设有以下异步函数，使用了<code>setTimeout</code>在一秒钟之后执行某些操作：</p> <div class="language- extra-class"><pre class="language-text"><code>function double(value) {
+  setTimeout(() =&gt; setTimeout(console.log, 0, value * 2), 1000);
+}
+
+double(3);
+// 6（大约1000毫秒之后）
+</code></pre></div><p>这里的代码没什么神秘的，但关键是理解为什么说它是一个异步函数。<code>setTimeout</code>可以定义一个在指定时间之后会被调度执行的回调函数。对这个例子而言，1000 毫秒之后，JavaScript 运行时会把回调函数推到自己的消息队列上去等待执行。推到队列之后，回调什么时候出列被执行对 JavaScript 代码就完全不可见了。还有一点，<code>double()</code>函数在<code>setTimeout</code>成功调度异步操作之后会立即退出。</p> <ol><li><p><strong>异步返回值</strong></p> <p>假设<code>setTimeout</code>操作会返回一个有用的值。有什么好办法把这个值传给需要它的地方？广泛接受的一个策略是给异步操作提供一个回调，这个回调中包含要使用异步返回值的代码（作为回调的参数）。</p> <div class="language- extra-class"><pre class="language-text"><code>function double(value, callback) {
+  setTimeout(() =&gt; callback(value * 2), 1000);
+}
+
+double(3, (x) =&gt; console.log(`I was given: ${x}`));
+// I was given: 6（大约1000毫秒之后）
+</code></pre></div><p>这里的<code>setTimeout</code>调用告诉 JavaScript 运行时在 1000 毫秒之后把一个函数推到消息队列上。这个函数会由运行时负责异步调度执行。而位于函数闭包中的回调及其参数在异步执行时仍然是可用的。</p></li></ol> <ol start="2"><li><p><strong>失败处理</strong></p> <p>异步操作的失败处理在回调模型中也要考虑，因此自然就出现了成功回调和失败回调：</p> <div class="language- extra-class"><pre class="language-text"><code>function double(value, success, failure) {
+  setTimeout(() =&gt; {
+    try {
+      if (typeof value !== 'number') {
+        throw 'Must provide number as first argument';
+      }
+      success(2 * value);
+    } catch (e) {
+      failure(e);
+    }
+  }, 1000);
+}
+
+const successCallback = (x) =&gt; console.log(`Success: ${x}`);
+const failureCallback = (e) =&gt; console.log(`Failure: ${e}`);
+
+double(3, successCallback, failureCallback);
+double('b', successCallback, failureCallback);
+
+// Success: 6（大约1000毫秒之后）
+// Failure: Must provide number as first argument（大约1000毫秒之后）
+</code></pre></div><p>这种模式已经不可取了，因为必须在初始化异步操作时定义回调。异步函数的返回值只在短时间内存在，只有预备好将这个短时间内存在的值作为参数的回调才能接收到它。</p></li></ol> <ol start="3"><li><p><strong>嵌套异步回调</strong></p> <p>如果异步返值又依赖另一个异步返回值，那么回调的情况还会进一步变复杂。在实际的代码中，这就要求嵌套回调：</p> <div class="language- extra-class"><pre class="language-text"><code>function double(value, success, failure) {
+  setTimeout(() =&gt; {
+    try {
+      if (typeof value !== 'number') {
+        throw 'Must provide number as first argument';
+      }
+      success(2 * value);
+    } catch (e) {
+      failure(e);
+    }
+  }, 1000);
+}
+
+const successCallback = (x) =&gt; {
+  double(x, (y) =&gt; console.log(`Success: ${y}`));
+};
+const failureCallback = (e) =&gt; console.log(`Failure: ${e}`);
+
+double(3, successCallback, failureCallback);
+
+// Success: 12（大约1000毫秒之后）
+</code></pre></div><p>显然，随着代码越来越复杂，回调策略是不具有扩展性的。“回调地狱”这个称呼可谓名至实归。嵌套回调的代码维护起来就是噩梦。</p></li></ol> <h2 id="_11-2-期约"><a href="#_11-2-期约" class="header-anchor">#</a> 11.2 　期约</h2> <p>期约是对尚不存在结果的一个替身。期约（promise）这个名字最早是由 Daniel Friedman 和 David Wise 在他们于 1976 年发表的论文“The Impact of Applicative Programming on Multiprocessing”中提出来的。但直到十几年以后，Barbara Liskov 和 Liuba Shrira 在 1988 年发表了论文“Promises—Linguistic Support for Efficient Asynchronous Procedure Calls in Distributed Systems”，这个概念才真正确立下来。同一时期的计算机科学家还使用了“终局”（eventual）、“期许”（future）、“延迟”（delay）和“迟付”（deferred）等术语指代同样的概念。所有这些概念描述的都是一种异步程序执行的机制。</p> <h3 id="_11-2-1-promises-a-规范"><a href="#_11-2-1-promises-a-规范" class="header-anchor">#</a> 11.2.1 　 Promises/A+规范</h3> <p>早期的期约机制在 jQuery 和 Dojo 中是以 Deferred API 的形式出现的。到了 2010 年，CommonJS 项目实现的 Promises/A 规范日益流行起来。Q 和 Bluebird 等第三方 JavaScript 期约库也越来越得到社区认可，虽然这些库的实现多少都有些不同。为弥合现有实现之间的差异，2012 年 Promises/A+组织分叉（fork）了 CommonJS 的 Promises/A 建议，并以相同的名字制定了 Promises/A+规范。这个规范最终成为了 ECMAScript 6 规范实现的范本。</p> <p>ECMAScript 6 增加了对 Promises/A+规范的完善支持，即<code>Promise</code>类型。一经推出，<code>Promise</code>就大受欢迎，成为了主导性的异步编程机制。所有现代浏览器都支持 ES6 期约，很多其他浏览器 API（如<code>fetch()</code>和电池 API）也以期约为基础。</p> <h3 id="_11-2-2-期约基础"><a href="#_11-2-2-期约基础" class="header-anchor">#</a> 11.2.2 　期约基础</h3> <p>ECMAScript 6 新增的引用类型<code>Promise</code>，可以通过<code>new</code>操作符来实例化。创建新期约时需要传入执行器（executor）函数作为参数（后面马上会介绍），下面的例子使用了一个空函数对象来应付一下解释器：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise(() =&gt; {});
+setTimeout(console.log, 0, p);  // Promise &lt;pending&gt;
+</code></pre></div><p>之所以说是应付解释器，是因为如果不提供执行器函数，就会抛出<code>SyntaxError</code>。</p> <ol><li><p><strong>期约状态机</strong></p> <p>在把一个期约实例传给<code>console.log()</code>时，控制台输出（可能因浏览器不同而略有差异）表明该实例处于<strong>待定</strong>（pending）状态。如前所述，期约是一个有状态的对象，可能处于如下 3 种状态之一：</p> <ul><li>待定（pending）</li> <li>兑现（fulfilled，有时候也称为“解决”，resolved）</li> <li>拒绝（rejected）</li></ul> <p><strong>待定</strong>（pending）是期约的最初始状态。在待定状态下，期约可以<strong>落定</strong>（settled）为代表成功的<strong>兑现</strong>（fulfilled）状态，或者代表失败的<strong>拒绝</strong>（rejected）状态。无论落定为哪种状态都是不可逆的。只要从待定转换为兑现或拒绝，期约的状态就不再改变。而且，也不能保证期约必然会脱离待定状态。因此，组织合理的代码无论期约解决（resolve）还是拒绝（reject），甚至永远处于待定（pending）状态，都应该具有恰当的行为。</p> <p>重要的是，期约的状态是私有的，不能直接通过 JavaScript 检测到。这主要是为了避免根据读取到的期约状态，以同步方式处理期约对象。另外，期约的状态也不能被外部 JavaScript 代码修改。这与不能读取该状态的原因是一样的：期约故意将异步行为封装起来，从而隔离外部的同步代码。</p></li></ol> <ol start="2"><li><p><strong>解决值、拒绝理由及期约用例</strong></p> <p>期约主要有两大用途。首先是抽象地表示一个异步操作。期约的状态代表期约是否完成。“待定”表示尚未开始或者正在执行中。“兑现”表示已经成功完成，而“拒绝”则表示没有成功完成。</p> <p>某些情况下，这个状态机就是期约可以提供的最有用的信息。知道一段异步代码已经完成，对于其他代码而言已经足够了。比如，假设期约要向服务器发送一个 HTTP 请求。请求返回 200~299 范围内的状态码就足以让期约的状态变为“兑现”。类似地，如果请求返回的状态码不在 200~299 这个范围内，那么就会把期约状态切换为“拒绝”。</p> <p>在另外一些情况下，期约封装的异步操作会实际生成某个值，而程序期待期约状态改变时可以访问这个值。相应地，如果期约被拒绝，程序就会期待期约状态改变时可以拿到拒绝的理由。比如，假设期约向服务器发送一个 HTTP 请求并预定会返回一个 JSON。如果请求返回范围在 200~299 的状态码，则足以让期约的状态变为兑现。此时期约内部就可以收到一个 JSON 字符串。类似地，如果请求返回的状态码不在 200~299 这个范围内，那么就会把期约状态切换为拒绝。此时拒绝的理由可能是一个<code>Error</code>对象，包含着 HTTP 状态码及相关错误消息。</p> <p>为了支持这两种用例，每个期约只要状态切换为兑现，就会有一个私有的内部<strong>值</strong>（value）。类似地，每个期约只要状态切换为拒绝，就会有一个私有的内部<strong>理由</strong>（reason）。无论是值还是理由，都是包含原始值或对象的不可修改的引用。二者都是可选的，而且默认值为<code>undefined</code>。在期约到达某个落定状态时执行的异步代码始终会收到这个值或理由。</p></li></ol> <ol start="3"><li><p><strong>通过执行函数控制期约状态</strong></p> <p>由于期约的状态是私有的，所以只能在内部进行操作。内部操作在期约的执行器函数中完成。执行器函数主要有两项职责：初始化期约的异步行为和控制状态的最终转换。其中，控制期约状态的转换是通过调用它的两个函数参数实现的。这两个函数参数通常都命名为<code>resolve()</code>和<code>reject()</code>。调用<code>resolve()</code>会把状态切换为兑现，调用<code>reject()</code>会把状态切换为拒绝。另外，调用<code>reject()</code>也会抛出错误（后面会讨论这个错误）。</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise((resolve, reject) =&gt; resolve());
+setTimeout(console.log, 0, p1); // Promise &lt;resolved&gt;
+
+let p2 = new Promise((resolve, reject) =&gt; reject());
+setTimeout(console.log, 0, p2); // Promise &lt;rejected&gt;
+// Uncaught error (in promise)
+</code></pre></div><p>在前面的例子中，并没有什么异步操作，因为在初始化期约时，执行器函数已经改变了每个期约的状态。这里的关键在于，执行器函数是<strong>同步</strong>执行的。这是因为执行器函数是期约的初始化程序。通过下面的例子可以看出上面代码的执行顺序：</p> <div class="language- extra-class"><pre class="language-text"><code>new Promise(() =&gt; setTimeout(console.log, 0, 'executor'));
+setTimeout(console.log, 0, 'promise initialized');
+
+// executor
+// promise initialized
+</code></pre></div><p>添加<code>setTimeout</code>可以推迟切换状态：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000));
+
+// 在console.log打印期约实例的时候，还不会执行超时回调（即resolve()）
+setTimeout(console.log, 0, p);  // Promise &lt;pending&gt;
+</code></pre></div><p>无论<code>resolve()</code>和<code>reject()</code>中的哪个被调用，状态转换都不可撤销了。于是继续修改状态会静默失败，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; {
+  resolve();
+  reject(); // 没有效果
+});
+
+setTimeout(console.log, 0, p); // Promise &lt;resolved&gt;
+</code></pre></div><p>为避免期约卡在待定状态，可以添加一个定时退出功能。比如，可以通过<code>setTimeout</code>设置一个 10 秒钟后无论如何都会拒绝期约的回调：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; {
+  setTimeout(reject, 10000);  // 10秒后调用reject()
+  // 执行函数的逻辑
+});
+
+setTimeout(console.log, 0, p);      // Promise &lt;pending&gt;
+setTimeout(console.log, 11000, p);  // 11秒后再检查状态
+
+// (After 10 seconds) Uncaught error
+// (After 11 seconds) Promise &lt;rejected&gt;
+</code></pre></div><p>因为期约的状态只能改变一次，所以这里的超时拒绝逻辑中可以放心地设置让期约处于待定状态的最长时间。如果执行器中的代码在超时之前已经解决或拒绝，那么超时回调再尝试拒绝也会静默失败。</p></li></ol> <ol start="4"><li><p><strong>Promise.resolve()</strong></p> <p>期约并非一开始就必须处于待定状态，然后通过执行器函数才能转换为落定状态。通过调用<code>Promise.resolve()</code>静态方法，可以实例化一个解决的期约。下面两个期约实例实际上是一样的：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise((resolve, reject) =&gt; resolve());
+let p2 = Promise.resolve();
+</code></pre></div><p>这个解决的期约的值对应着传给<code>Promise.resolve()</code>的第一个参数。使用这个静态方法，实际上可以把任何值都转换为一个期约：</p> <div class="language- extra-class"><pre class="language-text"><code>setTimeout(console.log, 0, Promise.resolve());
+// Promise &lt;resolved&gt;: undefined
+
+setTimeout(console.log, 0, Promise.resolve(3));
+// Promise &lt;resolved&gt;: 3
+
+// 多余的参数会忽略
+setTimeout(console.log, 0, Promise.resolve(4, 5, 6));
+// Promise &lt;resolved&gt;: 4
+</code></pre></div><p>对这个静态方法而言，如果传入的参数本身是一个期约，那它的行为就类似于一个空包装。因此，<code>Promise.resolve()</code>可以说是一个幂等方法，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = Promise.resolve(7);
+
+setTimeout(console.log, 0, p === Promise.resolve(p));
+// true
+
+setTimeout(console.log, 0, p === Promise.resolve(Promise.resolve(p)));
+// true
+</code></pre></div><p>这个幂等性会保留传入期约的状态：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise(() =&gt; {});
+
+setTimeout(console.log, 0, p);                   // Promise &lt;pending&gt;
+setTimeout(console.log, 0, Promise.resolve(p));  // Promise &lt;pending&gt;
+
+setTimeout(console.log, 0, p === Promise.resolve(p)); // true
+</code></pre></div><p>注意，这个静态方法能够包装任何非期约值，包括错误对象，并将其转换为解决的期约。因此，也可能导致不符合预期的行为：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = Promise.resolve(new Error('foo'));
+
+setTimeout(console.log, 0, p);
+// Promise &lt;resolved&gt;: Error: foo
+</code></pre></div></li></ol> <ol start="5"><li><p><strong>Promise.reject()</strong></p> <p>与<code>Promise.resolve()</code>类似，<code>Promise.reject()</code>会实例化一个拒绝的期约并抛出一个异步错误（这个错误不能通过<code>try</code>/<code>catch</code>捕获，而只能通过拒绝处理程序捕获）。下面的两个期约实例实际上是一样的：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise((resolve, reject) =&gt; reject());
+let p2 = Promise.reject();
+</code></pre></div><p>这个拒绝的期约的理由就是传给<code>Promise.reject()</code>的第一个参数。这个参数也会传给后续的拒绝处理程序：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = Promise.reject(3);
+setTimeout(console.log, 0, p); // Promise &lt;rejected&gt;: 3
+
+p.then(null, (e) =&gt; setTimeout(console.log, 0, e)); // 3
+</code></pre></div><p>关键在于，<code>Promise.reject()</code>并没有照搬<code>Promise.resolve()</code>的幂等逻辑。如果给它传一个期约对象，则这个期约会成为它返回的拒绝期约的理由：</p> <div class="language- extra-class"><pre class="language-text"><code>setTimeout(console.log, 0, Promise.reject(Promise.resolve()));
+// Promise &lt;rejected&gt;: Promise &lt;resolved&gt;
+</code></pre></div></li></ol> <ol start="6"><li><p><strong>同步/异步执行的二元性</strong></p> <p><code>Promise</code>的设计很大程度上会导致一种完全不同于 JavaScript 的计算模式。下面的例子完美地展示了这一点，其中包含了两种模式下抛出错误的情形：</p> <div class="language- extra-class"><pre class="language-text"><code>try {
+  throw new Error('foo');
+} catch(e) {
+  console.log(e); // Error: foo
+}
+
+try {
+  Promise.reject(new Error('bar'));
+} catch(e) {
+  console.log(e);
+}
+// Uncaught (in promise) Error: bar
+</code></pre></div><p>第一个<code>try</code>/<code>catch</code>抛出并捕获了错误，第二个<code>try</code>/<code>catch</code>抛出错误却<strong>没有</strong>捕获到。乍一看这可能有点违反直觉，因为代码中确实是同步创建了一个拒绝的期约实例，而这个实例也抛出了包含拒绝理由的错误。这里的同步代码之所以没有捕获期约抛出的错误，是因为它没有通过<strong>异步模式</strong>捕获错误。从这里就可以看出期约真正的异步特性：它们是同步对象（在同步执行模式中使用），但也是<strong>异步</strong>执行模式的媒介。</p> <p>在前面的例子中，拒绝期约的错误并没有抛到执行同步代码的线程里，而是通过浏览器异步消息队列来处理的。因此，<code>try</code>/<code>catch</code>块并不能捕获该错误。代码一旦开始以异步模式执行，则唯一与之交互的方式就是使用异步结构——更具体地说，就是期约的方法。</p></li></ol> <h3 id="_11-2-3-期约的实例方法"><a href="#_11-2-3-期约的实例方法" class="header-anchor">#</a> 11.2.3 　期约的实例方法</h3> <p>期约实例的方法是连接外部同步代码与内部异步代码之间的桥梁。这些方法可以访问异步操作返回的数据，处理期约成功和失败的输出，连续对期约求值，或者添加只有期约进入终止状态时才会执行的代码。</p> <ol><li><p><strong>实现 Thenable 接口</strong></p> <p>在 ECMAScript 暴露的异步结构中，任何对象都有一个<code>then()</code>方法。这个方法被认为实现了<code>Thenable</code>接口。下面的例子展示了实现这一接口的最简单的类：</p> <div class="language- extra-class"><pre class="language-text"><code>class MyThenable {
+  then() {}
+}
+</code></pre></div><p>ECMAScript 的<code>Promise</code>类型实现了<code>Thenable</code>接口。这个简化的接口跟 TypeScript 或其他包中的接口或类型定义不同，它们都设定了<code>Thenbale</code>接口更具体的形式。</p> <blockquote><p><strong>注意</strong>　本章后面再介绍异步函数时还会再谈到<code>Thenable</code>接口的用途和目的。</p></blockquote></li></ol> <ol start="2"><li><p><strong>Promise.prototype.then()</strong></p> <p><code>Promise.prototype.then()</code>是为期约实例添加处理程序的主要方法。这个<code>then()</code>方法接收最多两个参数：<code>onResolved</code>处理程序和<code>onRejected</code>处理程序。这两个参数都是可选的，如果提供的话，则会在期约分别进入“兑现”和“拒绝”状态时执行。</p> <div class="language- extra-class"><pre class="language-text"><code>function onResolved(id) {
+  setTimeout(console.log, 0, id, 'resolved');
+}
+function onRejected(id) {
+  setTimeout(console.log, 0, id, 'rejected');
+}
+
+let p1 = new Promise((resolve, reject) =&gt; setTimeout(resolve, 3000));
+let p2 = new Promise((resolve, reject) =&gt; setTimeout(reject, 3000));
+
+p1.then(() =&gt; onResolved('p1'),
+        () =&gt; onRejected('p1'));
+p2.then(() =&gt; onResolved('p2'),
+        () =&gt; onRejected('p2'));
+
+//（3秒后）
+// p1 resolved
+// p2 rejected
+</code></pre></div><p>因为期约只能转换为最终状态一次，所以这两个操作一定是互斥的。</p> <p>如前所述，两个处理程序参数都是可选的。而且，传给<code>then()</code>的任何非函数类型的参数都会被静默忽略。如果想只提供<code>onRejected</code>参数，那就要在<code>onResolved</code>参数的位置上传入<code>undefined</code>。这样有助于避免在内存中创建多余的对象，对期待函数参数的类型系统也是一个交代。</p> <div class="language- extra-class"><pre class="language-text"><code>function onResolved(id) {
+  setTimeout(console.log, 0, id, 'resolved');
+}
+function onRejected(id) {
+  setTimeout(console.log, 0, id, 'rejected');
+}
+
+let p1 = new Promise((resolve, reject) =&gt; setTimeout(resolve, 3000));
+let p2 = new Promise((resolve, reject) =&gt; setTimeout(reject, 3000));
+
+// 非函数处理程序会被静默忽略，不推荐
+p1.then('gobbeltygook');
+
+// 不传onResolved处理程序的规范写法
+p2.then(null, () =&gt; onRejected('p2'));
+
+// p2 rejected（3秒后）
+</code></pre></div><p><code>Promise.prototype.then()</code>方法返回一个新的期约实例：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise(() =&gt; {});
+let p2 = p1.then();
+setTimeout(console.log, 0, p1);         // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p2);         // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p1 === p2);  // false
+</code></pre></div><p>这个新期约实例基于<code>onResovled</code>处理程序的返回值构建。换句话说，该处理程序的返回值会通过<code>Promise.resolve()</code>包装来生成新期约。如果没有提供这个处理程序，则<code>Promise.resolve()</code>就会包装上一个期约解决之后值。如果没有显式的返回语句，则<code>Promise.resolve()</code>会包装默认的返回值<code>undefined</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.resolve('foo');
+
+// 若调用then()时不传处理程序，则原样向后传
+let p2 = p1.then();
+setTimeout(console.log, 0, p2); // Promise &lt;resolved&gt;: foo
+
+// 这些都一样
+let p3 = p1.then(() =&gt; undefined);
+let p4 = p1.then(() =&gt; {});
+let p5 = p1.then(() =&gt; Promise.resolve());
+
+setTimeout(console.log, 0, p3);  // Promise &lt;resolved&gt;: undefined
+setTimeout(console.log, 0, p4);  // Promise &lt;resolved&gt;: undefined
+setTimeout(console.log, 0, p5);  // Promise &lt;resolved&gt;: undefined
+</code></pre></div><p>如果有显式的返回值，则<code>Promise.resolve()</code>会包装这个值：</p> <div class="language- extra-class"><pre class="language-text"><code>...
+
+// 这些都一样
+let p6 = p1.then(() =&gt; 'bar');
+let p7 = p1.then(() =&gt; Promise.resolve('bar'));
+
+setTimeout(console.log, 0, p6);  // Promise &lt;resolved&gt;: bar
+setTimeout(console.log, 0, p7);  // Promise &lt;resolved&gt;: bar
+
+// Promise.resolve()保留返回的期约
+let p8 = p1.then(() =&gt; new Promise(() =&gt; {}));
+let p9 = p1.then(() =&gt; Promise.reject());
+// Uncaught (in promise): undefined
+
+setTimeout(console.log, 0, p8);  // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p9);  // Promise &lt;rejected&gt;: undefined
+</code></pre></div><p>抛出异常会返回拒绝的期约：</p> <div class="language- extra-class"><pre class="language-text"><code>...
+
+let p10 = p1.then(() =&gt; { throw 'baz'; });
+// Uncaught (in promise) baz
+
+setTimeout(console.log, 0, p10);  // Promise &lt;rejected&gt; baz
+</code></pre></div><p>注意，返回错误值不会触发上面的拒绝行为，而会把错误对象包装在一个解决的期约中：</p> <div class="language- extra-class"><pre class="language-text"><code>...
+
+let p11 = p1.then(() =&gt; Error('qux'));
+
+setTimeout(console.log, 0, p11); // Promise &lt;resolved&gt;: Error: qux
+</code></pre></div><p><code>onRejected</code>处理程序也与之类似：<code>onRejected</code>处理程序返回的值也会被<code>Promise.resolve()</code>包装。乍一看这可能有点违反直觉，但是想一想，<code>onRejected</code>处理程序的任务不就是捕获异步错误吗？因此，拒绝处理程序在捕获错误后不抛出异常是符合期约的行为，应该返回一个解决期约。</p> <p>下面的代码片段展示了用<code>Promise.reject()</code>替代之前例子中的<code>Promise.resolve()</code>之后的结果：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.reject('foo');
+
+// 调用then()时不传处理程序则原样向后传
+let p2 = p1.then();
+// Uncaught (in promise) foo
+
+setTimeout(console.log, 0, p2);  // Promise &lt;rejected&gt;: foo
+
+// 这些都一样
+let p3 = p1.then(null, () =&gt; undefined);
+let p4 = p1.then(null, () =&gt; {});
+let p5 = p1.then(null, () =&gt; Promise.resolve());
+
+setTimeout(console.log, 0, p3); // Promise &lt;resolved&gt;: undefined
+setTimeout(console.log, 0, p4); // Promise &lt;resolved&gt;: undefined
+setTimeout(console.log, 0, p5); // Promise &lt;resolved&gt;: undefined
+　
+　
+　
+// 这些都一样
+let p6 = p1.then(null, () =&gt; 'bar');
+let p7 = p1.then(null, () =&gt; Promise.resolve('bar'));
+
+setTimeout(console.log, 0, p6); // Promise &lt;resolved&gt;: bar
+setTimeout(console.log, 0, p7); // Promise &lt;resolved&gt;: bar
+
+// Promise.resolve()保留返回的期约
+let p8 = p1.then(null, () =&gt; new Promise(() =&gt; {}));
+let p9 = p1.then(null, () =&gt; Promise.reject());
+// Uncaught (in promise): undefined
+
+setTimeout(console.log, 0, p8); // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p9); // Promise &lt;rejected&gt;: undefined
+　
+　
+　
+let p10 = p1.then(null, () =&gt; { throw 'baz'; });
+// Uncaught (in promise) baz
+
+setTimeout(console.log, 0, p10); // Promise &lt;rejected&gt;: baz
+　
+　
+　
+let p11 = p1.then(null, () =&gt; Error('qux'));
+
+setTimeout(console.log, 0, p11); // Promise &lt;resolved&gt;: Error: qux
+</code></pre></div></li></ol> <ol start="3"><li><p><strong>Promise.prototype.catch()</strong></p> <p><code>Promise.prototype.catch()</code>方法用于给期约添加拒绝处理程序。这个方法只接收一个参数：<code>onRejected</code>处理程序。事实上，这个方法就是一个语法糖，调用它就相当于调用<code>Promise.prototype.then(null, onRejected)</code>。</p> <p>下面的代码展示了这两种同样的情况：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = Promise.reject();
+let onRejected = function(e) {
+  setTimeout(console.log, 0, 'rejected');
+};
+
+// 这两种添加拒绝处理程序的方式是一样的：
+p.then(null, onRejected);  // rejected
+p.catch(onRejected);       // rejected
+</code></pre></div><p><code>Promise.prototype.catch()</code>返回一个新的期约实例：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise(() =&gt; {});
+let p2 = p1.catch();
+setTimeout(console.log, 0, p1);         // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p2);         // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p1 === p2);  // false
+</code></pre></div><p>在返回新期约实例方面，<code>Promise.prototype.catch()</code>的行为与<code>Promise.prototype.then()</code>的<code>onRejected</code>处理程序是一样的。</p></li></ol> <ol start="4"><li><p><strong>Promise.prototype.finally()</strong></p> <p><code>Promise.prototype.finally()</code>方法用于给期约添加<code>onFinally</code>处理程序，这个处理程序在期约转换为解决<strong>或</strong>拒绝状态时都会执行。这个方法可以避免<code>onResolved</code>和<code>onRejected</code>处理程序中出现冗余代码。但<code>onFinally</code>处理程序没有办法知道期约的状态是解决还是拒绝，所以这个方法主要用于添加清理代码。</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.resolve();
+let p2 = Promise.reject();
+let onFinally = function() {
+  setTimeout(console.log, 0, 'Finally!')
+}
+
+p1.finally(onFinally); // Finally
+p2.finally(onFinally); // Finally
+</code></pre></div><p><code>Promise.prototype.finally()</code>方法返回一个新的期约实例：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise(() =&gt; {});
+let p2 = p1.finally();
+setTimeout(console.log, 0, p1);         // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p2);         // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p1 === p2);  // false
+</code></pre></div><p>这个新期约实例不同于<code>then()</code>或<code>catch()</code>方式返回的实例。因为<code>onFinally</code>被设计为一个状态无关的方法，所以多数情况下它都会原样后传父期约。无论父期约是解决还是拒绝，都会原样后传。</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.resolve('foo');
+
+// 这里都会原样后传
+let p2 = p1.finally();
+let p3 = p1.finally(() =&gt; undefined);
+let p4 = p1.finally(() =&gt; {});
+let p5 = p1.finally(() =&gt; Promise.resolve());
+let p6 = p1.finally(() =&gt; 'bar');
+let p7 = p1.finally(() =&gt; Promise.resolve('bar'));
+let p8 = p1.finally(() =&gt; Error('qux'));
+
+setTimeout(console.log, 0, p2);  // Promise &lt;resolved&gt;: foo
+setTimeout(console.log, 0, p3);  // Promise &lt;resolved&gt;: foo
+setTimeout(console.log, 0, p4);  // Promise &lt;resolved&gt;: foo
+setTimeout(console.log, 0, p5);  // Promise &lt;resolved&gt;: foo
+setTimeout(console.log, 0, p6);  // Promise &lt;resolved&gt;: foo
+setTimeout(console.log, 0, p7);  // Promise &lt;resolved&gt;: foo
+setTimeout(console.log, 0, p8);  // Promise &lt;resolved&gt;: foo
+</code></pre></div><p>如果返回的是一个待定的期约，或者<code>onFinally</code>处理程序抛出了错误（显式抛出或返回了一个拒绝期约），则会返回相应的期约（待定或拒绝），如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>...
+
+// Promise.resolve()保留返回的期约
+let p9 = p1.finally(() =&gt; new Promise(() =&gt; {}));
+let p10 = p1.finally(() =&gt; Promise.reject());
+// Uncaught (in promise): undefined
+
+setTimeout(console.log, 0, p9);  // Promise &lt;pending&gt;
+setTimeout(console.log, 0, p10); // Promise &lt;rejected&gt;: undefined
+
+let p11 = p1.finally(() =&gt; { throw 'baz'; });
+// Uncaught (in promise) baz
+
+setTimeout(console.log, 0, p11); // Promise &lt;rejected&gt;: baz
+</code></pre></div><p>返回待定期约的情形并不常见，这是因为只要期约一解决，新期约仍然会原样后传初始的期约：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.resolve('foo');
+
+// 忽略解决的值
+let p2 = p1.finally(
+  () =&gt; new Promise((resolve, reject) =&gt; setTimeout(() =&gt; resolve('bar'), 100)));
+
+setTimeout(console.log, 0, p2); // Promise &lt;pending&gt;
+
+setTimeout(() =&gt; setTimeout(console.log, 0, p2), 200);
+
+// 200毫秒后：
+// Promise &lt;resolved&gt;: foo
+</code></pre></div></li></ol> <ol start="5"><li><p><strong>非重入期约方法</strong></p> <p>当期约进入落定状态时，与该状态相关的处理程序仅仅会被<strong>排期</strong>，而非立即执行。跟在添加这个处理程序的代码之后的同步代码一定会在处理程序之前先执行。即使期约一开始就是与附加处理程序关联的状态，执行顺序也是这样的。这个特性由 JavaScript 运行时保证，被称为“非重入”（non-reentrancy）特性。下面的例子演示了这个特性：</p> <div class="language- extra-class"><pre class="language-text"><code>// 创建解决的期约
+let p = Promise.resolve();
+
+// 添加解决处理程序
+// 直觉上，这个处理程序会等期约一解决就执行
+p.then(() =&gt; console.log('onResolved handler'));
+
+// 同步输出，证明then()已经返回
+console.log('then() returns');
+
+// 实际的输出：
+// then() returns
+// onResolved handler
+</code></pre></div><p>在这个例子中，在一个解决期约上调用<code>then()</code>会把<code>onResolved</code>处理程序推进消息队列。但这个处理程序在当前线程上的同步代码执行完成前不会执行。因此，跟在<code>then()</code>后面的同步代码一定先于处理程序执行。</p> <p>先添加处理程序后解决期约也是一样的。如果添加处理程序后，同步代码才改变期约状态，那么处理程序仍然会基于该状态变化表现出非重入特性。下面的例子展示了即使先添加了<code>onResolved</code>处理程序，再同步调用<code>resolve()</code>，处理程序也不会进入同步线程执行：</p> <div class="language- extra-class"><pre class="language-text"><code>let synchronousResolve;
+
+// 创建一个期约并将解决函数保存在一个局部变量中
+let p = new Promise((resolve) =&gt; {
+  synchronousResolve = function() {
+    console.log('1: invoking resolve()');
+    resolve();
+    console.log('2: resolve() returns');
+  };
+});
+
+p.then(() =&gt; console.log('4: then() handler executes'));
+
+synchronousResolve();
+console.log('3: synchronousResolve() returns');
+
+// 实际的输出：
+// 1: invoking resolve()
+// 2: resolve() returns
+// 3: synchronousResolve() returns
+// 4: then() handler executes
+</code></pre></div><p>在这个例子中，即使期约状态变化发生在添加处理程序之后，处理程序也会等到运行的消息队列让它出列时才会执行。</p> <p>非重入适用于<code>onResolved</code>/<code>onRejected</code>处理程序、<code>catch()</code>处理程序和<code>finally()</code>处理程序。下面的例子演示了这些处理程序都只能异步执行：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.resolve();
+p1.then(() =&gt; console.log('p1.then() onResolved'));
+console.log('p1.then() returns');
+
+let p2 = Promise.reject();
+p2.then(null, () =&gt; console.log('p2.then() onRejected'));
+console.log('p2.then() returns');
+
+let p3 = Promise.reject();
+p3.catch(() =&gt; console.log('p3.catch() onRejected'));
+console.log('p3.catch() returns');
+
+let p4 = Promise.resolve();
+p4.finally(() =&gt; console.log('p4.finally() onFinally'));
+
+console.log('p4.finally() returns');
+
+// p1.then() returns
+// p2.then() returns
+// p3.catch() returns
+// p4.finally() returns
+// p1.then() onResolved
+// p2.then() onRejected
+// p3.catch() onRejected
+// p4.finally() onFinally
+</code></pre></div></li></ol> <ol start="6"><li><p><strong>邻近处理程序的执行顺序</strong></p> <p>如果给期约添加了多个处理程序，当期约状态变化时，相关处理程序会按照添加它们的顺序依次执行。无论是<code>then()</code>、<code>catch()</code>还是<code>finally()</code>添加的处理程序都是如此。</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.resolve();
+let p2 = Promise.reject();
+
+p1.then(() =&gt; setTimeout(console.log, 0, 1));
+p1.then(() =&gt; setTimeout(console.log, 0, 2));
+// 1
+// 2
+
+p2.then(null, () =&gt; setTimeout(console.log, 0, 3));
+p2.then(null, () =&gt; setTimeout(console.log, 0, 4));
+// 3
+// 4
+
+p2.catch(() =&gt; setTimeout(console.log, 0, 5));
+p2.catch(() =&gt; setTimeout(console.log, 0, 6));
+// 5
+// 6
+
+p1.finally(() =&gt; setTimeout(console.log, 0, 7));
+p1.finally(() =&gt; setTimeout(console.log, 0, 8));
+// 7
+// 8
+</code></pre></div></li></ol> <ol start="7"><li><p><strong>传递解决值和拒绝理由</strong></p> <p>到了落定状态后，期约会提供其解决值（如果兑现）或其拒绝理由（如果拒绝）给相关状态的处理程序。拿到返回值后，就可以进一步对这个值进行操作。比如，第一次网络请求返回的 JSON 是发送第二次请求必需的数据，那么第一次请求返回的值就应该传给<code>onResolved</code>处理程序继续处理。当然，失败的网络请求也应该把 HTTP 状态码传给<code>onRejected</code>处理程序。</p> <p>在执行函数中，解决的值和拒绝的理由是分别作为<code>resolve()</code>和<code>reject()</code>的第一个参数往后传的。然后，这些值又会传给它们各自的处理程序，作为<code>onResolved</code>或<code>onRejected</code>处理程序的唯一参数。下面的例子展示了上述传递过程：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise((resolve, reject) =&gt; resolve('foo'));
+p1.then((value) =&gt; console.log(value));    // foo
+
+let p2 = new Promise((resolve, reject) =&gt; reject('bar'));
+p2.catch((reason) =&gt; console.log(reason));  // bar
+</code></pre></div><p><code>Promise.resolve()</code>和<code>Promise.reject()</code>在被调用时就会接收解决值和拒绝理由。同样地，它们返回的期约也会像执行器一样把这些值传给<code>onResolved</code>或<code>onRejected</code>处理程序：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.resolve('foo');
+p1.then((value) =&gt; console.log(value));   // foo
+
+let p2 = Promise.reject('bar');
+p2.catch((reason) =&gt; console.log(reason)); // bar
+</code></pre></div></li></ol> <ol start="8"><li><p><strong>拒绝期约与拒绝错误处理</strong></p> <p>拒绝期约类似于<code>throw()</code>表达式，因为它们都代表一种程序状态，即需要中断或者特殊处理。在期约的执行函数或处理程序中抛出错误会导致拒绝，对应的错误对象会成为拒绝的理由。因此以下这些期约都会以一个错误对象为由被拒绝：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise((resolve, reject) =&gt; reject(Error('foo')));
+let p2 = new Promise((resolve, reject) =&gt; { throw Error('foo'); });
+let p3 = Promise.resolve().then(() =&gt; { throw Error('foo'); });
+let p4 = Promise.reject(Error('foo'));
+
+setTimeout(console.log, 0, p1);  // Promise &lt;rejected&gt;: Error: foo
+setTimeout(console.log, 0, p2);  // Promise &lt;rejected&gt;: Error: foo
+setTimeout(console.log, 0, p3);  // Promise &lt;rejected&gt;: Error: foo
+setTimeout(console.log, 0, p4);  // Promise &lt;rejected&gt;: Error: foo
+　
+　
+// 也会抛出4个未捕获错误
+</code></pre></div><p>期约可以以任何理由拒绝，包括<code>undefined</code>，但最好统一使用错误对象。这样做主要是因为创建错误对象可以让浏览器捕获错误对象中的栈追踪信息，而这些信息对调试是非常关键的。例如，前面例子中抛出的 4 个错误的栈追踪信息如下：</p> <div class="language- extra-class"><pre class="language-text"><code>Uncaught (in promise) Error: foo
+    at Promise (test.html:5)
+    at new Promise (&lt;anonymous&gt;)
+    at test.html:5
+Uncaught (in promise) Error: foo
+    at Promise (test.html:6)
+    at new Promise (&lt;anonymous&gt;)
+    at test.html:6
+Uncaught (in promise) Error: foo
+    at test.html:8
+Uncaught (in promise) Error: foo
+    at Promise.resolve.then (test.html:7)
+</code></pre></div><p>所有错误都是异步抛出且未处理的，通过错误对象捕获的栈追踪信息展示了错误发生的路径。注意错误的顺序：<code>Promise.resolve().then()</code>的错误最后才出现，这是因为它需要在运行时消息队列中<strong>添加</strong>处理程序；也就是说，在最终抛出未捕获错误之前它还会创建另一个期约。</p> <p>这个例子同样揭示了异步错误有意思的副作用。正常情况下，在通过<code>throw()</code>关键字抛出错误时，JavaScript 运行时的错误处理机制会停止执行抛出错误之后的任何指令：</p> <div class="language- extra-class"><pre class="language-text"><code>throw Error('foo');
+console.log('bar'); // 这一行不会执行
+
+// Uncaught Error: foo
+</code></pre></div><p>但是，在期约中抛出错误时，因为错误实际上是从消息队列中异步抛出的，所以并不会阻止运行时继续执行同步指令：</p> <div class="language- extra-class"><pre class="language-text"><code>Promise.reject(Error('foo'));
+console.log('bar');
+// bar
+
+// Uncaught (in promise) Error: foo
+</code></pre></div><p>如本章前面的<code>Promise.reject()</code>示例所示，异步错误只能通过异步的<code>onRejected</code>处理程序捕获：</p> <div class="language- extra-class"><pre class="language-text"><code>// 正确
+Promise.reject(Error('foo')).catch((e) =&gt; {});
+
+// 不正确
+try {
+  Promise.reject(Error('foo'));
+} catch(e) {}
+</code></pre></div><p>这不包括捕获执行函数中的错误，在解决或拒绝期约之前，仍然可以使用<code>try</code>/<code>catch</code>在执行函数中捕获错误：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; {
+  try {
+    throw Error('foo');
+  } catch(e) {}
+
+  resolve('bar');
+});
+
+setTimeout(console.log, 0, p); // Promise &lt;resolved&gt;: bar
+</code></pre></div><p><code>then()</code>和<code>catch()</code>的<code>onRejected</code>处理程序在语义上相当于<code>try</code>/<code>catch</code>。出发点都是捕获错误之后将其隔离，同时不影响正常逻辑执行。为此，<code>onRejected</code>处理程序的任务应该是在捕获异步错误之后返回一个<strong>解决</strong>的期约。下面的例子中对比了同步错误处理与异步错误处理：</p> <div class="language- extra-class"><pre class="language-text"><code>console.log('begin synchronous execution');
+try {
+  throw Error('foo');
+} catch(e) {
+  console.log('caught error', e);
+}
+console.log('continue synchronous execution');
+
+// begin synchronous execution
+// caught error Error: foo
+// continue synchronous execution
+　
+　
+　
+new Promise((resolve, reject) =&gt; {
+  console.log('begin asynchronous execution');
+  reject(Error('bar'));
+}).catch((e) =&gt; {
+  console.log('caught error', e);
+}).then(() =&gt; {
+  console.log('continue asynchronous execution');
+});
+
+// begin asynchronous execution
+// caught error Error: bar
+// continue asynchronous execution
+</code></pre></div></li></ol> <h3 id="_11-2-4-期约连锁与期约合成"><a href="#_11-2-4-期约连锁与期约合成" class="header-anchor">#</a> 11.2.4 　期约连锁与期约合成</h3> <p>多个期约组合在一起可以构成强大的代码逻辑。这种组合可以通过两种方式实现：期约连锁与期约合成。前者就是一个期约接一个期约地拼接，后者则是将多个期约组合为一个期约。</p> <ol><li><p><strong>期约连锁</strong></p> <p>把期约逐个地串联起来是一种非常有用的编程模式。之所以可以这样做，是因为每个期约实例的方法（<code>then()</code>、<code>catch()</code>和<code>finally()</code>）都会返回一个<strong>新的</strong>期约对象，而这个新期约又有自己的实例方法。这样连缀方法调用就可以构成所谓的“期约连锁”。比如：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; {
+  console.log('first');
+  resolve();
+});
+p.then(() =&gt; console.log('second'))
+ .then(() =&gt; console.log('third'))
+ .then(() =&gt; console.log('fourth'));
+
+// first
+// second
+// third
+// fourth
+</code></pre></div><p>这个实现最终执行了一连串<strong>同步</strong>任务。正因为如此，这种方式执行的任务没有那么有用，毕竟分别使用 4 个同步函数也可以做到：</p> <div class="language- extra-class"><pre class="language-text"><code>(() =&gt; console.log('first'))();
+(() =&gt; console.log('second'))();
+(() =&gt; console.log('third'))();
+(() =&gt; console.log('fourth'))();
+</code></pre></div><p>要真正执行<strong>异步</strong>任务，可以改写前面的例子，让每个执行器都返回一个期约实例。这样就可以让每个后续期约都等待之前的期约，也就是串行化异步任务。比如，可以像下面这样让每个期约在一定时间后解决：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = new Promise((resolve, reject) =&gt; {
+  console.log('p1 executor');
+  setTimeout(resolve, 1000);
+});
+
+p1.then(() =&gt; new Promise((resolve, reject) =&gt; {
+    console.log('p2 executor');
+    setTimeout(resolve, 1000);
+  }))
+  .then(() =&gt; new Promise((resolve, reject) =&gt; {
+    console.log('p3 executor');
+    setTimeout(resolve, 1000);
+  }))
+  .then(() =&gt; new Promise((resolve, reject) =&gt; {
+    console.log('p4 executor');
+    setTimeout(resolve, 1000);
+  }));
+
+// p1 executor（1秒后）
+// p2 executor（2秒后）
+// p3 executor（3秒后）
+// p4 executor（4秒后）
+</code></pre></div><p>把生成期约的代码提取到一个工厂函数中，就可以写成这样：</p> <div class="language- extra-class"><pre class="language-text"><code>function delayedResolve(str) {
+  return new Promise((resolve, reject) =&gt; {
+    console.log(str);
+    setTimeout(resolve, 1000);
+  });
+}
+
+delayedResolve('p1 executor')
+  .then(() =&gt; delayedResolve('p2 executor'))
+  .then(() =&gt; delayedResolve('p3 executor'))
+  .then(() =&gt; delayedResolve('p4 executor'))
+
+// p1 executor（1秒后）
+// p2 executor（2秒后）
+// p3 executor（3秒后）
+// p4 executor（4秒后）
+</code></pre></div><p>每个后续的处理程序都会等待前一个期约解决，然后实例化一个新期约并返回它。这种结构可以简洁地将异步任务串行化，解决之前依赖回调的难题。假如这种情况下不使用期约，那么前面的代码可能就要这样写了：</p> <div class="language- extra-class"><pre class="language-text"><code>function delayedExecute(str, callback = null) {
+  setTimeout(() =&gt; {
+    console.log(str);
+    callback &amp;&amp; callback();
+  }, 1000)
+}
+
+delayedExecute('p1 callback', () =&gt; {
+  delayedExecute('p2 callback', () =&gt; {
+    delayedExecute('p3 callback', () =&gt; {
+      delayedExecute('p4 callback');
+    });
+  });
+});
+
+// p1 callback（1秒后）
+// p2 callback（2秒后）
+// p3 callback（3秒后）
+// p4 callback（4秒后）
+</code></pre></div><p>心明眼亮的开发者会发现，这不正是期约所要解决的回调地狱问题吗？</p> <p>因为<code>then()</code>、<code>catch()</code>和<code>finally()</code>都返回期约，所以串联这些方法也很直观。下面的例子同时使用这 3 个实例方法：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; {
+  console.log('initial promise rejects');
+  reject();
+});
+
+p.catch(() =&gt; console.log('reject handler'))
+ .then(() =&gt; console.log('resolve handler'))
+ .finally(() =&gt; console.log('finally handler'));
+
+// initial promise rejects
+// reject handler
+// resolve handler
+// finally handler
+</code></pre></div></li></ol> <ol start="2"><li><p><strong>期约图</strong></p> <p>因为一个期约可以有任意多个处理程序，所以期约连锁可以构建<strong>有向非循环图</strong>的结构。这样，每个期约都是图中的一个节点，而使用实例方法添加的处理程序则是有向顶点。因为图中的每个节点都会等待前一个节点落定，所以图的方向就是期约的解决或拒绝顺序。</p> <p>下面的例子展示了一种期约有向图，也就是二叉树：</p> <div class="language- extra-class"><pre class="language-text"><code>//     A
+//    / \
+//   B   C
+//   /\  /\
+//  D  E   F  G
+
+let A = new Promise((resolve, reject) =&gt; {
+  console.log('A');
+  resolve();
+});
+
+let B = A.then(() =&gt; console.log('B'));
+let C = A.then(() =&gt; console.log('C'));
+
+B.then(() =&gt; console.log('D'));
+B.then(() =&gt; console.log('E'));
+C.then(() =&gt; console.log('F'));
+C.then(() =&gt; console.log('G'));
+
+// A
+// B
+// C
+// D
+// E
+// F
+// G
+</code></pre></div><p>注意，日志的输出语句是对二叉树的层序遍历。如前所述，期约的处理程序是按照它们添加的顺序执行的。由于期约的处理程序是<strong>先</strong>添加到消息队列，<strong>然后</strong>才逐个执行，因此构成了层序遍历。</p> <p>树只是期约图的一种形式。考虑到根节点不一定唯一，且多个期约也可以组合成一个期约（通过下一节介绍的<code>Promise.all()</code>和<code>Promise.race()</code>），所以有向非循环图是体现期约连锁可能性的最准确表达。</p></li></ol> <ol start="3"><li><p><strong>Promise.all()和 Promise.race()</strong></p> <p>Promise 类提供两个将多个期约实例组合成一个期约的静态方法：<code>Promise.all()</code>和<code>Promise.race()</code>。而合成后期约的行为取决于内部期约的行为。</p> <ul><li><p><strong>Promise.all()</strong></p> <p><code>Promise.all()</code>静态方法创建的期约会在一组期约全部解决之后再解决。这个静态方法接收一个可迭代对象，返回一个新期约：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.all([
+  Promise.resolve(),
+  Promise.resolve()
+]);
+
+// 可迭代对象中的元素会通过Promise.resolve()转换为期约
+let p2 = Promise.all([3, 4]);
+
+// 空的可迭代对象等价于Promise.resolve()
+let p3 = Promise.all([]);
+
+// 无效的语法
+let p4 = Promise.all();
+// TypeError: cannot read Symbol.iterator of undefined
+</code></pre></div><p>合成的期约只会在每个包含的期约都解决之后才解决：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = Promise.all([
+  Promise.resolve(),
+  new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000))
+]);
+setTimeout(console.log, 0, p); // Promise &lt;pending&gt;
+
+p.then(() =&gt; setTimeout(console.log, 0, 'all() resolved!'));
+
+// all() resolved!（大约1秒后）
+</code></pre></div><p>如果至少有一个包含的期约待定，则合成的期约也会待定。如果有一个包含的期约拒绝，则合成的期约也会拒绝：</p> <div class="language- extra-class"><pre class="language-text"><code>// 永远待定
+let p1 = Promise.all([new Promise(() =&gt; {})]);
+setTimeout(console.log, 0, p1); // Promise &lt;pending&gt;
+
+// 一次拒绝会导致最终期约拒绝
+let p2 = Promise.all([
+  Promise.resolve(),
+  Promise.reject(),
+  Promise.resolve()
+]);
+setTimeout(console.log, 0, p2); // Promise &lt;rejected&gt;
+
+// Uncaught (in promise) undefined
+</code></pre></div><p>如果所有期约都成功解决，则合成期约的解决值就是所有包含期约解决值的数组，按照迭代器顺序：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = Promise.all([
+  Promise.resolve(3),
+  Promise.resolve(),
+  Promise.resolve(4)
+]);
+
+p.then((values) =&gt; setTimeout(console.log, 0, values)); // [3, undefined, 4]
+</code></pre></div><p>如果有期约拒绝，则第一个拒绝的期约会将自己的理由作为合成期约的拒绝理由。之后再拒绝的期约不会影响最终期约的拒绝理由。不过，这并不影响所有包含期约正常的拒绝操作。合成的期约<strong>会</strong>静默处理所有包含期约的拒绝操作，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>// 虽然只有第一个期约的拒绝理由会进入
+// 拒绝处理程序，第二个期约的拒绝也
+// 会被静默处理，不会有错误跑掉
+let p = Promise.all([
+  Promise.reject(3),
+  new Promise((resolve, reject) =&gt; setTimeout(reject, 1000))
+]);
+
+p.catch((reason) =&gt; setTimeout(console.log, 0, reason)); // 3
+
+// 没有未处理的错误
+</code></pre></div></li></ul></li></ol> <ul><li><p><strong>Promise.race()</strong></p> <p><code>Promise.race()</code>静态方法返回一个包装期约，是一组集合中最先解决或拒绝的期约的镜像。这个方法接收一个可迭代对象，返回一个新期约：</p> <div class="language- extra-class"><pre class="language-text"><code>let p1 = Promise.race([
+  Promise.resolve(),
+  Promise.resolve()
+]);
+
+// 可迭代对象中的元素会通过Promise.resolve()转换为期约
+let p2 = Promise.race([3, 4]);
+
+// 空的可迭代对象等价于new Promise(() =&gt; {})
+let p3 = Promise.race([]);
+
+// 无效的语法
+let p4 = Promise.race();
+// TypeError: cannot read Symbol.iterator of undefined
+</code></pre></div><p><code>Promise.race()</code>不会对解决或拒绝的期约区别对待。无论是解决还是拒绝，只要是第一个落定的期约，<code>Promise.race()</code>就会包装其解决值或拒绝理由并返回新期约：</p> <div class="language- extra-class"><pre class="language-text"><code>// 解决先发生，超时后的拒绝被忽略
+let p1 = Promise.race([
+  Promise.resolve(3),
+  new Promise((resolve, reject) =&gt; setTimeout(reject, 1000))
+]);
+setTimeout(console.log, 0, p1); // Promise &lt;resolved&gt;: 3
+
+// 拒绝先发生，超时后的解决被忽略
+let p2 = Promise.race([
+  Promise.reject(4),
+  new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000))
+]);
+setTimeout(console.log, 0, p2); // Promise &lt;rejected&gt;: 4
+
+// 迭代顺序决定了落定顺序
+let p3 = Promise.race([
+  Promise.resolve(5),
+  Promise.resolve(6),
+  Promise.resolve(7)
+]);
+setTimeout(console.log, 0, p3); // Promise &lt;resolved&gt;: 5
+</code></pre></div><p>如果有一个期约拒绝，只要它是第一个落定的，就会成为拒绝合成期约的理由。之后再拒绝的期约不会影响最终期约的拒绝理由。不过，这并不影响所有包含期约正常的拒绝操作。与<code>Promise.all()</code>类似，合成的期约<strong>会</strong>静默处理所有包含期约的拒绝操作，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>// 虽然只有第一个期约的拒绝理由会进入
+// 拒绝处理程序，第二个期约的拒绝也
+// 会被静默处理，不会有错误跑掉
+let p = Promise.race([
+  Promise.reject(3),
+  new Promise((resolve, reject) =&gt; setTimeout(reject, 1000))
+]);
+
+p.catch((reason) =&gt; setTimeout(console.log, 0, reason)); // 3
+
+// 没有未处理的错误
+</code></pre></div></li></ul> <ol start="4"><li><p><strong>串行期约合成</strong></p> <p>到目前为止，我们讨论期约连锁一直围绕期约的串行执行，忽略了期约的另一个主要特性：异步产生值并将其传给处理程序。基于后续期约使用之前期约的返回值来串联期约是期约的基本功能。这很像<strong>函数合成</strong>，即将多个函数合成为一个函数，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>function addTwo(x) {return x + 2;}
+function addThree(x) {return x + 3;}
+function addFive(x) {return x + 5;}
+
+function addTen(x) {
+  return addFive(addTwo(addThree(x)));
+}
+
+console.log(addTen(7)); // 17
+</code></pre></div><p>在这个例子中，有 3 个函数基于一个值合成为一个函数。类似地，期约也可以像这样合成起来，渐进地消费一个值，并返回一个结果：</p> <div class="language- extra-class"><pre class="language-text"><code>function addTwo(x) {return x + 2;}
+function addThree(x) {return x + 3;}
+function addFive(x) {return x + 5;}
+
+function addTen(x) {
+  return Promise.resolve(x)
+    .then(addTwo)
+    .then(addThree)
+    .then(addFive);
+}
+
+addTen(8).then(console.log); // 18
+</code></pre></div><p>使用<code>Array.prototype.reduce()</code>可以写成更简洁的形式：</p> <div class="language- extra-class"><pre class="language-text"><code>function addTwo(x) {return x + 2;}
+function addThree(x) {return x + 3;}
+function addFive(x) {return x + 5;}
+
+function addTen(x) {
+  return [addTwo, addThree, addFive]
+      .reduce((promise, fn) =&gt; promise.then(fn), Promise.resolve(x));
+}
+
+addTen(8).then(console.log); // 18
+</code></pre></div><p>这种模式可以提炼出一个通用函数，可以把任意多个函数作为处理程序合成一个连续传值的期约连锁。这个通用的合成函数可以这样实现：</p> <div class="language- extra-class"><pre class="language-text"><code>function addTwo(x) {return x + 2;}
+function addThree(x) {return x + 3;}
+function addFive(x) {return x + 5;}
+
+function compose(...fns) {
+  return (x) =&gt; fns.reduce((promise, fn) =&gt; promise.then(fn), Promise.resolve(x))
+}
+
+let addTen = compose(addTwo, addThree, addFive);
+
+addTen(8).then(console.log); // 18
+</code></pre></div><blockquote><p><strong>注意</strong>　本章后面的 11.3 节在讨论异步函数时还会涉及这个概念。</p></blockquote></li></ol> <h3 id="_11-2-5-期约扩展"><a href="#_11-2-5-期约扩展" class="header-anchor">#</a> 11.2.5 　期约扩展</h3> <p>ES6 期约实现是很可靠的，但它也有不足之处。比如，很多第三方期约库实现中具备而 ECMAScript 规范却未涉及的两个特性：期约取消和进度追踪。</p> <ol><li><p><strong>期约取消</strong></p> <p>我们经常会遇到期约正在处理过程中，程序却不再需要其结果的情形。这时候如果能够取消期约就好了。某些第三方库，比如 Bluebird，就提供了这个特性。实际上，TC39 委员会也曾准备增加这个特性，但相关提案最终被撤回了。结果，ES6 期约被认为是“激进的”：只要期约的逻辑开始执行，就没有办法阻止它执行到完成。</p> <p>实际上，可以在现有实现基础上提供一种临时性的封装，以实现取消期约的功能。这可以用到 Kevin Smith 提到的“取消令牌”（cancel token）。生成的令牌实例提供了一个接口，利用这个接口可以取消期约；同时也提供了一个期约的实例，可以用来触发取消后的操作并求值取消状态。</p> <p>下面是<code>CancelToken</code>类的一个基本实例：</p> <div class="language- extra-class"><pre class="language-text"><code>class CancelToken {
+  constructor(cancelFn) {
+    this.promise = new Promise((resolve, reject) =&gt; {
+      cancelFn(resolve);
+    });
+  }
+}
+</code></pre></div><p>这个类包装了一个期约，把解决方法暴露给了<code>cancelFn</code>参数。这样，外部代码就可以向构造函数中传入一个函数，从而控制什么情况下可以取消期约。这里期约是令牌类的公共成员，因此可以给它添加处理程序以取消期约。</p> <p>这个类大概可以这样使用：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;button id=&quot;start&quot;&gt;Start&lt;/button&gt;
+&lt;button id=&quot;cancel&quot;&gt;Cancel&lt;/button&gt;
+
+&lt;script&gt;
+class CancelToken {
+  constructor(cancelFn) {
+    this.promise = new Promise((resolve, reject) =&gt; {
+      cancelFn(() =&gt; {
+        setTimeout(console.log, 0, &quot;delay cancelled&quot;);
+        resolve();
+      });
+    });
+  }
+}
+
+const startButton = document.querySelector('#start');
+const cancelButton = document.querySelector('#cancel');
+
+function cancellableDelayedResolve(delay) {
+  setTimeout(console.log, 0, &quot;set delay&quot;);
+
+  return new Promise((resolve, reject) =&gt; {
+    const id = setTimeout((() =&gt; {
+      setTimeout(console.log, 0, &quot;delayed resolve&quot;);
+      resolve();
+    }), delay);
+
+    const cancelToken = new CancelToken((cancelCallback) =&gt;
+      cancelButton.addEventListener(&quot;click&quot;, cancelCallback));
+
+    cancelToken.promise.then(() =&gt; clearTimeout(id));
+  });
+}
+
+startButton.addEventListener(&quot;click&quot;, () =&gt; cancellableDelayedResolve(1000));
+&lt;/script&gt;
+</code></pre></div><p>每次单击“Start”按钮都会开始计时，并实例化一个新的<code>CancelToken</code>的实例。此时，“Cancel”按钮一旦被点击，就会触发令牌实例中的期约解决。而解决之后，单击“Start”按钮设置的超时也会被取消。</p></li></ol> <ol start="2"><li><p><strong>期约进度通知</strong></p> <p>执行中的期约可能会有不少离散的“阶段”，在最终解决之前必须依次经过。某些情况下，监控期约的执行进度会很有用。ECMAScript 6 期约并不支持进度追踪，但是可以通过扩展来实现。</p> <p>一种实现方式是扩展<code>Promise</code>类，为它添加<code>notify()</code>方法，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>class TrackablePromise extends Promise {
+  constructor(executor) {
+    const notifyHandlers = [];
+
+      super((resolve, reject) =&gt; {
+      return executor(resolve, reject, (status) =&gt; {
+        notifyHandlers.map((handler) =&gt; handler(status));
+      });
+    });
+
+    this.notifyHandlers = notifyHandlers;
+  }
+
+  notify(notifyHandler) {
+    this.notifyHandlers.push(notifyHandler);
+    return this;
+  }
+}
+</code></pre></div><p>这样，<code>TrackablePromise</code>就可以在执行函数中使用<code>notify()</code>函数了。可以像下面这样使用这个函数来实例化一个期约：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new TrackablePromise((resolve, reject, notify) =&gt; {
+  function countdown(x) {
+    if (x &gt; 0) {
+      notify(`${20 * x}% remaining`);
+      setTimeout(() =&gt; countdown(x - 1), 1000);
+    } else {
+      resolve();
+    }
+  }
+
+  countdown(5);
+});
+</code></pre></div><p>这个期约会连续 5 次递归地设置 1000 毫秒的超时。每个超时回调都会调用<code>notify()</code>并传入状态值。假设通知处理程序简单地这样写：</p> <div class="language- extra-class"><pre class="language-text"><code>...
+
+let p = new TrackablePromise((resolve, reject, notify) =&gt; {
+  function countdown(x) {
+    if (x &gt; 0) {
+      notify(`${20 * x}% remaining`);
+      setTimeout(() =&gt; countdown(x - 1), 1000);
+    } else {
+      resolve();
+    }
+  }
+
+  countdown(5);
+});
+
+p.notify((x) =&gt; setTimeout(console.log, 0, 'progress:', x));
+
+p.then(() =&gt; setTimeout(console.log, 0, 'completed'));
+
+// （约1秒后）80% remaining
+// （约2秒后）60% remaining
+// （约3秒后）40% remaining
+// （约4秒后）20% remaining
+// （约5秒后）completed
+</code></pre></div><p><code>notify()</code>函数会返回期约，所以可以连缀调用，连续添加处理程序。多个处理程序会针对收到的每条消息分别执行一遍，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>...
+
+p.notify((x) =&gt; setTimeout(console.log, 0, 'a:', x))
+ .notify((x) =&gt; setTimeout(console.log, 0, 'b:', x));
+
+p.then(() =&gt; setTimeout(console.log, 0, 'completed'));
+
+// （约1秒后） a: 80% remaining
+// （约1秒后） b: 80% remaining
+// （约2秒后） a: 60% remaining
+// （约2秒后） b: 60% remaining
+// （约3秒后） a: 40% remaining
+// （约3秒后） b: 40% remaining
+// （约4秒后） a: 20% remaining
+// （约4秒后） b: 20% remaining
+// （约5秒后） completed
+</code></pre></div><p>总体来看，这还是一个比较粗糙的实现，但应该可以演示出如何使用通知报告进度了。</p> <blockquote><p><strong>注意</strong>　 ES6 不支持取消期约和进度通知，一个主要原因就是这样会导致期约连锁和期约合成过度复杂化。比如在一个期约连锁中，如果某个被其他期约依赖的期约被取消了或者发出了通知，那么接下来应该发生什么完全说不清楚。毕竟，如果取消了<code>Promise.all()</code>中的一个期约，或者期约连锁中前面的期约发送了一个通知，那么接下来应该怎么办才比较合理呢？</p></blockquote></li></ol> <h2 id="_11-3-异步函数"><a href="#_11-3-异步函数" class="header-anchor">#</a> 11.3 　异步函数</h2> <p>异步函数，也称为“async/await”（语法关键字），是 ES6 期约模式在 ECMAScript 函数中的应用。async/await 是 ES8 规范新增的。这个特性从行为和语法上都增强了 JavaScript，让以同步方式写的代码能够异步执行。下面来看一个最简单的例子，这个期约在超时之后会解决为一个值：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000, 3));
+</code></pre></div><p>这个期约在 1000 毫秒之后解决为数值 3。如果程序中的其他代码要在这个值可用时访问它，则需要写一个解决处理程序：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000, 3));
+
+p.then((x) =&gt; console.log(x));  // 3
+</code></pre></div><p>这其实是很不方便的，因为其他代码都必须塞到期约处理程序中。不过可以把处理程序定义为一个函数：</p> <div class="language- extra-class"><pre class="language-text"><code>function handler(x) { console.log(x); }
+
+let p = new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000, 3));
+
+p.then(handler); // 3
+</code></pre></div><p>这个改进其实也不大。这是因为任何需要访问这个期约所产生值的代码，都需要以处理程序的形式来接收这个值。也就是说，代码照样还是要放到处理程序里。ES8 为此提供了 async/await 关键字。</p> <h3 id="_11-3-1-异步函数"><a href="#_11-3-1-异步函数" class="header-anchor">#</a> 11.3.1 　异步函数</h3> <p>ES8 的 async/await 旨在解决利用异步结构组织代码的问题。为此，ECMAScript 对函数进行了扩展，为其增加了两个新关键字：<code>async</code>和<code>await</code>。</p> <ol><li><p><strong>async</strong></p> <p><code>async</code>关键字用于声明异步函数。这个关键字可以用在函数声明、函数表达式、箭头函数和方法上：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {}
+
+let bar = async function() {};
+
+let baz = async () =&gt; {};
+
+class Qux {
+  async qux() {}
+}
+</code></pre></div><p>使用<code>async</code>关键字可以让函数具有异步特征，但总体上其代码仍然是同步求值的。而在参数或闭包方面，异步函数仍然具有普通 JavaScript 函数的正常行为。正如下面的例子所示，<code>foo()</code>函数仍然会在后面的指令之前被求值：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(1);
+}
+
+foo();
+console.log(2);
+
+// 1
+// 2
+</code></pre></div><p>不过，异步函数如果使用<code>return</code>关键字返回了值（如果没有<code>return</code>则会返回<code>undefined</code>），这个值会被<code>Promise.resolve()</code>包装成一个期约对象。异步函数始终返回期约对象。在函数外部调用这个函数可以得到它返回的期约：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(1);
+  return 3;
+}
+
+// 给返回的期约添加一个解决处理程序
+foo().then(console.log);
+
+console.log(2);
+
+// 1
+// 2
+// 3
+</code></pre></div><p>当然，直接返回一个期约对象也是一样的：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(1);
+  return Promise.resolve(3);
+}
+
+// 给返回的期约添加一个解决处理程序
+foo().then(console.log);
+
+console.log(2);
+
+// 1
+// 2
+// 3
+</code></pre></div><p>异步函数的返回值期待（但实际上并不要求）一个实现<code>thenable</code>接口的对象，但常规的值也可以。如果返回的是实现<code>thenable</code>接口的对象，则这个对象可以由提供给<code>then()</code>的处理程序“解包”。如果不是，则返回值就被当作已经解决的期约。下面的代码演示了这些情况：</p> <div class="language- extra-class"><pre class="language-text"><code>// 返回一个原始值
+async function foo() {
+  return 'foo';
+}
+foo().then(console.log);
+// foo
+
+// 返回一个没有实现thenable接口的对象
+async function bar() {
+  return ['bar'];
+}
+bar().then(console.log);
+// ['bar']
+
+// 返回一个实现了thenable接口的非期约对象
+async function baz() {
+  const thenable = {
+    then(callback) { callback('baz'); }
+  };
+  return thenable;
+}
+baz().then(console.log);
+// baz
+
+// 返回一个期约
+async function qux() {
+  return Promise.resolve('qux');
+}
+qux().then(console.log);
+// qux
+</code></pre></div><p>与在期约处理程序中一样，在异步函数中抛出错误会返回拒绝的期约：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(1);
+  throw 3;
+}
+
+// 给返回的期约添加一个拒绝处理程序
+foo().catch(console.log);
+console.log(2);
+
+// 1
+// 2
+// 3
+</code></pre></div><p>不过，拒绝期约的错误不会被异步函数捕获：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(1);
+  Promise.reject(3);
+}
+
+// Attach a rejected handler to the returned promise
+foo().catch(console.log);
+console.log(2);
+
+// 1
+// 2
+// Uncaught (in promise): 3
+</code></pre></div></li></ol> <ol start="2"><li><p><strong>await</strong></p> <p>因为异步函数主要针对不会马上完成的任务，所以自然需要一种暂停和恢复执行的能力。使用<code>await</code>关键字可以暂停异步函数代码的执行，等待期约解决。来看下面这个本章开始就出现过的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>let p = new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000, 3));
+
+p.then((x) =&gt; console.log(x)); // 3
+</code></pre></div><p>使用 async/await 可以写成这样：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  let p = new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000, 3));
+  console.log(await p);
+}
+
+foo();
+// 3
+</code></pre></div><p>注意，<code>await</code>关键字会暂停执行异步函数后面的代码，让出 JavaScript 运行时的执行线程。这个行为与生成器函数中的<code>yield</code>关键字是一样的。<code>await</code>关键字同样是尝试“解包”对象的值，然后将这个值传给表达式，再异步恢复异步函数的执行。</p> <p><code>await</code>关键字的用法与 JavaScript 的一元操作一样。它可以单独使用，也可以在表达式中使用，如下面的例子所示：</p> <div class="language- extra-class"><pre class="language-text"><code>// 异步打印&quot;foo&quot;
+async function foo() {
+  console.log(await Promise.resolve('foo'));
+}
+foo();
+// foo
+　
+　
+// 异步打印&quot;bar&quot;
+async function bar() {
+  return await Promise.resolve('bar');
+}
+bar().then(console.log);
+// bar
+
+// 1000毫秒后异步打印&quot;baz&quot;
+async function baz() {
+  await new Promise((resolve, reject) =&gt; setTimeout(resolve, 1000));
+  console.log('baz');
+}
+baz();
+// baz（1000毫秒后）
+</code></pre></div><p><code>await</code>关键字期待（但实际上并不要求）一个实现<code>thenable</code>接口的对象，但常规的值也可以。如果是实现<code>thenable</code>接口的对象，则这个对象可以由<code>await</code>来“解包”。如果不是，则这个值就被当作已经解决的期约。下面的代码演示了这些情况：</p> <div class="language- extra-class"><pre class="language-text"><code>// 等待一个原始值
+async function foo() {
+  console.log(await 'foo');
+}
+foo();
+// foo
+
+// 等待一个没有实现thenable接口的对象
+async function bar() {
+  console.log(await ['bar']);
+}
+bar();
+// ['bar']
+
+// 等待一个实现了thenable接口的非期约对象
+async function baz() {
+  const thenable = {
+    then(callback) { callback('baz'); }
+  };
+  console.log(await thenable);
+}
+baz();
+// baz
+
+// 等待一个期约
+async function qux() {
+  console.log(await Promise.resolve('qux'));
+}
+qux();
+// qux
+</code></pre></div><p>等待会抛出错误的同步操作，会返回拒绝的期约：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(1);
+  await (() =&gt; { throw 3; })();
+}
+
+// 给返回的期约添加一个拒绝处理程序
+foo().catch(console.log);
+console.log(2);
+
+// 1
+// 2
+// 3
+</code></pre></div><p>如前面的例子所示，单独的<code>Promise.reject()</code>不会被异步函数捕获，而会抛出未捕获错误。不过，对拒绝的期约使用<code>await</code>则会释放（unwrap）错误值（将拒绝期约返回）：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(1);
+  await Promise.reject(3);
+  console.log(4); // 这行代码不会执行
+}
+
+// 给返回的期约添加一个拒绝处理程序
+foo().catch(console.log);
+console.log(2);
+
+// 1
+// 2
+// 3
+</code></pre></div></li></ol> <ol start="3"><li><p><strong>await 的限制</strong></p> <p><code>await</code>关键字必须在异步函数中使用，不能在顶级上下文如<code>&lt;script&gt;</code>标签或模块中使用。不过，定义并立即调用异步函数是没问题的。下面两段代码实际是相同的：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(await Promise.resolve(3));
+}
+foo();
+// 3
+
+// 立即调用的异步函数表达式
+(async function() {
+  console.log(await Promise.resolve(3));
+})();
+// 3
+</code></pre></div><p>此外，异步函数的特质不会扩展到嵌套函数。因此，<code>await</code>关键字也只能直接出现在异步函数的定义中。在同步函数内部使用<code>await</code>会抛出<code>SyntaxError</code>。</p> <p>下面展示了一些会出错的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>// 不允许：await出现在了箭头函数中
+function foo() {
+  const syncFn = () =&gt; {
+    return await Promise.resolve('foo');
+  };
+  console.log(syncFn());
+}
+
+// 不允许：await出现在了同步函数声明中
+function bar() {
+  function syncFn() {
+    return await Promise.resolve('bar');
+  }
+  console.log(syncFn());
+}
+
+// 不允许：await出现在了同步函数表达式中
+function baz() {
+  const syncFn = function() {
+    return await Promise.resolve('baz');
+  };
+  console.log(syncFn());
+}
+
+// 不允许：IIFE使用同步函数表达式或箭头函数
+function qux() {
+  (function () { console.log(await Promise.resolve('qux')); })();
+  (() =&gt; console.log(await Promise.resolve('qux')))();
+}
+</code></pre></div></li></ol> <h3 id="_11-3-2-停止和恢复执行"><a href="#_11-3-2-停止和恢复执行" class="header-anchor">#</a> 11.3.2 　停止和恢复执行</h3> <p>使用<code>await</code>关键字之后的区别其实比看上去的还要微妙一些。比如，下面的例子中按顺序调用了 3 个函数，但它们的输出结果顺序是相反的：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(await Promise.resolve('foo'));
+}
+
+async function bar() {
+  console.log(await 'bar');
+}
+
+async function baz() {
+  console.log('baz');
+}
+
+foo();
+bar();
+baz();
+
+// baz
+// bar
+// foo
+</code></pre></div><p>async/await 中真正起作用的是<code>await</code>。<code>async</code>关键字，无论从哪方面来看，都不过是一个标识符。毕竟，异步函数如果不包含<code>await</code>关键字，其执行基本上跟普通函数没有什么区别：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(2);
+}
+
+console.log(1);
+foo();
+console.log(3);
+
+// 1
+// 2
+// 3
+</code></pre></div><p>要完全理解<code>await</code>关键字，必须知道它并非只是等待一个值可用那么简单。JavaScript 运行时在碰到<code>await</code>关键字时，会记录在哪里暂停执行。等到<code>await</code>右边的值可用了，JavaScript 运行时会向消息队列中推送一个任务，这个任务会恢复异步函数的执行。</p> <p>因此，即使<code>await</code>后面跟着一个立即可用的值，函数的其余部分也会被<strong>异步</strong>求值。下面的例子演示了这一点：</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(2);
+  await null;
+  console.log(4);
+}
+
+console.log(1);
+foo();
+console.log(3);
+
+// 1
+// 2
+// 3
+// 4
+</code></pre></div><p>控制台中输出结果的顺序很好地解释了运行时的工作过程：</p> <p>(1) 打印 1；</p> <p>(2) 调用异步函数<code>foo()</code>；</p> <p>(3)（在<code>foo()</code>中）打印 2；</p> <p>(4)（在<code>foo()</code>中）<code>await</code>关键字暂停执行，为立即可用的值<code>null</code>向消息队列中添加一个任务；</p> <p>(5) foo()退出；</p> <p>(6) 打印 3；</p> <p>(7) 同步线程的代码执行完毕；</p> <p>(8) JavaScript 运行时从消息队列中取出任务，恢复异步函数执行；</p> <p>(9)（在<code>foo()</code>中）恢复执行，<code>await</code>取得<code>null</code>值（这里并没有使用）；</p> <p>(10)（在<code>foo()</code>中）打印 4；</p> <p>(11) <code>foo()</code>返回。</p> <p>如果<code>await</code>后面是一个期约，则问题会稍微复杂一些。此时，为了执行异步函数，实际上会有两个任务被添加到消息队列并被异步求值。下面的例子虽然看起来很反直觉，但它演示了真正的执行顺序：<strong>1</strong></p> <p><strong>1</strong>TC39 对<code>await</code>后面是期约的情况如何处理做过一次修改。修改后，本例中的<code>Promise.resolve(8)</code>只会生成一个异步任务。因此在新版浏览器中，这个示例的输出结果为<code>123458967</code>。实际开发中，对于并行的异步操作我们通常更关注结果，而不依赖执行顺序。——译者注</p> <div class="language- extra-class"><pre class="language-text"><code>async function foo() {
+  console.log(2);
+  console.log(await Promise.resolve(8));
+  console.log(9);
+}
+
+async function bar() {
+  console.log(4);
+  console.log(await 6);
+  console.log(7);
+}
+
+console.log(1);
+foo();
+console.log(3);
+bar();
+console.log(5);
+
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 9
+</code></pre></div><p>运行时会像这样执行上面的例子：</p> <p>(1) 打印 1；</p> <p>(2) 调用异步函数<code>foo()</code>；</p> <p>(3)（在<code>foo()</code>中）打印 2；</p> <p>(4)（在<code>foo()</code>中）<code>await</code>关键字暂停执行，向消息队列中添加一个期约在落定之后执行的任务；</p> <p>(5) 期约立即落定，把给<code>await</code>提供值的任务添加到消息队列；</p> <p>(6) <code>foo()</code>退出；</p> <p>(7) 打印 3；</p> <p>(8) 调用异步函数<code>bar()</code>；</p> <p>(9)（在<code>bar()</code>中）打印 4；</p> <p>(10)（在<code>bar()</code>中）<code>await</code>关键字暂停执行，为立即可用的值 6 向消息队列中添加一个任务；</p> <p>(11) <code>bar()</code>退出；</p> <p>(12) 打印 5；</p> <p>(13) 顶级线程执行完毕；</p> <p>(14) JavaScript 运行时从消息队列中取出解决<code>await</code>期约的处理程序，并将解决的值 8 提供给它；</p> <p>(15) JavaScript 运行时向消息队列中添加一个恢复执行<code>foo()</code>函数的任务；</p> <p>(16) JavaScript 运行时从消息队列中取出恢复执行<code>bar()</code>的任务及值 6；</p> <p>(17)（在<code>bar()</code>中）恢复执行，<code>await</code>取得值 6；</p> <p>(18)（在<code>bar()</code>中）打印 6；</p> <p>(19)（在<code>bar()</code>中）打印 7；</p> <p>(20) <code>bar()</code>返回；</p> <p>(21) 异步任务完成，JavaScript 从消息队列中取出恢复执行<code>foo()</code>的任务及值 8；</p> <p>(22)（在<code>foo()</code>中）打印 8；</p> <p>(23)（在<code>foo()</code>中）打印 9；</p> <p>(24) <code>foo()</code>返回。</p> <h3 id="_11-3-3-异步函数策略"><a href="#_11-3-3-异步函数策略" class="header-anchor">#</a> 11.3.3 　异步函数策略</h3> <p>因为简单实用，所以异步函数很快成为 JavaScript 项目使用最广泛的特性之一。不过，在使用异步函数时，还是有些问题要注意。</p> <ol><li><p><strong>实现 sleep()</strong></p> <p>很多人在刚开始学习 JavaScript 时，想找到一个类似 Java 中<code>Thread.sleep()</code>之类的函数，好在程序中加入非阻塞的暂停。以前，这个需求基本上都通过<code>setTimeout()</code>利用 JavaScript 运行时的行为来实现的。</p> <p>有了异步函数之后，就不一样了。一个简单的箭头函数就可以实现 sleep()：</p> <div class="language- extra-class"><pre class="language-text"><code>async function sleep(delay) {
+  return new Promise((resolve) =&gt; setTimeout(resolve, delay));
+}
+
+async function foo() {
+  const t0 = Date.now();
+  await sleep(1500); // 暂停约1500毫秒
+  console.log(Date.now() - t0);
+}
+foo();
+// 1502
+</code></pre></div></li></ol> <ol start="2"><li><p><strong>利用平行执行</strong></p> <p>如果使用<code>await</code>时不留心，则很可能错过平行加速的机会。来看下面的例子，其中顺序等待了 5 个随机的超时：</p> <div class="language- extra-class"><pre class="language-text"><code>async function randomDelay(id) {
+  // 延迟0~1000毫秒
+  const delay = Math.random() * 1000;
+  return new Promise((resolve) =&gt; setTimeout(() =&gt; {
+    console.log(`${id} finished`);
+    resolve();
+  }, delay));
+}
+
+async function foo() {
+  const t0 = Date.now();
+  await randomDelay(0);
+  await randomDelay(1);
+  await randomDelay(2);
+  await randomDelay(3);
+  await randomDelay(4);
+  console.log(`${Date.now() - t0}ms elapsed`);
+}
+foo();
+
+// 0 finished
+// 1 finished
+// 2 finished
+// 3 finished
+// 4 finished
+// 2219ms elapsed
+</code></pre></div><p>用一个<code>for</code>循环重写，就是：</p> <div class="language- extra-class"><pre class="language-text"><code>async function randomDelay(id) {
+  // 延迟0~1000毫秒
+  const delay = Math.random() * 1000;
+  return new Promise((resolve) =&gt; setTimeout(() =&gt; {
+    console.log(`${id} finished`);
+    resolve();
+  }, delay));
+}
+
+async function foo() {
+  const t0 = Date.now();
+  for (let i = 0; i &lt; 5; ++i) {
+    await randomDelay(i);
+  }
+
+  console.log(`${Date.now() - t0}ms elapsed`);
+}
+foo();
+
+// 0 finished
+// 1 finished
+// 2 finished
+// 3 finished
+// 4 finished
+// 2219ms elapsed
+</code></pre></div><p>就算这些期约之间没有依赖，异步函数也会依次暂停，等待每个超时完成。这样可以保证执行顺序，但总执行时间会变长。</p> <p>如果顺序不是必需保证的，那么可以先一次性初始化所有期约，然后再分别等待它们的结果。比如：</p> <div class="language- extra-class"><pre class="language-text"><code>async function randomDelay(id) {
+  // 延迟0~1000毫秒
+  const delay = Math.random() * 1000;
+  return new Promise((resolve) =&gt; setTimeout(() =&gt; {
+    setTimeout(console.log, 0, `${id} finished`);
+    resolve();
+  }, delay));
+}
+
+async function foo() {
+  const t0 = Date.now();
+
+  const p0 = randomDelay(0);
+  const p1 = randomDelay(1);
+  const p2 = randomDelay(2);
+  const p3 = randomDelay(3);
+  const p4 = randomDelay(4);
+
+  await p0;
+  await p1;
+  await p2;
+  await p3;
+  await p4;
+
+  setTimeout(console.log, 0, `${Date.now() - t0}ms elapsed`);
+}
+foo();
+
+// 1 finished
+// 4 finished
+// 3 finished
+// 0 finished
+// 2 finished
+// 2219ms elapsed
+</code></pre></div><p>用数组和<code>for</code>循环再包装一下就是：</p> <div class="language- extra-class"><pre class="language-text"><code>async function randomDelay(id) {
+  // 延迟0~1000毫秒
+  const delay = Math.random() * 1000;
+  return new Promise((resolve) =&gt; setTimeout(() =&gt; {
+    console.log(`${id} finished`);
+    resolve();
+  }, delay));
+}
+
+async function foo() {
+  const t0 = Date.now();
+
+  const promises = Array(5).fill(null).map((_, i) =&gt; randomDelay(i));
+
+  for (const p of promises) {
+    await p;
+  }
+
+  console.log(`${Date.now() - t0}ms elapsed`);
+}
+foo();
+
+// 4 finished
+// 2 finished
+// 1 finished
+// 0 finished
+// 3 finished
+// 877ms elapsed
+</code></pre></div><p>注意，虽然期约没有按照顺序执行，但<code>await</code><strong>按顺序</strong>收到了每个期约的值：</p> <div class="language- extra-class"><pre class="language-text"><code>async function randomDelay(id) {
+  // 延迟0~1000毫秒
+  const delay = Math.random() * 1000;
+  return new Promise((resolve) =&gt; setTimeout(() =&gt; {
+    console.log(`${id} finished`);
+    resolve(id);
+  }, delay));
+}
+
+async function foo() {
+  const t0 = Date.now();
+
+  const promises = Array(5).fill(null).map((_, i) =&gt; randomDelay(i));
+
+  for (const p of promises) {
+    console.log(`awaited ${await p}`);
+  }
+
+  console.log(`${Date.now() - t0}ms elapsed`);
+}
+foo();
+
+// 1 finished
+// 2 finished
+// 4 finished
+// 3 finished
+// 0 finished
+// awaited 0
+// awaited 1
+// awaited 2
+// awaited 3
+// awaited 4
+// 645ms elapsed
+</code></pre></div></li></ol> <ol start="3"><li><p><strong>串行执行期约</strong></p> <p>在 11.2 节，我们讨论过如何串行执行期约并把值传给后续的期约。使用 async/await，期约连锁会变得很简单：</p> <div class="language- extra-class"><pre class="language-text"><code>function addTwo(x) {return x + 2;}
+function addThree(x) {return x + 3;}
+function addFive(x) {return x + 5;}
+
+async function addTen(x) {
+  for (const fn of [addTwo, addThree, addFive]) {
+    x = await fn(x);
+  }
+  return x;
+}
+
+addTen(9).then(console.log); // 19
+</code></pre></div><p>这里，<code>await</code>直接传递了每个函数的返回值，结果通过迭代产生。当然，这个例子并没有使用期约，如果要使用期约，则可以把所有函数都改成异步函数。这样它们就都返回期约了：</p> <div class="language- extra-class"><pre class="language-text"><code>async function addTwo(x) {return x + 2;}
+async function addThree(x) {return x + 3;}
+async function addFive(x) {return x + 5;}
+
+async function addTen(x) {
+  for (const fn of [addTwo, addThree, addFive]) {
+    x = await fn(x);
+  }
+  return x;
+}
+
+addTen(9).then(console.log); // 19
+</code></pre></div></li></ol> <ol start="4"><li><p><strong>栈追踪与内存管理</strong></p> <p>期约与异步函数的功能有相当程度的重叠，但它们在内存中的表示则差别很大。看看下面的例子，它展示了拒绝期约的栈追踪信息：</p> <div class="language- extra-class"><pre class="language-text"><code>function fooPromiseExecutor(resolve, reject) {
+  setTimeout(reject, 1000, 'bar');
+}
+
+function foo() {
+  new Promise(fooPromiseExecutor);
+}
+
+foo();
+// Uncaught (in promise) bar
+//   setTimeout
+//   setTimeout (async)
+//   fooPromiseExecutor
+//   foo
+</code></pre></div><p>根据对期约的不同理解程度，以上栈追踪信息可能会让某些读者不解。栈追踪信息应该相当直接地表现 JavaScript 引擎当前栈内存中函数调用之间的嵌套关系。在超时处理程序执行时和拒绝期约时，我们看到的错误信息包含嵌套函数的标识符，那是被调用以创建最初期约实例的函数。可是，我们知道这些函数<strong>已经返回</strong>了，因此栈追踪信息中不应该看到它们。</p> <p>答案很简单，这是因为 JavaScript 引擎会在创建期约时尽可能保留完整的调用栈。在抛出错误时，调用栈可以由运行时的错误处理逻辑获取，因而就会出现在栈追踪信息中。当然，这意味着栈追踪信息会占用内存，从而带来一些计算和存储成本。</p> <p>如果在前面的例子中使用的是异步函数，那又会怎样呢？比如：</p> <div class="language- extra-class"><pre class="language-text"><code>function fooPromiseExecutor(resolve, reject) {
+  setTimeout(reject, 1000, 'bar');
+}
+
+async function foo() {
+  await new Promise(fooPromiseExecutor);
+}
+foo();
+
+// Uncaught (in promise) bar
+//   foo
+//   async function (async)
+//   foo
+</code></pre></div><p>这样一改，栈追踪信息就准确地反映了当前的调用栈。<code>fooPromiseExecutor()</code>已经返回，所以它不在错误信息中。但<code>foo()</code>此时被挂起了，并没有退出。JavaScript 运行时可以简单地在嵌套函数中存储指向包含函数的指针，就跟对待同步函数调用栈一样。这个指针实际上存储在内存中，可用于在出错时生成栈追踪信息。这样就不会像之前的例子那样带来额外的消耗，因此在重视性能的应用中是可以优先考虑的。</p></li></ol> <h2 id="_11-4-小结"><a href="#_11-4-小结" class="header-anchor">#</a> 11.4 　小结</h2> <p>长期以来，掌握单线程 JavaScript 运行时的异步行为一直都是个艰巨的任务。随着 ES6 新增了期约和 ES8 新增了异步函数，ECMAScript 的异步编程特性有了长足的进步。通过期约和 async/await，不仅可以实现之前难以实现或不可能实现的任务，而且也能写出更清晰、简洁，并且容易理解、调试的代码。</p> <p>期约的主要功能是为异步代码提供了清晰的抽象。可以用期约表示异步执行的代码块，也可以用期约表示异步计算的值。在需要串行异步代码时，期约的价值最为突出。作为可塑性极强的一种结构，期约可以被序列化、连锁使用、复合、扩展和重组。</p> <p>异步函数是将期约应用于 JavaScript 函数的结果。异步函数可以暂停执行，而不阻塞主线程。无论是编写基于期约的代码，还是组织串行或平行执行的异步代码，使用异步函数都非常得心应手。异步函数可以说是现代 JavaScript 工具箱中最重要的工具之一。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">11/16/2020, 3:12:43 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/VuePressBlogHtml/assets/js/app.a22e24ce.js" defer></script><script src="/VuePressBlogHtml/assets/js/2.273354d5.js" defer></script><script src="/VuePressBlogHtml/assets/js/47.297e0925.js" defer></script><script src="/VuePressBlogHtml/assets/js/17.398b5375.js" defer></script>
+  </body>
+</html>

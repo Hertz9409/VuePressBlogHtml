@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 12 章　 BOM | Hertz&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Hertz's Blog By VuePress">
+    
+    <link rel="preload" href="/VuePressBlogHtml/assets/css/0.styles.7994d51b.css" as="style"><link rel="preload" href="/VuePressBlogHtml/assets/js/app.a22e24ce.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/2.273354d5.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/48.0b5098bb.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/17.398b5375.js" as="script"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/10.2906bcb7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/11.44da5627.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/12.603be071.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/13.bbb59baa.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/14.37104393.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/15.622f6d38.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/16.e98dda23.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/18.87fb9473.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/19.35af09b5.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/20.0860f27f.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/21.80170eb6.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/22.32e3b412.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/23.71a3bc07.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/24.92a37d9c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/25.6c06b0ec.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/26.56de950a.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/27.389f6e4c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/28.93cf295c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/29.8299c662.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/3.82a8b2ed.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/30.030ded92.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/31.37328e23.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/32.33720530.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/33.dbf791bd.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/34.3f59d278.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/35.4db82d0c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/36.993714ab.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/37.d14d1abc.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/38.5d2531bd.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/39.04716fa1.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/4.89240616.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/40.af165ce2.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/41.be41ee81.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/42.9d0cef92.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/43.d679c459.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/44.d12455da.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/45.50996042.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/46.4ae0dc93.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/47.297e0925.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/49.2331b452.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/5.7f54006c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/50.ed621c31.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/51.ffa15a18.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/52.f023092e.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/53.dcf36f26.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/54.d2f28937.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/55.8d4c4343.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/56.bf7841ef.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/57.0cf87538.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/58.a33d519a.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/59.100761af.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/6.583fbbc7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/60.2547a25b.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/61.0a622c79.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/62.8bdae0f0.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/63.ae32cec9.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/64.3f841214.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/65.9967bc83.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/66.2b33b58e.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/67.5183b069.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/68.ac765712.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/69.278cdc53.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/7.d3e576f7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/70.1f5428d0.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/71.44ee8fdb.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/72.4c087926.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/73.2c3e7645.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/74.e2a67ac9.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/8.d70fcbe5.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/9.59956eee.js">
+    <link rel="stylesheet" href="/VuePressBlogHtml/assets/css/0.styles.7994d51b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/VuePressBlogHtml/" class="home-link router-link-active"><!----> <span class="site-name">Hertz's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/VuePressBlogHtml/FrontEnd/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/BackEnd/" class="nav-link">
+  后端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/GIS/" class="nav-link">
+  GIS
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/Others/" class="nav-link">
+  其他
+</a></div><div class="nav-item"><a href="https://github.com/Hertz9409" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/VuePressBlogHtml/FrontEnd/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/BackEnd/" class="nav-link">
+  后端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/GIS/" class="nav-link">
+  GIS
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/Others/" class="nav-link">
+  其他
+</a></div><div class="nav-item"><a href="https://github.com/Hertz9409" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>CSS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS1/" class="sidebar-link">CSS1</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS2/" class="sidebar-link">CSS2</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E5%8F%98%E6%8D%A2,%E8%BF%87%E6%B8%A1,%E5%8A%A8%E7%94%BB/" class="sidebar-link">CSS变换,过渡,动画</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E5%B1%82%E5%8F%A0%E6%80%A7/" class="sidebar-link">CSS层叠性</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="sidebar-link">CSS文本样式</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E6%B5%81/" class="sidebar-link">CSS流</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/" class="sidebar-link">CSS经典面试题</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/Flex%E5%B8%83%E5%B1%80/" class="sidebar-link">Flex布局</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/" class="sidebar-link">移动端适配</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/%E9%A2%9C%E8%89%B2%E4%B8%8E%E8%83%8C%E6%99%AF/" class="sidebar-link">颜色与背景</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>HTML</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/HTML/%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84%E8%AF%AD%E4%B9%89%E5%8C%96/" class="sidebar-link">页面结构语义化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/JS/Canvas%E5%9F%BA%E7%A1%80%E4%B8%80/" class="sidebar-link">Canvas基础一</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Canvas%E5%9F%BA%E7%A1%80%E4%BA%8C/" class="sidebar-link">Canvas基础二</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Cookie,Session,Token,Oauth%E5%92%8CJWT/" class="sidebar-link">Cookie,Session,Token,Oauth和JWT</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Echarts%E7%AE%80%E4%BB%8B/" class="sidebar-link">Echarts简介</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Event%20Loop/" class="sidebar-link">Event Loop</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/JavaScript%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E3%80%81%E9%97%AD%E5%8C%85/" class="sidebar-link">JavaScript执行上下文、作用域链、闭包</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Promise/" class="sidebar-link">Promise</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Web%20Workers/" class="sidebar-link">Web Workers</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/this%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="sidebar-link">this知识汇总</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E5%86%92%E6%B3%A1/" class="sidebar-link">事件捕获和冒泡</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="sidebar-link">函数防抖和节流</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE/" class="sidebar-link">前端浏览器本地存储数据</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E7%BB%A7%E6%89%BF/" class="sidebar-link">原型与继承</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0/" class="sidebar-link">断点续传</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/" class="sidebar-link">正则表达式基础</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS高级程序设计-第四版</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/1.%E4%BB%80%E4%B9%88%E6%98%AFJavaScript/" class="sidebar-link">1.什么是JavaScript</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/10.%E5%87%BD%E6%95%B0/" class="sidebar-link">10.函数</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" class="sidebar-link">11.期约与异步函数</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/" aria-current="page" class="active sidebar-link">12.BOM</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#第-12-章-bom" class="sidebar-link">第 12 章　 BOM</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-window-对象" class="sidebar-link">12.1 　 window 对象</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-1-global作用域" class="sidebar-link">12.1.1 　Global作用域</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-2-窗口关系" class="sidebar-link">12.1.2 　窗口关系</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-3-窗口位置与像素比" class="sidebar-link">12.1.3 　窗口位置与像素比</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-4-窗口大小" class="sidebar-link">12.1.4 　窗口大小</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-5-视口位置" class="sidebar-link">12.1.5 　视口位置</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-6-导航与打开新窗口" class="sidebar-link">12.1.6 　导航与打开新窗口</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-7-定时器" class="sidebar-link">12.1.7 　定时器</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-1-8-系统对话框" class="sidebar-link">12.1.8 　系统对话框</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-2-location对象" class="sidebar-link">12.2 　location对象</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-2-1-查询字符串" class="sidebar-link">12.2.1 　查询字符串</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-2-2-操作地址" class="sidebar-link">12.2.2 　操作地址</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-3-navigator对象" class="sidebar-link">12.3 　navigator对象</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-3-1-检测插件" class="sidebar-link">12.3.1 　检测插件</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-3-2-注册处理程序" class="sidebar-link">12.3.2 　注册处理程序</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-4-screen对象" class="sidebar-link">12.4 　screen对象</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-5-history对象" class="sidebar-link">12.5 　history对象</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-5-1-导航" class="sidebar-link">12.5.1 　导航</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-5-2-历史状态管理" class="sidebar-link">12.5.2 　历史状态管理</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/#_12-6-小结" class="sidebar-link">12.6 　小结</a></li></ul></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/13.%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/" class="sidebar-link">13.客户端检测</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/14.DOM/" class="sidebar-link">14.DOM</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/15.DOM%E6%89%A9%E5%B1%95/" class="sidebar-link">15.DOM扩展</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/2HTML%E4%B8%AD%E7%9A%84JavaScript/" class="sidebar-link">2HTML中的JavaScript</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/3.%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="sidebar-link">3.语言基础</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/4.%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/" class="sidebar-link">4.变量、作用域与内存</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/5.%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="sidebar-link">5.基本引用类型</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/6.%E9%9B%86%E5%90%88%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="sidebar-link">6.集合引用类型</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/7.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" class="sidebar-link">7.迭代器与生成器</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/8.%E5%AF%B9%E8%B1%A1%E3%80%81%E7%B1%BB%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="sidebar-link">8.对象、类与面向对象编程</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/" class="sidebar-link">9.代理与反射</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>VUE</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/VUE/My-Vue-Study-1/" class="sidebar-link">My-Vue-Study-1</a></li><li><a href="/VuePressBlogHtml/FrontEnd/VUE/My-Vue-Study-2/" class="sidebar-link">My-Vue-Study-2</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>其他</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/Https%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" class="sidebar-link">Https以及前端安全</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/http%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" class="sidebar-link">http缓存机制</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA/" class="sidebar-link">从输入url到界面展示</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>前端工程化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/WebPack%E5%9F%BA%E7%A1%80/" class="sidebar-link">WebPack基础</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%8E%86%E5%8F%B2%E8%BF%9B%E7%A8%8B/" class="sidebar-link">历史进程</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="第-12-章-bom"><a href="#第-12-章-bom" class="header-anchor">#</a> 第 12 章　 BOM</h2> <blockquote><p><strong>本章内容</strong></p> <ul><li>理解 BOM 的核心——<code>window</code>对象</li> <li>控制窗口及弹窗</li> <li>通过<code>location</code>对象获取页面信息</li> <li>使用<code>navigator</code>对象了解浏览器</li> <li>通过<code>history</code>对象操作浏览器历史</li></ul></blockquote> <p>虽然 ECMAScript 把浏览器对象模型（BOM，Browser Object Model）描述为 JavaScript 的核心，但实际上 BOM 是使用 JavaScript 开发 Web 应用程序的核心。BOM 提供了与网页无关的浏览器功能对象。多年来，BOM 是在缺乏规范的背景下发展起来的，因此既充满乐趣又问题多多。毕竟，浏览器开发商都按照自己的意愿来为它添砖加瓦。最终，浏览器实现之间共通的部分成为了事实标准，为 Web 开发提供了浏览器间互操作的基础。HTML5 规范中有一部分涵盖了 BOM 的主要内容，因为 W3C 希望将 JavaScript 在浏览器中最基础的部分标准化。</p> <h2 id="_12-1-window-对象"><a href="#_12-1-window-对象" class="header-anchor">#</a> 12.1 　 window 对象</h2> <p>BOM 的核心是<code>window</code>对象，表示浏览器的实例。<code>window</code>对象在浏览器中有两重身份，一个是 ECMAScript 中的<code>Global</code>对象，另一个就是浏览器窗口的 JavaScript 接口。这意味着网页中定义的所有对象、变量和函数都以<code>window</code>作为其<code>Global</code>对象，都可以访问其上定义的<code>parseInt()</code>等全局方法。</p> <blockquote><p><strong>注意</strong>　因为<code>window</code>对象的属性在全局作用域中有效，所以很多浏览器 API 及相关构造函数都以<code>window</code>对象属性的形式暴露出来。这些 API 将在全书各章中介绍，特别是第 20 章。</p> <p>另外，由于实现不同，某些<code>window</code>对象的属性在不同浏览器间可能差异很大。本章不会介绍已经废弃的、非标准化或特定于浏览器的<code>window</code>属性。</p></blockquote> <h3 id="_12-1-1-global作用域"><a href="#_12-1-1-global作用域" class="header-anchor">#</a> 12.1.1 　<code>Global</code>作用域</h3> <p>因为<code>window</code>对象被复用为 ECMAScript 的<code>Global</code>对象，所以通过<code>var</code>声明的所有全局变量和函数都会变成<code>window</code>对象的属性和方法。比如：</p> <div class="language- extra-class"><pre class="language-text"><code>var age = 29;
+var sayAge = () =&gt; alert(this.age);
+
+alert(window.age); // 29
+sayAge();          // 29
+window.sayAge();   // 29
+</code></pre></div><p>这里，变量<code>age</code>和函数<code>sayAge()</code>被定义在全局作用域中，它们自动成为了<code>window</code>对象的成员。因此，变量<code>age</code>可以通过<code>window.age</code>来访问，而函数<code>sayAge()</code>也可以通过<code>window.sayAge()</code>来访问。因为<code>sayAge()</code>存在于全局作用域，<code>this.age</code>映射到<code>window.age</code>，所以就可以显示正确的结果了。</p> <p>如果在这里使用<code>let</code>或<code>const</code>替代<code>var</code>，则不会把变量添加给全局对象：</p> <div class="language- extra-class"><pre class="language-text"><code>let age = 29;
+const sayAge = () =&gt; alert(this.age);
+
+alert(window.age);  // undefined
+sayAge();           // undefined
+window.sayAge();    // TypeError: window.sayAge is not a function
+</code></pre></div><p>另外，访问未声明的变量会抛出错误，但是可以在<code>window</code>对象上查询是否存在可能未声明的变量。比如：</p> <div class="language- extra-class"><pre class="language-text"><code>// 这会导致抛出错误，因为oldValue没有声明
+var newValue = oldValue;
+// 这不会抛出错误，因为这里是属性查询
+// newValue会被设置为undefined
+var newValue = window.oldValue;
+</code></pre></div><p>记住，JavaScript 中有很多对象都暴露在全局作用域中，比如<code>location</code>和<code>navigator</code>（本章后面都会讨论），因而它们也是<code>window</code>对象的属性。</p> <h3 id="_12-1-2-窗口关系"><a href="#_12-1-2-窗口关系" class="header-anchor">#</a> 12.1.2 　窗口关系</h3> <p><code>top</code>对象始终指向最上层（最外层）窗口，即浏览器窗口本身。而<code>parent</code>对象则始终指向当前窗口的父窗口。如果当前窗口是最上层窗口，则<code>parent</code>等于<code>top</code>（都等于<code>window</code>）。最上层的<code>window</code>如果不是通过<code>window.open()</code>打开的，那么其<code>name</code>属性就不会包含值，本章后面会讨论。</p> <p>还有一个<code>self</code>对象，它是终极<code>window</code>属性，始终会指向<code>window</code>。实际上，<code>self</code>和<code>window</code>就是同一个对象。之所以还要暴露<code>self</code>，就是为了和<code>top</code>、<code>parent</code>保持一致。</p> <p>这些属性都是<code>window</code>对象的属性，因此访问<code>window.parent</code>、<code>window.top</code>和<code>window.self</code>都可以。这意味着可以把访问多个窗口的<code>window</code>对象串联起来，比如<code>window.parent.parent</code>。</p> <h3 id="_12-1-3-窗口位置与像素比"><a href="#_12-1-3-窗口位置与像素比" class="header-anchor">#</a> 12.1.3 　窗口位置与像素比</h3> <p><code>window</code>对象的位置可以通过不同的属性和方法来确定。现代浏览器提供了<code>screenLeft</code>和<code>screenTop</code>属性，用于表示窗口相对于屏幕左侧和顶部的位置 ，返回值的单位是 CSS 像素。</p> <p>可以使用<code>moveTo()</code>和<code>moveBy()</code>方法移动窗口。这两个方法都接收两个参数，其中<code>moveTo()</code>接收要移动到的新位置的绝对坐标<img src="https://private.codecogs.com/gif.latex?x" alt="x">和<img src="https://private.codecogs.com/gif.latex?y" alt="y">；而<code>moveBy()</code>则接收相对当前位置在两个方向上移动的像素数。比如：</p> <div class="language- extra-class"><pre class="language-text"><code>// 把窗口移动到左上角
+window.moveTo(0,0);
+
+// 把窗口向下移动100像素
+window.moveBy(0, 100);
+
+// 把窗口移动到坐标位置(200, 300)
+window.moveTo(200, 300);
+
+// 把窗口向左移动50像素
+window.moveBy(-50, 0);
+</code></pre></div><p>依浏览器而定，以上方法可能会被部分或全部禁用。</p> <p><strong>像素比</strong></p> <p>CSS 像素是 Web 开发中使用的统一像素单位。这个单位的背后其实是一个角度：0.0213°。如果屏幕距离人眼是一臂长，则以这个角度计算的 CSS 像素大小约为 1/96 英寸。这样定义像素大小是为了在不同设备上统一标准。比如，低分辨率平板设备上 12 像素（CSS 像素）的文字应该与高清 4K 屏幕下 12 像素（CSS 像素）的文字具有相同大小。这就带来了一个问题，不同像素密度的屏幕下就会有不同的缩放系数，以便把物理像素（屏幕实际的分辨率）转换为 CSS 像素（浏览器报告的虚拟分辨率）。</p> <p>举个例子，手机屏幕的<strong>物理</strong>分辨率可能是 1920×1080，但因为其像素可能非常小，所以浏览器就需要将其分辨率降为较低的<strong>逻辑</strong>分辨率，比如 640×320。这个物理像素与 CSS 像素之间的转换比率由<code>window.devicePixelRatio</code>属性提供。对于分辨率从 1920×1080 转换为 640×320 的设备，<code>window.devicePixelRatio</code>的值就是 3。这样一来，12 像素（CSS 像素）的文字实际上就会用 36 像素的物理像素来显示。</p> <p><code>window.devicePixelRatio</code>实际上与每英寸像素数（DPI，dots per inch）是对应的。DPI 表示单位像素密度，而<code>window.devicePixelRatio</code>表示物理像素与逻辑像素之间的缩放系数。</p> <h3 id="_12-1-4-窗口大小"><a href="#_12-1-4-窗口大小" class="header-anchor">#</a> 12.1.4 　窗口大小</h3> <p>在不同浏览器中确定浏览器窗口大小没有想象中那么容易。所有现代浏览器都支持 4 个属性：<code>innerWidth</code>、<code>innerHeight</code>、<code>outerWidth</code>和<code>outerHeight</code>。<code>outerWidth</code>和<code>outerHeight</code>返回浏览器窗口自身的大小（不管是在最外层<code>window</code>上使用，还是在窗格<code>&lt;frame&gt;</code>中使用）。<code>innerWidth</code>和<code>innerHeight</code>返回浏览器窗口中页面视口的大小（不包含浏览器边框和工具栏）。</p> <p><code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>返回页面视口的宽度和高度。</p> <p>浏览器窗口自身的精确尺寸不好确定，但可以确定页面视口的大小，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>let pageWidth = window.innerWidth,
+    pageHeight = window.innerHeight;
+
+if (typeof pageWidth != &quot;number&quot;) {
+  if (document.compatMode == &quot;CSS1Compat&quot;){
+    pageWidth = document.documentElement.clientWidth;
+    pageHeight = document.documentElement.clientHeight;
+  } else {
+    pageWidth = document.body.clientWidth;
+    pageHeight = document.body.clientHeight;
+  }
+}
+</code></pre></div><p>这里，先将<code>pageWidth</code>和<code>pageHeight</code>的值分别设置为<code>window.innerWidth</code>和<code>window.innerHeight</code>。然后，检查<code>pageWidth</code>是不是一个数值，如果不是则通过<code>document.compatMode</code>来检查页面是否处于标准模式。如果是，则使用<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>；否则，就使用<code>document.body.clientWidth</code>和<code>document.body.clientHeight</code>。</p> <p>在移动设备上，<code>window.innerWidth</code>和<code>window.innerHeight</code>返回视口的大小，也就是屏幕上页面可视区域的大小。Mobile Internet Explorer 支持这些属性，但在<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>中提供了相同的信息。在放大或缩小页面时，这些值也会相应变化。</p> <p>在其他移动浏览器中，<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code>返回的布局视口的大小，即渲染页面的实际大小。布局视口是相对于可见视口的概念，可见视口只能显示整个页面的一小部分。Mobile Internet Explorer 把布局视口的信息保存在<code>document.body.clientWidth</code>和<code>document.body.clientHeight</code>中。在放大或缩小页面时，这些值也会相应变化。</p> <p>因为桌面浏览器的差异，所以需要先确定用户是不是在使用移动设备，然后再决定使用哪个属性。</p> <blockquote><p><strong>注意</strong>　手机视口的概念比较复杂，有各种各样的问题。如果读者在做移动开发，推荐阅读 Peter-Paul Koch 发表在 QuirksMode 网站上的文章“A Tale of Two Viewports— Part Two”。</p></blockquote> <p>可以使用<code>resizeTo()</code>和<code>resizeBy()</code>方法调整窗口大小。这两个方法都接收两个参数，<code>resizeTo()</code>接收新的宽度和高度值，而<code>resizeBy()</code>接收宽度和高度各要缩放多少。下面看个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>// 缩放到100×100
+window.resizeTo(100, 100);
+
+// 缩放到200×150
+window.resizeBy(100, 50);
+
+// 缩放到300×300
+window.resizeTo(300, 300);
+</code></pre></div><p>与移动窗口的方法一样，缩放窗口的方法可能会被浏览器禁用，而且在某些浏览器中默认是禁用的。同样，缩放窗口的方法只能应用到最上层的<code>window</code>对象。</p> <h3 id="_12-1-5-视口位置"><a href="#_12-1-5-视口位置" class="header-anchor">#</a> 12.1.5 　视口位置</h3> <p>浏览器窗口尺寸通常无法满足完整显示整个页面，为此用户可以通过滚动在有限的视口中查看文档。度量文档相对于视口滚动距离的属性有两对，返回相等的值：<code>window.pageXoffset</code>/<code>window.scrollX</code>和<code>window.pageYoffset</code>/<code>window.scrollY</code>。</p> <p>可以使用<code>scroll()</code>、<code>scrollTo()</code>和<code>scrollBy()</code>方法滚动页面。这 3 个方法都接收表示相对视口距离的<img src="https://private.codecogs.com/gif.latex?x" alt="x">和<img src="https://private.codecogs.com/gif.latex?y" alt="y">坐标，这两个参数在前两个方法中表示要滚动到的坐标，在最后一个方法中表示滚动的距离。</p> <div class="language- extra-class"><pre class="language-text"><code>// 相对于当前视口向下滚动100像素
+window.scrollBy(0, 100);
+
+// 相对于当前视口向右滚动40像素
+window.scrollBy(40, 0);
+
+// 滚动到页面左上角
+window.scrollTo(0, 0);
+
+// 滚动到距离屏幕左边及顶边各100像素的位置
+window.scrollTo(100, 100);
+</code></pre></div><p>这几个方法也都接收一个<code>ScrollToOptions</code>字典，除了提供偏移值，还可以通过<code>behavior</code>属性告诉浏览器是否平滑滚动。</p> <div class="language- extra-class"><pre class="language-text"><code>// 正常滚动
+window.scrollTo({
+  left: 100,
+  top: 100,
+  behavior: 'auto'
+});
+
+// 平滑滚动
+window.scrollTo({
+  left: 100,
+  top: 100,
+  behavior: 'smooth'
+});
+</code></pre></div><h3 id="_12-1-6-导航与打开新窗口"><a href="#_12-1-6-导航与打开新窗口" class="header-anchor">#</a> 12.1.6 　导航与打开新窗口</h3> <p><code>window.open()</code>方法可以用于导航到指定 URL，也可以用于打开新浏览器窗口。这个方法接收 4 个参数：要加载的 URL、目标窗口、特性字符串和表示新窗口在浏览器历史记录中是否替代当前加载页面的布尔值。通常，调用这个方法时只传前 3 个参数，最后一个参数只有在不打开新窗口时才会使用。</p> <p>如果<code>window.open()</code>的第二个参数是一个已经存在的窗口或窗格（frame）的名字，则会在对应的窗口或窗格中打开 URL。下面是一个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>// 与&lt;a href=&quot;http://www.wrox.com&quot; target=&quot;topFrame&quot;/&gt;相同
+window.open(&quot;http://www.wrox.com/&quot;, &quot;topFrame&quot;);
+</code></pre></div><p>执行这行代码的结果就如同用户点击了一个<code>href</code>属性为<code>&quot;http://www.wrox.com&quot;</code>，<code>target</code>属性为<code>&quot;topFrame&quot;</code>的链接。如果有一个窗口名叫<code>&quot;topFrame&quot;</code>，则这个窗口就会打开这个 URL；否则就会打开一个新窗口并将其命名为<code>&quot;topFrame&quot;</code>。第二个参数也可以是一个特殊的窗口名，比如<code>_self</code>、<code>_parent</code>、<code>_top</code>或<code>_blank</code>。</p> <ol><li><p><strong>弹出窗口</strong></p> <p>如果<code>window.open()</code>的第二个参数不是已有窗口，则会打开一个新窗口或标签页。第三个参数，即特性字符串，用于指定新窗口的配置。如果没有传第三个参数，则新窗口（或标签页）会带有所有默认的浏览器特性（工具栏、地址栏、状态栏等都是默认配置）。如果打开的不是新窗口，则忽略第三个参数。</p> <p>特性字符串是一个逗号分隔的设置字符串，用于指定新窗口包含的特性。下表列出了一些选项。</p> <table><thead><tr><th style="text-align:left;">设置</th> <th style="text-align:left;">值</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;"><code>fullscreen</code></td> <td style="text-align:left;"><code>&quot;yes&quot;</code>或<code>&quot;no&quot;</code></td> <td style="text-align:left;">表示新窗口是否最大化。仅限 IE 支持</td></tr> <tr><td style="text-align:left;"><code>height</code></td> <td style="text-align:left;">数值</td> <td style="text-align:left;">新窗口高度。这个值不能小于 100</td></tr> <tr><td style="text-align:left;"><code>left</code></td> <td style="text-align:left;">数值</td> <td style="text-align:left;">新窗口的<em>x</em>轴坐标。这个值不能是负值</td></tr> <tr><td style="text-align:left;"><code>location</code></td> <td style="text-align:left;"><code>&quot;yes&quot;</code>或<code>&quot;no&quot;</code></td> <td style="text-align:left;">表示是否显示地址栏。不同浏览器的默认值也不一样。在设置为<code>&quot;no&quot;</code>时，地址栏可能隐藏或禁用（取决于浏览器）</td></tr> <tr><td style="text-align:left;"><code>Menubar</code></td> <td style="text-align:left;"><code>&quot;yes&quot;</code>或<code>&quot;no&quot;</code></td> <td style="text-align:left;">表示是否显示菜单栏。默认为<code>&quot;no&quot;</code></td></tr> <tr><td style="text-align:left;"><code>resizable</code></td> <td style="text-align:left;"><code>&quot;yes&quot;</code>或<code>&quot;no&quot;</code></td> <td style="text-align:left;">表示是否可以拖动改变新窗口大小。默认为<code>&quot;no&quot;</code></td></tr> <tr><td style="text-align:left;"><code>scrollbars</code></td> <td style="text-align:left;"><code>&quot;yes&quot;</code>或<code>&quot;no&quot;</code></td> <td style="text-align:left;">表示是否可以在内容过长时滚动。默认为<code>&quot;no&quot;</code></td></tr> <tr><td style="text-align:left;"><code>status</code></td> <td style="text-align:left;"><code>&quot;yes&quot;</code>或<code>&quot;no&quot;</code></td> <td style="text-align:left;">表示是否显示状态栏。不同浏览器的默认值也不一样</td></tr> <tr><td style="text-align:left;"><code>toolbar</code></td> <td style="text-align:left;"><code>&quot;yes&quot;</code>或<code>&quot;no&quot;</code></td> <td style="text-align:left;">表示是否显示工具栏。默认为<code>&quot;no&quot;</code></td></tr> <tr><td style="text-align:left;"><code>top</code></td> <td style="text-align:left;">数值</td> <td style="text-align:left;">新窗口的<em>y</em>轴坐标。这个值不能是负值</td></tr> <tr><td style="text-align:left;"><code>width</code></td> <td style="text-align:left;">数值</td> <td style="text-align:left;">新窗口的宽度。这个值不能小于 100</td></tr></tbody></table> <p>这些设置需要以逗号分隔的名值对形式出现，其中名值对以等号连接。（特性字符串中不能包含空格。）来看下面的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>window.open(&quot;http://www.wrox.com/&quot;,
+            &quot;wroxWindow&quot;,
+            &quot;height=400,width=400,top=10,left=10,resizable=yes&quot;);
+</code></pre></div><p>这行代码会打开一个可缩放的新窗口，大小为 400 像素 ×400 像素，位于离屏幕左边及顶边各 10 像素的位置。</p> <p><code>window.open()</code>方法返回一个对新建窗口的引用。这个对象与普通<code>window</code>对象没有区别，只是为控制新窗口提供了方便。例如，某些浏览器默认不允许缩放或移动主窗口，但可能允许缩放或移动通过<code>window.open()</code>创建的窗口。跟使用任何<code>window</code>对象一样，可以使用这个对象操纵新打开的窗口。</p> <div class="language- extra-class"><pre class="language-text"><code>let wroxWin = window.open(&quot;http://www.wrox.com/&quot;,
+              &quot;wroxWindow&quot;,
+              &quot;height=400,width=400,top=10,left=10,resizable=yes&quot;);
+
+// 缩放
+wroxWin.resizeTo(500, 500);
+
+// 移动
+wroxWin.moveTo(100, 100);
+</code></pre></div><p>还可以使用<code>close()</code>方法像这样关闭新打开的窗口：</p> <div class="language- extra-class"><pre class="language-text"><code>wroxWin.close();
+</code></pre></div><p>这个方法只能用于<code>window.open()</code>创建的弹出窗口。虽然不可能不经用户确认就关闭主窗口，但弹出窗口可以调用<code>top.close()</code>来关闭自己。关闭窗口以后，窗口的引用虽然还在，但只能用于检查其<code>closed</code>属性了：</p> <div class="language- extra-class"><pre class="language-text"><code>wroxWin.close();
+alert(wroxWin.closed); // true
+</code></pre></div><p>新创建窗口的<code>window</code>对象有一个属性<code>opener</code>，指向打开它的窗口。这个属性只在弹出窗口的最上层<code>window</code>对象（<code>top</code>）有定义，是指向调用<code>window.open()</code>打开它的窗口或窗格的指针。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>let wroxWin = window.open(&quot;http://www.wrox.com/&quot;,
+              &quot;wroxWindow&quot;,
+              &quot;height=400,width=400,top=10,left=10,resizable=yes&quot;);
+
+alert(wroxWin.opener === window); // true
+</code></pre></div><p>虽然新建窗口中有指向打开它的窗口的指针，但反之则不然。窗口不会跟踪记录自己打开的新窗口，因此开发者需要自己记录。</p> <p>在某些浏览器中，每个标签页会运行在独立的进程中。如果一个标签页打开了另一个，而<code>window</code>对象需要跟另一个标签页通信，那么标签便不能运行在独立的进程中。在这些浏览器中，可以将新打开的标签页的<code>opener</code>属性设置为<code>null</code>，表示新打开的标签页可以运行在独立的进程中。比如：</p> <div class="language- extra-class"><pre class="language-text"><code>let wroxWin = window.open(&quot;http://www.wrox.com/&quot;,
+              &quot;wroxWindow&quot;,
+              &quot;height=400,width=400,top=10,left=10,resizable=yes&quot;);
+
+wroxWin.opener = null;
+</code></pre></div><p>把<code>opener</code>设置为<code>null</code>表示新打开的标签页不需要与打开它的标签页通信，因此可以在独立进程中运行。这个连接一旦切断，就无法恢复了。</p></li></ol> <ol start="2"><li><p><strong>安全限制</strong></p> <p>弹出窗口有段时间被在线广告用滥了。很多在线广告会把弹出窗口伪装成系统对话框，诱导用户点击。因为长得像系统对话框，所以用户很难分清这些弹窗的来源。为了让用户能够区分清楚，浏览器开始对弹窗施加限制。</p> <p>IE 的早期版本实现针对弹窗的多重安全限制，包括不允许创建弹窗或把弹窗移出屏幕之外，以及不允许隐藏状态栏等。从 IE7 开始，地址栏也不能隐藏了，而且弹窗默认是不能移动或缩放的。Firefox 1 禁用了隐藏状态栏的功能，因此无论<code>window.open()</code>的特性字符串是什么，都不会隐藏弹窗的状态栏。Firefox 3 强制弹窗始终显示地址栏。Opera 只会在主窗口中打开新窗口，但不允许它们出现在系统对话框的位置。</p> <p>此外，浏览器会在用户操作下才允许创建弹窗。在网页加载过程中调用<code>window.open()</code>没有效果，而且还可能导致向用户显示错误。弹窗通常可能在鼠标点击或按下键盘中某个键的情况下才能打开。</p> <blockquote><p><strong>注意</strong>　 IE 对打开本地网页的窗口再弹窗解除了某些限制。同样的代码如果来自服务器，则会施加弹窗限制。</p></blockquote></li></ol> <ol start="3"><li><p><strong>弹窗屏蔽程序</strong></p> <p>所有现代浏览器都内置了屏蔽弹窗的程序，因此大多数意料之外的弹窗都会被屏蔽。在浏览器屏蔽弹窗时，可能会发生一些事。如果浏览器内置的弹窗屏蔽程序阻止了弹窗，那么<code>window.open()</code>很可能会返回<code>null</code>。此时，只要检查这个方法的返回值就可以知道弹窗是否被屏蔽了，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>let wroxWin = window.open(&quot;http://www.wrox.com&quot;, &quot;_blank&quot;);
+if (wroxWin == null){
+  alert(&quot;The popup was blocked!&quot;);
+}
+</code></pre></div><p>在浏览器扩展或其他程序屏蔽弹窗时，<code>window.open()</code>通常会抛出错误。因此要准确检测弹窗是否被屏蔽，除了检测<code>window.open()</code>的返回值，还要把它用<code>try</code>/<code>catch</code>包装起来，像这样：</p> <div class="language- extra-class"><pre class="language-text"><code>let blocked = false;
+
+try {
+  let wroxWin = window.open(&quot;http://www.wrox.com&quot;, &quot;_blank&quot;);
+  if (wroxWin == null){
+    blocked = true;
+  }
+} catch (ex){
+  blocked = true;
+}
+if (blocked){
+  alert(&quot;The popup was blocked!&quot;);
+}
+</code></pre></div><p>无论弹窗是用什么方法屏蔽的，以上代码都可以准确判断调用<code>window.open()</code>的弹窗是否被屏蔽了。</p> <blockquote><p><strong>注意</strong>　检查弹窗是否被屏蔽，不影响浏览器显示关于弹窗被屏蔽的消息。</p></blockquote></li></ol> <h3 id="_12-1-7-定时器"><a href="#_12-1-7-定时器" class="header-anchor">#</a> 12.1.7 　定时器</h3> <p>JavaScript 在浏览器中是单线程执行的，但允许使用定时器指定在某个时间之后或每隔一段时间就执行相应的代码。<code>setTimeout()</code>用于指定在一定时间后执行某些代码，而<code>setInterval()</code>用于指定每隔一段时间执行某些代码。</p> <p><code>setTimeout()</code>方法通常接收两个参数：要执行的代码和在执行回调函数前等待的时间（毫秒）。第一个参数可以是包含 JavaScript 代码的字符串（类似于传给<code>eval()</code>的字符串）或者一个函数，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>// 在1秒后显示警告框
+setTimeout(() =&gt; alert(&quot;Hello world!&quot;), 1000);
+</code></pre></div><p>第二个参数是要等待的毫秒数，而不是要执行代码的确切时间。JavaScript 是单线程的，所以每次只能执行一段代码。为了调度不同代码的执行，JavaScript 维护了一个任务队列。其中的任务会按照添加到队列的先后顺序执行。<code>setTimeout()</code>的第二个参数只是告诉 JavaScript 引擎在指定的毫秒数过后把任务添加到这个队列。如果队列是空的，则会立即执行该代码。如果队列不是空的，则代码必须等待前面的任务执行完才能执行。</p> <p>调用<code>setTimeout()</code>时，会返回一个表示该超时排期的数值 ID。这个超时 ID 是被排期执行代码的唯一标识符，可用于取消该任务。要取消等待中的排期任务，可以调用<code>clearTimeout()</code>方法并传入超时 ID，如下面的例子所示：</p> <div class="language- extra-class"><pre class="language-text"><code>// 设置超时任务
+let timeoutId = setTimeout(() =&gt; alert(&quot;Hello world!&quot;), 1000);
+
+// 取消超时任务
+clearTimeout(timeoutId);
+</code></pre></div><p>只要是在指定时间到达之前调用<code>clearTimeout()</code>，就可以取消超时任务。在任务执行后再调用<code>clearTimeout()</code>没有效果。</p> <blockquote><p><strong>注意</strong>　所有超时执行的代码（函数）都会在全局作用域中的一个匿名函数中运行，因此函数中的<code>this</code>值在非严格模式下始终指向<code>window</code>，而在严格模式下是<code>undefined</code>。如果给<code>setTimeout()</code>提供了一个箭头函数，那么<code>this</code>会保留为定义它时所在的词汇作用域。</p></blockquote> <p><code>setInterval()</code>与<code>setTimeout()</code>的使用方法类似，只不过指定的任务会每隔指定时间就执行一次，直到取消循环定时或者页面卸载。<code>setInterval()</code>同样可以接收两个参数：要执行的代码（字符串或函数），以及把下一次执行定时代码的任务添加到队列要等待的时间（毫秒）。下面是一个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>setInterval(() =&gt; alert(&quot;Hello world!&quot;), 10000);
+</code></pre></div><blockquote><p><strong>注意</strong>　这里的关键点是，第二个参数，也就是间隔时间，指的是向队列添加新任务之前等待的时间。比如，调用<code>setInterval()</code>的时间为 01:00:00，间隔时间为 3000 毫秒。这意味着 01:00:03 时，浏览器会把任务添加到执行队列。浏览器不关心这个任务什么时候执行或者执行要花多长时间。因此，到了 01:00:06，它会再向队列中添加一个任务。由此可看出，执行时间短、非阻塞的回调函数比较适合<code>setInterval()</code>。</p></blockquote> <p><code>setInterval()</code>方法也会返回一个循环定时 ID，可以用于在未来某个时间点上取消循环定时。要取消循环定时，可以调用<code>clearInterval()</code>并传入定时 ID。相对于<code>setTimeout()</code>而言，取消定时的能力对<code>setInterval()</code>更加重要。毕竟，如果一直不管它，那么定时任务会一直执行到页面卸载。下面是一个常见的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>let num = 0, intervalId = null;
+let max = 10;
+
+let incrementNumber = function() {
+  num++;
+
+  // 如果达到最大值，则取消所有未执行的任务
+  if (num == max) {
+    clearInterval(intervalId);
+    alert(&quot;Done&quot;);
+  }
+}
+
+intervalId = setInterval(incrementNumber, 500);
+</code></pre></div><p>在这个例子中，变量<code>num</code>会每半秒递增一次，直至达到最大限制值。此时循环定时会被取消。这个模式也可以使用<code>setTimeout()</code>来实现，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>let num = 0;
+let max = 10;
+let incrementNumber = function() {
+  num++;
+
+  // 如果还没有达到最大值，再设置一个超时任务
+  if (num &lt; max) {
+    setTimeout(incrementNumber, 500);
+  } else {
+    alert(&quot;Done&quot;);
+  }
+}
+
+setTimeout(incrementNumber, 500);
+</code></pre></div><p>注意在使用<code>setTimeout()</code>时，不一定要记录超时 ID，因为它会在条件满足时自动停止，否则会自动设置另一个超时任务。这个模式是设置循环任务的推荐做法。<code>setIntervale()</code>在实践中很少会在生产环境下使用，因为一个任务结束和下一个任务开始之间的时间间隔是无法保证的，有些循环定时任务可能会因此而被跳过。而像前面这个例子中一样使用<code>setTimeout()</code>则能确保不会出现这种情况。一般来说，最好不要使用<code>setInterval()</code>。</p> <h3 id="_12-1-8-系统对话框"><a href="#_12-1-8-系统对话框" class="header-anchor">#</a> 12.1.8 　系统对话框</h3> <p>使用<code>alert()</code>、<code>confirm()</code>和<code>promt()</code>方法，可以让浏览器调用系统对话框向用户显示消息。这些对话框与浏览器中显示的网页无关，而且也不包含 HTML。它们的外观由操作系统或者浏览器决定，无法使用 CSS 设置。此外，这些对话框都是同步的模态对话框，即在它们显示的时候，代码会停止执行，在它们消失以后，代码才会恢复执行。</p> <p><code>alert()</code>方法在本书示例中经常用到。它接收一个要显示给用户的字符串。与<code>console.log</code>可以接收任意数量的参数且能一次性打印这些参数不同，<code>alert()</code>只接收一个参数。调用<code>alert()</code>时，传入的字符串会显示在一个系统对话框中。对话框只有一个“OK”（确定）按钮。如果传给<code>alert()</code>的参数不是一个原始字符串，则会调用这个值的<code>toString()</code>方法将其转换为字符串。</p> <p>警告框（alert）通常用于向用户显示一些他们无法控制的消息，比如报错。用户唯一的选择就是在看到警告框之后把它关闭。图 12-1 展示了一个警告框。</p> <p><img src="http://www.ituring.com.cn/figures/2020/JavaScriptWebDeve4th/018.png" alt="img"></p> <p><strong>图　 12-1</strong></p> <p>第二种对话框叫确认框，通过调用<code>confirm()</code>来显示。确认框跟警告框类似，都会向用户显示消息。但不同之处在于，确认框有两个按钮：“Cancel”（取消）和“OK”（确定）。用户通过单击不同的按钮表明希望接下来执行什么操作。比如，<code>confirm(&quot;Are you sure?&quot;)</code>会显示图 12-2 所示的确认框。</p> <p><img src="http://www.ituring.com.cn/figures/2020/JavaScriptWebDeve4th/019.png" alt="img"></p> <p><strong>图　 12-2</strong></p> <p>要知道用户单击了 OK 按钮还是 Cancel 按钮，可以判断<code>confirm()</code>方法的返回值：<code>true</code>表示单击了 OK 按钮，<code>false</code>表示单击了 Cancel 按钮或者通过单击某一角上的 X 图标关闭了确认框。确认框的典型用法如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>if (confirm(&quot;Are you sure?&quot;)) {
+  alert(&quot;I'm so glad you're sure!&quot;);
+} else {
+  alert(&quot;I'm sorry to hear you're not sure.&quot;);
+}
+</code></pre></div><p>在这个例子中，第一行代码向用户显示了确认框，也就是<code>if</code>语句的条件。如果用户单击了 OK 按钮，则会弹出警告框显示<code>&quot;I'm so glad you're sure!&quot;</code>。如果单击了 Cancel，则会显示<code>&quot;I'm sorry to hear you're not sure.&quot;</code>。确认框通常用于让用户确认执行某个操作，比如删除邮件等。因为这种对话框会完全打断正在浏览网页的用户，所以应该在必要时再使用。</p> <p>最后一种对话框是提示框，通过调用<code>prompt()</code>方法来显示。提示框的用途是提示用户输入消息。除了 OK 和 Cancel 按钮，提示框还会显示一个文本框，让用户输入内容。<code>prompt()</code>方法接收两个参数：要显示给用户的文本，以及文本框的默认值（可以是空字符串）。调用<code>prompt(&quot;What is your name?&quot;, &quot;Jake&quot;)</code>会显示图 12-3 所示的提示框。</p> <p><img src="http://www.ituring.com.cn/figures/2020/JavaScriptWebDeve4th/020.png" alt="img"></p> <p><strong>图　 12-3</strong></p> <p>如果用户单击了 OK 按钮，则<code>prompt()</code>会返回文本框中的值。如果用户单击了 Cancel 按钮，或者对话框被关闭，则<code>prompt()</code>会返回<code>null</code>。下面是一个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>let result = prompt(&quot;What is your name? &quot;, &quot;&quot;);
+if (result !== null) {
+  alert(&quot;Welcome, &quot; + result);
+}
+</code></pre></div><p>这些系统对话框可以向用户显示消息、确认操作和获取输入。由于不需要 HTML 和 CSS，所以系统对话框是 Web 应用程序最简单快捷的沟通手段。</p> <p>很多浏览器针对这些系统对话框添加了特殊功能。如果网页中的脚本生成了两个或更多系统对话框，则除第一个之外所有后续的对话框上都会显示一个复选框，如果用户选中则会禁用后续的弹框，直到页面刷新。</p> <p>如果用户选中了复选框并关闭了对话框，在页面刷新之前，所有系统对话框（警告框、确认框、提示框）都会被屏蔽。开发者无法获悉这些对话框是否显示了。对话框计数器会在浏览器空闲时重置，因此如果两次独立的用户操作分别产生了两个警告框，则两个警告框上都不会显示屏蔽复选框。如果一次独立的用户操作连续产生了两个警告框，则第二个警告框会显示复选框。</p> <p>JavaScript 还可以显示另外两种对话框：<code>find()</code>和<code>print()</code>。这两种对话框都是异步显示的，即控制权会立即返回给脚本。用户在浏览器菜单上选择“查找”（find）和“打印”（print）时显示的就是这两种对话框。通过在<code>window</code>对象上调用<code>find()</code>和<code>print()</code>可以显示它们，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>// 显示打印对话框
+window.print();
+
+// 显示查找对话框
+window.find();
+</code></pre></div><p>这两个方法不会返回任何有关用户在对话框中执行了什么操作的信息，因此很难加以利用。此外，因为这两种对话框是异步的，所以浏览器的对话框计数器不会涉及它们，而且用户选择禁用对话框对它们也没有影响。</p> <h2 id="_12-2-location对象"><a href="#_12-2-location对象" class="header-anchor">#</a> 12.2 　<code>location</code>对象</h2> <p><code>location</code>是最有用的 BOM 对象之一，提供了当前窗口中加载文档的信息，以及通常的导航功能。这个对象独特的地方在于，它既是<code>window</code>的属性，也是<code>document</code>的属性。也就是说，<code>window.location</code>和<code>document.location</code>指向同一个对象。<code>location</code>对象不仅保存着当前加载文档的信息，也保存着把 URL 解析为离散片段后能够通过属性访问的信息。这些解析后的属性在下表中有详细说明（<code>location</code>前缀是必需的）。</p> <p>假设浏览器当前加载的 URL 是http://foouser:barpassword@www.wrox.com:80/WileyCDA/?q=javascript#contents，<code>location</code>对象的内容如下表所示。</p> <table><thead><tr><th style="text-align:left;">属性</th> <th style="text-align:left;">值</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;"><code>location.hash</code></td> <td style="text-align:left;"><code>&quot;#contents&quot;</code></td> <td style="text-align:left;">URL 散列值（井号后跟零或多个字符），如果没有则为空字符串</td></tr> <tr><td style="text-align:left;"><code>location.host</code></td> <td style="text-align:left;"><code>&quot;www.wrox.com:80&quot;</code></td> <td style="text-align:left;">服务器名及端口号</td></tr> <tr><td style="text-align:left;"><code>location.hostname</code></td> <td style="text-align:left;"><code>&quot;www.wrox.com&quot;</code></td> <td style="text-align:left;">服务器名</td></tr> <tr><td style="text-align:left;"><code>location.href</code></td> <td style="text-align:left;"><code>&quot;http://www.wrox.com:80/WileyCDA/?q=javascript#contents&quot;</code></td> <td style="text-align:left;">当前加载页面的完整 URL。<code>location</code>的<code>toString()</code>方法返回这个值</td></tr> <tr><td style="text-align:left;"><code>location.pathname</code></td> <td style="text-align:left;"><code>&quot;/WileyCDA/&quot;</code></td> <td style="text-align:left;">URL 中的路径和（或）文件名</td></tr> <tr><td style="text-align:left;"><code>location.port</code></td> <td style="text-align:left;"><code>&quot;80&quot;</code></td> <td style="text-align:left;">请求的端口。如果 URL 中没有端口，则返回空字符串</td></tr> <tr><td style="text-align:left;"><code>location.protocol</code></td> <td style="text-align:left;"><code>&quot;http:&quot;</code></td> <td style="text-align:left;">页面使用的协议。通常是<code>&quot;http:&quot;</code>或<code>&quot;https:&quot;</code></td></tr> <tr><td style="text-align:left;"><code>location.search</code></td> <td style="text-align:left;"><code>&quot;?q=javascript&quot;</code></td> <td style="text-align:left;">URL 的查询字符串。这个字符串以问号开头</td></tr> <tr><td style="text-align:left;"><code>location.username</code></td> <td style="text-align:left;"><code>&quot;foouser&quot;</code></td> <td style="text-align:left;">域名前指定的用户名</td></tr> <tr><td style="text-align:left;"><code>location.password</code></td> <td style="text-align:left;"><code>&quot;barpassword&quot;</code></td> <td style="text-align:left;">域名前指定的密码</td></tr> <tr><td style="text-align:left;"><code>location.origin</code></td> <td style="text-align:left;"><code>&quot;http://www.wrox.com&quot;</code></td> <td style="text-align:left;">URL 的源地址。只读</td></tr></tbody></table> <h3 id="_12-2-1-查询字符串"><a href="#_12-2-1-查询字符串" class="header-anchor">#</a> 12.2.1 　查询字符串</h3> <p><code>location</code>的多数信息都可以通过上面的属性获取。但是 URL 中的查询字符串并不容易使用。虽然<code>location.search</code>返回了从问号开始直到 URL 末尾的所有内容，但没有办法逐个访问每个查询参数。下面的函数解析了查询字符串，并返回一个以每个查询参数为属性的对象：</p> <div class="language- extra-class"><pre class="language-text"><code>let getQueryStringArgs = function() {
+  // 取得没有开头问号的查询字符串
+  let qs = (location.search.length &gt; 0 ? location.search.substring(1) : &quot;&quot;),
+    // 保存数据的对象
+    args = {};
+
+  // 把每个参数添加到args对象
+  for (let item of qs.split(&quot;&amp;&quot;).map(kv =&gt; kv.split(&quot;=&quot;))) {
+    let name = decodeURIComponent(item[0]),
+      value = decodeURIComponent(item[1]);
+    if (name.length) {
+      args[name] = value;
+    }
+  }
+
+  return args;
+}
+</code></pre></div><p>这个函数首先删除了查询字符串开头的问号，当然前提是<code>location.search</code>必须有内容。解析后的参数将被保存到<code>args</code>对象，这个对象以字面量形式创建。接着，先把查询字符串按照<code>&amp;</code>分割成数组，每个元素的形式为<code>name=value</code>。<code>for</code>循环迭代这个数组，将每一个元素按照<code>=</code>分割成数组，这个数组第一项是参数名，第二项是参数值。参数名和参数值在使用<code>decodeURIComponent()</code>解码后（这是因为查询字符串通常是被编码后的格式）分别保存在<code>name</code>和<code>value</code>变量中。最后，<code>name</code>作为属性而<code>value</code>作为该属性的值被添加到<code>args</code>对象。这个函数可以像下面这样使用：</p> <div class="language- extra-class"><pre class="language-text"><code>// 假设查询字符串为?q=javascript&amp;num=10
+
+let args = getQueryStringArgs();
+
+alert(args[&quot;q&quot;]);    // &quot;javascript&quot;
+alert(args[&quot;num&quot;]);  // &quot;10&quot;
+</code></pre></div><p>现在，查询字符串中的每个参数都是返回对象的一个属性，这样使用起来就方便了。</p> <p><strong>URLSearchParams</strong></p> <p><code>URLSearchParams</code>提供了一组标准 API 方法，通过它们可以检查和修改查询字符串。给<code>URLSearchParams</code>构造函数传入一个查询字符串，就可以创建一个实例。这个实例上暴露了<code>get()</code>、<code>set()</code>和<code>delete()</code>等方法，可以对查询字符串执行相应操作。下面来看一个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>let qs = &quot;?q=javascript&amp;num=10&quot;;
+
+let searchParams = new URLSearchParams(qs);
+
+alert(searchParams.toString());  // &quot; q=javascript&amp;num=10&quot;
+searchParams.has(&quot;num&quot;);         // true
+searchParams.get(&quot;num&quot;);         // 10
+
+searchParams.set(&quot;page&quot;, &quot;3&quot;);
+alert(searchParams.toString());  // &quot; q=javascript&amp;num=10&amp;page=3&quot;
+
+searchParams.delete(&quot;q&quot;);
+alert(searchParams.toString());  // &quot; num=10&amp;page=3&quot;
+</code></pre></div><p>大多数支持<code>URLSearchParams</code>的浏览器也支持将<code>URLSearchParams</code>的实例用作可迭代对象：</p> <div class="language- extra-class"><pre class="language-text"><code>let qs = &quot;?q=javascript&amp;num=10&quot;;
+
+let searchParams = new URLSearchParams(qs);
+
+for (let param of searchParams) {
+  console.log(param);
+}
+// [&quot;q&quot;, &quot;javascript&quot;]
+// [&quot;num&quot;, &quot;10&quot;]
+</code></pre></div><h3 id="_12-2-2-操作地址"><a href="#_12-2-2-操作地址" class="header-anchor">#</a> 12.2.2 　操作地址</h3> <p>可以通过修改<code>location</code>对象修改浏览器的地址。首先，最常见的是使用<code>assign()</code>方法并传入一个 URL，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>location.assign(&quot;http://www.wrox.com&quot;);
+</code></pre></div><p>这行代码会立即启动导航到新 URL 的操作，同时在浏览器历史记录中增加一条记录。如果给<code>location.href</code>或<code>window.location</code>设置一个 URL，也会以同一个 URL 值调用<code>assign()</code>方法。比如，下面两行代码都会执行与显式调用<code>assign()</code>一样的操作：</p> <div class="language- extra-class"><pre class="language-text"><code>window.location = &quot;http://www.wrox.com&quot;;
+location.href = &quot;http://www.wrox.com&quot;;
+</code></pre></div><p>在这 3 种修改浏览器地址的方法中，设置<code>location.href</code>是最常见的。</p> <p>修改<code>location</code>对象的属性也会修改当前加载的页面。其中，<code>hash</code>、<code>search</code>、<code>hostname</code>、<code>pathname</code>和<code>port</code>属性被设置为新值之后都会修改当前 URL，如下面的例子所示：</p> <div class="language- extra-class"><pre class="language-text"><code>// 假设当前URL为http://www.wrox.com/WileyCDA/
+
+// 把URL修改为http://www.wrox.com/WileyCDA/#section1
+location.hash = &quot;#section1&quot;;
+
+// 把URL修改为http://www.wrox.com/WileyCDA/?q=javascript
+location.search = &quot;?q=javascript&quot;;
+
+// 把URL修改为http://www.somewhere.com/WileyCDA/
+location.hostname = &quot;www.somewhere.com&quot;;
+
+// 把URL修改为http://www.somewhere.com/mydir/
+location.pathname = &quot;mydir&quot;;
+
+// 把URL修改为http://www.somewhere.com:8080/WileyCDA/
+Location.port = 8080;
+</code></pre></div><p>除了<code>hash</code>之外，只要修改<code>location</code>的一个属性，就会导致页面重新加载新 URL。</p> <blockquote><p><strong>注意</strong>　修改<code>hash</code>的值会在浏览器历史中增加一条新记录。在早期的 IE 中，点击“后退”和“前进”按钮不会更新<code>hash</code>属性，只有点击包含散列的 URL 才会更新<code>hash</code>的值。</p></blockquote> <p>在以前面提到的方式修改 URL 之后，浏览器历史记录中就会增加相应的记录。当用户单击“后退”按钮时，就会导航到前一个页面。如果不希望增加历史记录，可以使用<code>replace()</code>方法。这个方法接收一个 URL 参数，但重新加载后不会增加历史记录。调用<code>replace()</code>之后，用户不能回到前一页。比如下面的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;You won't be able to get back here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Enjoy this page for a second, because you won't be coming back here.&lt;/p&gt;
+  &lt;script&gt;
+    setTimeout(() =&gt; location.replace(&quot;http://www.wrox.com/&quot;), 1000);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p>浏览器加载这个页面 1 秒之后会重定向到 www.wrox.com。此时，“后退”按钮是禁用状态，即不能返回这个示例页面，除非手动输入完整的 URL。</p> <p>最后一个修改地址的方法是<code>reload()</code>，它能重新加载当前显示的页面。调用<code>reload()</code>而不传参数，页面会以最有效的方式重新加载。也就是说，如果页面自上次请求以来没有修改过，浏览器可能会从缓存中加载页面。如果想强制从服务器重新加载，可以像下面这样给<code>reload()</code>传个<code>true</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>location.reload();     // 重新加载，可能是从缓存加载
+location.reload(true); // 重新加载，从服务器加载
+</code></pre></div><p>脚本中位于<code>reload()</code>调用之后的代码可能执行也可能不执行，这取决于网络延迟和系统资源等因素。为此，最好把<code>reload()</code>作为最后一行代码。</p> <h2 id="_12-3-navigator对象"><a href="#_12-3-navigator对象" class="header-anchor">#</a> 12.3 　<code>navigator</code>对象</h2> <p><code>navigator</code>是由 Netscape Navigator 2 最早引入浏览器的，现在已经成为客户端标识浏览器的标准。只要浏览器启用 JavaScript，<code>navigator</code>对象就一定存在。但是与其他 BOM 对象一样，每个浏览器都支持自己的属性。</p> <blockquote><p><strong>注意</strong> <code>navigator</code>对象中关于系统能力的属性将在第 13 章详细介绍。</p></blockquote> <p><code>navigator</code>对象实现了<code>NavigatorID</code>、<code>NavigatorLanguage</code>、<code>NavigatorOnLine</code>、<code>NavigatorContentUtils</code>、<code>NavigatorStorage</code>、<code>NavigatorStorageUtils</code>、<code>NavigatorConcurrentHardware</code>、<code>NavigatorPlugins</code>和<code>NavigatorUserMedia</code>接口定义的属性和方法。</p> <p>下表列出了这些接口定义的属性和方法：</p> <table><thead><tr><th style="text-align:left;">属性/方法</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;"><code>activeVrDisplays</code></td> <td style="text-align:left;">返回数组，包含<code>ispresenting</code>属性为<code>true</code>的<code>VRDisplay</code>实例</td></tr> <tr><td style="text-align:left;"><code>appCodeName</code></td> <td style="text-align:left;">即使在非 Mozilla 浏览器中也会返回<code>&quot;Mozilla&quot;</code></td></tr> <tr><td style="text-align:left;"><code>appName</code></td> <td style="text-align:left;">浏览器全名</td></tr> <tr><td style="text-align:left;"><code>appVersion</code></td> <td style="text-align:left;">浏览器版本。通常与实际的浏览器版本不一致</td></tr> <tr><td style="text-align:left;"><code>battery</code></td> <td style="text-align:left;">返回暴露 Battery Status API 的<code>BatteryManager</code>对象</td></tr> <tr><td style="text-align:left;"><code>buildId</code></td> <td style="text-align:left;">浏览器的构建编号</td></tr> <tr><td style="text-align:left;"><code>connection</code></td> <td style="text-align:left;">返回暴露 Network Information API 的<code>NetworkInformation</code>对象</td></tr> <tr><td style="text-align:left;"><code>cookieEnabled</code></td> <td style="text-align:left;">返回布尔值，表示是否启用了 cookie</td></tr> <tr><td style="text-align:left;"><code>credentials</code></td> <td style="text-align:left;">返回暴露 Credentials Management API 的<code>CredentialsContainer</code>对象</td></tr> <tr><td style="text-align:left;"><code>deviceMemory</code></td> <td style="text-align:left;">返回单位为 GB 的设备内存容量</td></tr> <tr><td style="text-align:left;"><code>doNotTrack</code></td> <td style="text-align:left;">返回用户的“不跟踪”（do-not-track）设置</td></tr> <tr><td style="text-align:left;"><code>geolocation</code></td> <td style="text-align:left;">返回暴露 Geolocation API 的<code>Geolocation</code>对象</td></tr> <tr><td style="text-align:left;"><code>getVRDisplays()</code></td> <td style="text-align:left;">返回数组，包含可用的每个<code>VRDisplay</code>实例</td></tr> <tr><td style="text-align:left;"><code>getUserMedia()</code></td> <td style="text-align:left;">返回与可用媒体设备硬件关联的流</td></tr> <tr><td style="text-align:left;"><code>hardwareConcurrency</code></td> <td style="text-align:left;">返回设备的处理器核心数量</td></tr> <tr><td style="text-align:left;"><code>javaEnabled</code></td> <td style="text-align:left;">返回布尔值，表示浏览器是否启用了 Java</td></tr> <tr><td style="text-align:left;"><code>language</code></td> <td style="text-align:left;">返回浏览器的主语言</td></tr> <tr><td style="text-align:left;"><code>languages</code></td> <td style="text-align:left;">返回浏览器偏好的语言数组</td></tr> <tr><td style="text-align:left;"><code>locks</code></td> <td style="text-align:left;">返回暴露 Web Locks API 的<code>LockManager</code>对象</td></tr> <tr><td style="text-align:left;"><code>mediaCapabilities</code></td> <td style="text-align:left;">返回暴露 Media Capabilities API 的<code>MediaCapabilities</code>对象</td></tr> <tr><td style="text-align:left;"><code>mediaDevices</code></td> <td style="text-align:left;">返回可用的媒体设备</td></tr> <tr><td style="text-align:left;"><code>maxTouchPoints</code></td> <td style="text-align:left;">返回设备触摸屏支持的最大触点数</td></tr> <tr><td style="text-align:left;"><code>mimeTypes</code></td> <td style="text-align:left;">返回浏览器中注册的 MIME 类型数组</td></tr> <tr><td style="text-align:left;"><code>onLine</code></td> <td style="text-align:left;">返回布尔值，表示浏览器是否联网</td></tr> <tr><td style="text-align:left;"><code>oscpu</code></td> <td style="text-align:left;">返回浏览器运行设备的操作系统和（或）CPU</td></tr> <tr><td style="text-align:left;"><code>permissions</code></td> <td style="text-align:left;">返回暴露 Permissions API 的<code>Permissions</code>对象</td></tr> <tr><td style="text-align:left;"><code>platform</code></td> <td style="text-align:left;">返回浏览器运行的系统平台</td></tr> <tr><td style="text-align:left;"><code>plugins</code></td> <td style="text-align:left;">返回浏览器安装的插件数组。在 IE 中，这个数组包含页面中所有<code>&lt;embed&gt;</code>元素</td></tr> <tr><td style="text-align:left;"><code>product</code></td> <td style="text-align:left;">返回产品名称（通常是<code>&quot;Gecko&quot;</code>）</td></tr> <tr><td style="text-align:left;"><code>productSub</code></td> <td style="text-align:left;">返回产品的额外信息（通常是 Gecko 的版本）</td></tr> <tr><td style="text-align:left;"><code>registerProtocolHandler()</code></td> <td style="text-align:left;">将一个网站注册为特定协议的处理程序</td></tr> <tr><td style="text-align:left;"><code>requestMediaKeySystemAccess()</code></td> <td style="text-align:left;">返回一个期约，解决为<code>MediaKeySystemAccess</code>对象</td></tr> <tr><td style="text-align:left;"><code>sendBeacon()</code></td> <td style="text-align:left;">异步传输一些小数据</td></tr> <tr><td style="text-align:left;"><code>serviceWorker</code></td> <td style="text-align:left;">返回用来与<code>ServiceWorker</code>实例交互的<code>ServiceWorkerContainer</code></td></tr> <tr><td style="text-align:left;"><code>share()</code></td> <td style="text-align:left;">返回当前平台的原生共享机制</td></tr> <tr><td style="text-align:left;"><code>storage</code></td> <td style="text-align:left;">返回暴露 Storage API 的<code>StorageManager</code>对象</td></tr> <tr><td style="text-align:left;"><code>userAgent</code></td> <td style="text-align:left;">返回浏览器的用户代理字符串</td></tr> <tr><td style="text-align:left;"><code>vendor</code></td> <td style="text-align:left;">返回浏览器的厂商名称</td></tr> <tr><td style="text-align:left;"><code>vendorSub</code></td> <td style="text-align:left;">返回浏览器厂商的更多信息</td></tr> <tr><td style="text-align:left;"><code>vibrate()</code></td> <td style="text-align:left;">触发设备振动</td></tr> <tr><td style="text-align:left;"><code>webdriver</code></td> <td style="text-align:left;">返回浏览器当前是否被自动化程序控制</td></tr></tbody></table> <p><code>navigator</code>对象的属性通常用于确定浏览器的类型。</p> <h3 id="_12-3-1-检测插件"><a href="#_12-3-1-检测插件" class="header-anchor">#</a> 12.3.1 　检测插件</h3> <p>检测浏览器是否安装了某个插件是开发中常见的需求。除 IE10 及更低版本外的浏览器，都可以通过<code>plugins</code>数组来确定。这个数组中的每一项都包含如下属性。</p> <ul><li><code>name</code>：插件名称。</li> <li><code>description</code>：插件介绍。</li> <li><code>filename</code>：插件的文件名。</li> <li><code>length</code>：由当前插件处理的 MIME 类型数量。</li></ul> <p>通常，<code>name</code>属性包含识别插件所需的必要信息，尽管不是特别准确。检测插件就是遍历浏览器中可用的插件，并逐个比较插件的名称，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>// 插件检测，IE10及更低版本无效
+let hasPlugin = function(name) {
+  name = name.toLowerCase();
+  for (let plugin of window.navigator.plugins){
+    if (plugin.name.toLowerCase().indexOf(name) &gt; -1){
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// 检测Flash
+alert(hasPlugin(&quot;Flash&quot;));
+
+// 检测QuickTime
+alert(hasPlugin(&quot;QuickTime&quot;));
+</code></pre></div><p>这个<code>hasPlugin()</code>方法接收一个参数，即待检测插件的名称。第一步是把插件名称转换为小写形式，以便于比较。然后，遍历<code>plugins</code>数组，通过<code>indexOf()</code>方法检测每个<code>name</code>属性，看传入的名称是不是存在于某个数组中。比较的字符串全部小写，可以避免大小写问题。传入的参数应该尽可能独一无二，以避免混淆。像<code>&quot;Flash&quot;</code>、<code>&quot;QuickTime&quot;</code>这样的字符串就可以避免混淆。这个方法可以在 Firefox、Safari、Opera 和 Chrome 中检测插件。</p> <blockquote><p><strong>注意</strong> <code>plugins</code>数组中的每个插件对象还有一个<code>MimeType</code>对象，可以通过中括号访问。每个<code>MimeType</code>对象有 4 个属性：<code>description</code>描述 MIME 类型，<code>enabledPlugin</code>是指向插件对象的指针，<code>suffixes</code>是该 MIME 类型对应扩展名的逗号分隔的字符串，<code>type</code>是完整的 MIME 类型字符串。</p></blockquote> <p>IE11 的<code>window.navigator</code>对象开始支持<code>plugins</code>和<code>mimeTypes</code>属性。这意味着前面定义的函数可以适用于所有较新版本的浏览器。而且，IE11 中的<code>ActiveXObject</code>也从 DOM 中隐身了，意味着不能再用它来作为检测特性的手段。</p> <p><strong>旧版本 IE 中的插件检测</strong></p> <p>IE10 及更低版本中检测插件的问题比较多，因为这些浏览器不支持 Netscape 式的插件。在这些 IE 中检测插件要使用专有的<code>ActiveXObject</code>，并尝试实例化特定的插件。IE 中的插件是实现为 COM 对象的，由唯一的字符串标识。因此，要检测某个插件就必须知道其 COM 标识符。例如，Flash 的标识符是<code>&quot;ShockwaveFlash.ShockwaveFlash&quot;</code>。知道了这个信息后，就可以像这样检测 IE 中是否安装了 Flash：</p> <div class="language- extra-class"><pre class="language-text"><code>// 在旧版本IE中检测插件
+function hasIEPlugin(name) {
+  try {
+    new ActiveXObject(name);
+    return true;
+  } catch (ex) {
+    return false;
+  }
+}
+
+// 检测Flash
+alert(hasIEPlugin(&quot;ShockwaveFlash.ShockwaveFlash&quot;));
+
+// 检测QuickTime
+alert(hasIEPlugin(&quot;QuickTime.QuickTime&quot;));
+</code></pre></div><p>在这个例子中，<code>hasIEPlugin()</code>函数接收一个 DOM 标识符参数。为检测插件，这个函数会使用传入的标识符创建一个新<code>ActiveXObject</code>实例。相应代码封装在一个<code>try</code>/<code>catch</code>语句中，因此如果创建的插件不存在则会抛出错误。如果创建成功则返回<code>true</code>，如果失败则在<code>catch</code>块中返回<code>false</code>。上面的例子还演示了如何检测 Flash 和 QuickTime 插件。</p> <p>因为检测插件涉及两种方式，所以一般要针对特定插件写一个函数，而不是使用通常的检测函数。比如下面的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>// 在所有浏览器中检测Flash
+function hasFlash() {
+  var result = hasPlugin(&quot;Flash&quot;);
+  if (!result){
+    result = hasIEPlugin(&quot;ShockwaveFlash.ShockwaveFlash&quot;);
+  }
+  return result;
+}
+
+// 在所有浏览器中检测QuickTime
+function hasQuickTime() {
+  var result = hasPlugin(&quot;QuickTime&quot;);
+  if (!result){
+    result = hasIEPlugin(&quot;QuickTime.QuickTime&quot;);
+  }
+  return result;
+}
+
+// 检测Flash
+alert(hasFlash());
+
+// 检测QuickTime
+alert(hasQuickTime());
+</code></pre></div><p>以上代码定义了两个函数<code>hasFlash()</code>和<code>hasQuickTime()</code>。每个函数都先尝试使用非 IE 插件检测方式，如果返回<code>false</code>（对 IE 可能会），则再使用 IE 插件检测方式。如果 IE 插件检测方式再返回<code>false</code>，整个检测方法也返回<code>false</code>。只要有一种方式返回<code>true</code>，检测方法就会返回<code>true</code>。</p> <blockquote><p><strong>注意</strong> <code>plugins</code>有一个<code>refresh()</code>方法，用于刷新<code>plugins</code>属性以反映新安装的插件。这个方法接收一个布尔值参数，表示刷新时是否重新加载页面。如果传入<code>true</code>，则所有包含插件的页面都会重新加载。否则，只有<code>plugins</code>会更新，但页面不会重新加载。</p></blockquote> <h3 id="_12-3-2-注册处理程序"><a href="#_12-3-2-注册处理程序" class="header-anchor">#</a> 12.3.2 　注册处理程序</h3> <p>现代浏览器支持<code>navigator</code>上的（在 HTML5 中定义的）<code>registerProtocolHandler()</code>方法。这个方法可以把一个网站注册为处理某种特定类型信息应用程序。随着在线 RSS 阅读器和电子邮件客户端的流行，可以借助这个方法将 Web 应用程序注册为像桌面软件一样的默认应用程序。</p> <p>要使用<code>registerProtocolHandler()</code>方法，必须传入 3 个参数：要处理的协议（如<code>&quot;mailto&quot;</code>或<code>&quot;ftp&quot;</code>）、处理该协议的 URL，以及应用名称。比如，要把一个 Web 应用程序注册为默认邮件客户端，可以这样做：</p> <div class="language- extra-class"><pre class="language-text"><code>navigator.registerProtocolHandler(&quot;mailto&quot;,
+  &quot;http://www.somemailclient.com?cmd=%s&quot;,
+  &quot;Some Mail Client&quot;);
+</code></pre></div><p>这个例子为<code>&quot;mailto&quot;</code>协议注册了一个处理程序，这样邮件地址就可以通过指定的 Web 应用程序打开。注意，第二个参数是负责处理请求的 URL，<code>%s</code>表示原始的请求。</p> <h2 id="_12-4-screen对象"><a href="#_12-4-screen对象" class="header-anchor">#</a> 12.4 　<code>screen</code>对象</h2> <p><code>window</code>的另一个属性<code>screen</code>对象，是为数不多的几个在编程中很少用的 JavaScript 对象。这个对象中保存的纯粹是客户端能力信息，也就是浏览器窗口外面的客户端显示器的信息，比如像素宽度和像素高度。每个浏览器都会在<code>screen</code>对象上暴露不同的属性。下表总结了这些属性。</p> <table><thead><tr><th style="text-align:left;">属性</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;"><code>availHeight</code></td> <td style="text-align:left;">屏幕像素高度减去系统组件高度（只读）</td></tr> <tr><td style="text-align:left;"><code>availLeft</code></td> <td style="text-align:left;">没有被系统组件占用的屏幕的最左侧像素（只读）</td></tr> <tr><td style="text-align:left;"><code>availTop</code></td> <td style="text-align:left;">没有被系统组件占用的屏幕的最顶端像素（只读）</td></tr> <tr><td style="text-align:left;"><code>availWidth</code></td> <td style="text-align:left;">屏幕像素宽度减去系统组件宽度（只读）</td></tr> <tr><td style="text-align:left;"><code>colorDepth</code></td> <td style="text-align:left;">表示屏幕颜色的位数；多数系统是 32（只读）</td></tr> <tr><td style="text-align:left;"><code>height</code></td> <td style="text-align:left;">屏幕像素高度</td></tr> <tr><td style="text-align:left;"><code>left</code></td> <td style="text-align:left;">当前屏幕左边的像素距离</td></tr> <tr><td style="text-align:left;"><code>pixelDepth</code></td> <td style="text-align:left;">屏幕的位深（只读）</td></tr> <tr><td style="text-align:left;"><code>top</code></td> <td style="text-align:left;">当前屏幕顶端的像素距离</td></tr> <tr><td style="text-align:left;"><code>width</code></td> <td style="text-align:left;">屏幕像素宽度</td></tr> <tr><td style="text-align:left;"><code>orientation</code></td> <td style="text-align:left;">返回 Screen Orientation API 中屏幕的朝向</td></tr></tbody></table> <h2 id="_12-5-history对象"><a href="#_12-5-history对象" class="header-anchor">#</a> 12.5 　<code>history</code>对象</h2> <p><code>history</code>对象表示当前窗口首次使用以来用户的导航历史记录。因为<code>history</code>是<code>window</code>的属性，所以每个<code>window</code>都有自己的<code>history</code>对象。出于安全考虑，这个对象不会暴露用户访问过的 URL，但可以通过它在不知道实际 URL 的情况下前进和后退。</p> <h3 id="_12-5-1-导航"><a href="#_12-5-1-导航" class="header-anchor">#</a> 12.5.1 　导航</h3> <p><code>go()</code>方法可以在用户历史记录中沿任何方向导航，可以前进也可以后退。这个方法只接收一个参数，这个参数可以是一个整数，表示前进或后退多少步。负值表示在历史记录中后退（类似点击浏览器的“后退”按钮），而正值表示在历史记录中前进（类似点击浏览器的“前进”按钮）。下面来看几个例子：</p> <div class="language- extra-class"><pre class="language-text"><code>// 后退一页
+history.go(-1);
+
+// 前进一页
+history.go(1);
+
+// 前进两页
+history.go(2);
+</code></pre></div><p><code>go()</code>方法的参数也可以是一个字符串，这种情况下浏览器会导航到历史中包含该字符串的第一个位置。最接近的位置可能涉及后退，也可能涉及前进。如果历史记录中没有匹配的项，则这个方法什么也不做，如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>// 导航到最近的wrox.com页面
+history.go(&quot;wrox.com&quot;);
+
+// 导航到最近的nczonline.net页面
+history.go(&quot;nczonline.net&quot;);
+</code></pre></div><p><code>go()</code>有两个简写方法：<code>back()</code>和<code>forward()</code>。顾名思义，这两个方法模拟了浏览器的后退按钮和前进按钮：</p> <div class="language- extra-class"><pre class="language-text"><code>// 后退一页
+history.back();
+
+// 前进一页
+history.forward();
+</code></pre></div><p><code>history</code>对象还有一个<code>length</code>属性，表示历史记录中有多个条目。这个属性反映了历史记录的数量，包括可以前进和后退的页面。对于窗口或标签页中加载的第一个页面，<code>history.length</code>等于 1。通过以下方法测试这个值，可以确定用户浏览器的起点是不是你的页面：</p> <div class="language- extra-class"><pre class="language-text"><code>if (history.length == 1){
+  // 这是用户窗口中的第一个页面
+}
+</code></pre></div><p><code>history</code>对象通常被用于创建“后退”和“前进”按钮，以及确定页面是不是用户历史记录中的第一条记录。</p> <blockquote><p><strong>注意</strong>　如果页面 URL 发生变化，则会在历史记录中生成一个新条目。对于 2009 年以来发布的主流浏览器，这包括改变 URL 的散列值（因此，把<code>location.hash</code>设置为一个新值会在这些浏览器的历史记录中增加一条记录）。这个行为常被单页应用程序框架用来模拟前进和后退，这样做是为了不会因导航而触发页面刷新。</p></blockquote> <h3 id="_12-5-2-历史状态管理"><a href="#_12-5-2-历史状态管理" class="header-anchor">#</a> 12.5.2 　历史状态管理</h3> <p>现代 Web 应用程序开发中最难的环节之一就是历史记录管理。用户每次点击都会触发页面刷新的时代早已过去，“后退”和“前进”按钮对用户来说就代表“帮我切换一个状态”的历史也就随之结束了。为解决这个问题，首先出现的是<code>hashchange</code>事件（第 17 章介绍事件时会讨论）。HTML5 也为<code>history</code>对象增加了方便的状态管理特性。</p> <p><code>hashchange</code>会在页面 URL 的散列变化时被触发，开发者可以在此时执行某些操作。而状态管理 API 则可以让开发者改变浏览器 URL 而不会加载新页面。为此，可以使用<code>history.pushState()</code>方法。这个方法接收 3 个参数：一个<code>state</code>对象、一个新状态的标题和一个（可选的）相对 URL。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>let stateObject = {foo:&quot;bar&quot;};
+
+history.pushState(stateObject, &quot;My title&quot;, &quot;baz.html&quot;);
+</code></pre></div><p><code>pushState()</code>方法执行后，状态信息就会被推到历史记录中，浏览器地址栏也会改变以反映新的相对 URL。除了这些变化之外，即使<code>location.href</code>返回的是地址栏中的内容，浏览器页不会向服务器发送请求。第二个参数并未被当前实现所使用，因此既可以传一个空字符串也可以传一个短标题。第一个参数应该包含正确初始化页面状态所必需的信息。为防止滥用，这个状态的对象大小是有限制的，通常在 500KB ～ 1MB 以内。</p> <p>因为<code>pushState()</code>会创建新的历史记录，所以也会相应地启用“后退”按钮。此时单击“后退”按钮，就会触发<code>window</code>对象上的<code>popstate</code>事件。<code>popstate</code>事件的事件对象有一个<code>state</code>属性，其中包含通过<code>pushState()</code>第一个参数传入的<code>state</code>对象：</p> <div class="language- extra-class"><pre class="language-text"><code>window.addEventListener(&quot;popstate&quot;, (event) =&gt; {
+  let state = event.state;
+  if (state) { // 第一个页面加载时状态是null
+    processState(state);
+  }
+});
+</code></pre></div><p>基于这个状态，应该把页面重置为状态对象所表示的状态（因为浏览器不会自动为你做这些）。记住，页面初次加载时没有状态。因此点击“后退”按钮直到返回最初页面时，<code>event.state</code>会为<code>null</code>。</p> <p>可以通过<code>history.state</code>获取当前的状态对象，也可以使用<code>replaceState()</code>并传入与<code>pushState()</code>同样的前两个参数来更新状态。更新状态不会创建新历史记录，只会覆盖当前状态：</p> <div class="language- extra-class"><pre class="language-text"><code>history.replaceState({newFoo: &quot;newBar&quot;}, &quot;New title&quot;);
+</code></pre></div><p>传给<code>pushState()</code>和<code>replaceState()</code>的<code>state</code>对象应该只包含可以被序列化的信息。因此，DOM 元素之类并不适合放到状态对象里保存。</p> <blockquote><p><strong>注意</strong>　使用 HTML5 状态管理时，要确保通过<code>pushState()</code>创建的每个“假”URL 背后都对应着服务器上一个真实的物理 URL。否则，单击“刷新”按钮会导致 404 错误。所有单页应用程序（SPA，Single Page Application）框架都必须通过服务器或客户端的某些配置解决这个问题。</p></blockquote> <h2 id="_12-6-小结"><a href="#_12-6-小结" class="header-anchor">#</a> 12.6 　小结</h2> <p>浏览器对象模型（BOM，Browser Object Model）是以<code>window</code>对象为基础的，这个对象代表了浏览器窗口和页面可见的区域。<code>window</code>对象也被复用为 ECMAScript 的<code>Global</code>对象，因此所有全局变量和函数都是它的属性，而且所有原生类型的构造函数和普通函数也都从一开始就存在于这个对象之上。本章讨论了 BOM 的以下内容。</p> <ul><li>要引用其他<code>window</code>对象，可以使用几个不同的窗口指针。</li> <li>通过<code>location</code>对象可以以编程方式操纵浏览器的导航系统。通过设置这个对象上的属性，可以改变浏览器 URL 中的某一部分或全部。</li> <li>使用<code>replace()</code>方法可以替换浏览器历史记录中当前显示的页面，并导航到新 URL。</li> <li><code>navigator</code>对象提供关于浏览器的信息。提供的信息类型取决于浏览器，不过有些属性如<code>userAgent</code>是所有浏览器都支持的。</li></ul> <p>BOM 中的另外两个对象也提供了一些功能。<code>screen</code>对象中保存着客户端显示器的信息。这些信息通常用于评估浏览网站的设备信息。<code>history</code>对象提供了操纵浏览器历史记录的能力，开发者可以确定历史记录中包含多少个条目，并以编程方式实现在历史记录中导航，而且也可以修改历史记录。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">11/16/2020, 3:12:43 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/VuePressBlogHtml/assets/js/app.a22e24ce.js" defer></script><script src="/VuePressBlogHtml/assets/js/2.273354d5.js" defer></script><script src="/VuePressBlogHtml/assets/js/48.0b5098bb.js" defer></script><script src="/VuePressBlogHtml/assets/js/17.398b5375.js" defer></script>
+  </body>
+</html>

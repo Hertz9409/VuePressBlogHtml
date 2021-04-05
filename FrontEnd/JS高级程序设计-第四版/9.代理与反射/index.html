@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第 9 章　代理与反射 | Hertz&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Hertz's Blog By VuePress">
+    
+    <link rel="preload" href="/VuePressBlogHtml/assets/css/0.styles.7994d51b.css" as="style"><link rel="preload" href="/VuePressBlogHtml/assets/js/app.a22e24ce.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/2.273354d5.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/58.a33d519a.js" as="script"><link rel="preload" href="/VuePressBlogHtml/assets/js/17.398b5375.js" as="script"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/10.2906bcb7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/11.44da5627.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/12.603be071.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/13.bbb59baa.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/14.37104393.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/15.622f6d38.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/16.e98dda23.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/18.87fb9473.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/19.35af09b5.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/20.0860f27f.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/21.80170eb6.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/22.32e3b412.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/23.71a3bc07.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/24.92a37d9c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/25.6c06b0ec.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/26.56de950a.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/27.389f6e4c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/28.93cf295c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/29.8299c662.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/3.82a8b2ed.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/30.030ded92.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/31.37328e23.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/32.33720530.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/33.dbf791bd.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/34.3f59d278.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/35.4db82d0c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/36.993714ab.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/37.d14d1abc.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/38.5d2531bd.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/39.04716fa1.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/4.89240616.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/40.af165ce2.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/41.be41ee81.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/42.9d0cef92.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/43.d679c459.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/44.d12455da.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/45.50996042.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/46.4ae0dc93.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/47.297e0925.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/48.0b5098bb.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/49.2331b452.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/5.7f54006c.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/50.ed621c31.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/51.ffa15a18.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/52.f023092e.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/53.dcf36f26.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/54.d2f28937.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/55.8d4c4343.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/56.bf7841ef.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/57.0cf87538.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/59.100761af.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/6.583fbbc7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/60.2547a25b.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/61.0a622c79.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/62.8bdae0f0.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/63.ae32cec9.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/64.3f841214.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/65.9967bc83.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/66.2b33b58e.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/67.5183b069.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/68.ac765712.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/69.278cdc53.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/7.d3e576f7.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/70.1f5428d0.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/71.44ee8fdb.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/72.4c087926.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/73.2c3e7645.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/74.e2a67ac9.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/8.d70fcbe5.js"><link rel="prefetch" href="/VuePressBlogHtml/assets/js/9.59956eee.js">
+    <link rel="stylesheet" href="/VuePressBlogHtml/assets/css/0.styles.7994d51b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/VuePressBlogHtml/" class="home-link router-link-active"><!----> <span class="site-name">Hertz's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/VuePressBlogHtml/FrontEnd/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/BackEnd/" class="nav-link">
+  后端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/GIS/" class="nav-link">
+  GIS
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/Others/" class="nav-link">
+  其他
+</a></div><div class="nav-item"><a href="https://github.com/Hertz9409" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/VuePressBlogHtml/FrontEnd/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/BackEnd/" class="nav-link">
+  后端
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/GIS/" class="nav-link">
+  GIS
+</a></div><div class="nav-item"><a href="/VuePressBlogHtml/Others/" class="nav-link">
+  其他
+</a></div><div class="nav-item"><a href="https://github.com/Hertz9409" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>CSS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS1/" class="sidebar-link">CSS1</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS2/" class="sidebar-link">CSS2</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E5%8F%98%E6%8D%A2,%E8%BF%87%E6%B8%A1,%E5%8A%A8%E7%94%BB/" class="sidebar-link">CSS变换,过渡,动画</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E5%B1%82%E5%8F%A0%E6%80%A7/" class="sidebar-link">CSS层叠性</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="sidebar-link">CSS文本样式</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E6%B5%81/" class="sidebar-link">CSS流</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/CSS%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98/" class="sidebar-link">CSS经典面试题</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/Flex%E5%B8%83%E5%B1%80/" class="sidebar-link">Flex布局</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/" class="sidebar-link">移动端适配</a></li><li><a href="/VuePressBlogHtml/FrontEnd/CSS/%E9%A2%9C%E8%89%B2%E4%B8%8E%E8%83%8C%E6%99%AF/" class="sidebar-link">颜色与背景</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>HTML</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/HTML/%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84%E8%AF%AD%E4%B9%89%E5%8C%96/" class="sidebar-link">页面结构语义化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/JS/Canvas%E5%9F%BA%E7%A1%80%E4%B8%80/" class="sidebar-link">Canvas基础一</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Canvas%E5%9F%BA%E7%A1%80%E4%BA%8C/" class="sidebar-link">Canvas基础二</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Cookie,Session,Token,Oauth%E5%92%8CJWT/" class="sidebar-link">Cookie,Session,Token,Oauth和JWT</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Echarts%E7%AE%80%E4%BB%8B/" class="sidebar-link">Echarts简介</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Event%20Loop/" class="sidebar-link">Event Loop</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/JavaScript%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E3%80%81%E9%97%AD%E5%8C%85/" class="sidebar-link">JavaScript执行上下文、作用域链、闭包</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Promise/" class="sidebar-link">Promise</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/Web%20Workers/" class="sidebar-link">Web Workers</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/this%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/" class="sidebar-link">this知识汇总</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E5%86%92%E6%B3%A1/" class="sidebar-link">事件捕获和冒泡</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="sidebar-link">函数防抖和节流</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE/" class="sidebar-link">前端浏览器本地存储数据</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E7%BB%A7%E6%89%BF/" class="sidebar-link">原型与继承</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0/" class="sidebar-link">断点续传</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/" class="sidebar-link">正则表达式基础</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS高级程序设计-第四版</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/1.%E4%BB%80%E4%B9%88%E6%98%AFJavaScript/" class="sidebar-link">1.什么是JavaScript</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/10.%E5%87%BD%E6%95%B0/" class="sidebar-link">10.函数</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/11.%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" class="sidebar-link">11.期约与异步函数</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/12.BOM/" class="sidebar-link">12.BOM</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/13.%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/" class="sidebar-link">13.客户端检测</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/14.DOM/" class="sidebar-link">14.DOM</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/15.DOM%E6%89%A9%E5%B1%95/" class="sidebar-link">15.DOM扩展</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/2HTML%E4%B8%AD%E7%9A%84JavaScript/" class="sidebar-link">2HTML中的JavaScript</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/3.%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="sidebar-link">3.语言基础</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/4.%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/" class="sidebar-link">4.变量、作用域与内存</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/5.%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="sidebar-link">5.基本引用类型</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/6.%E9%9B%86%E5%90%88%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="sidebar-link">6.集合引用类型</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/7.%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" class="sidebar-link">7.迭代器与生成器</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/8.%E5%AF%B9%E8%B1%A1%E3%80%81%E7%B1%BB%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="sidebar-link">8.对象、类与面向对象编程</a></li><li><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/" aria-current="page" class="active sidebar-link">9.代理与反射</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#第-9-章-代理与反射" class="sidebar-link">第 9 章　代理与反射</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-代理基础" class="sidebar-link">9.1 　代理基础</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-1-创建空代理" class="sidebar-link">9.1.1 　创建空代理</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-2-定义捕获器" class="sidebar-link">9.1.2 　定义捕获器</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-3-捕获器参数和反射-api" class="sidebar-link">9.1.3 　捕获器参数和反射 API</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-4-捕获器不变式" class="sidebar-link">9.1.4 　捕获器不变式</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-5-可撤销代理" class="sidebar-link">9.1.5 　可撤销代理</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-6-实用反射-api" class="sidebar-link">9.1.6 　实用反射 API</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-7-代理另一个代理" class="sidebar-link">9.1.7 　代理另一个代理</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-1-8-代理的问题与不足" class="sidebar-link">9.1.8 　代理的问题与不足</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-代理捕获器与反射方法" class="sidebar-link">9.2 　代理捕获器与反射方法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-1-get" class="sidebar-link">9.2.1 　get()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-2-set" class="sidebar-link">9.2.2 　set()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-3-has" class="sidebar-link">9.2.3 　has()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-4-defineproperty" class="sidebar-link">9.2.4 　defineProperty()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-5-getownpropertydescriptor" class="sidebar-link">9.2.5 　getOwnPropertyDescriptor()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-6-deleteproperty" class="sidebar-link">9.2.6 　deleteProperty()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-7-ownkeys" class="sidebar-link">9.2.7 　ownKeys()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-8-getprototypeof" class="sidebar-link">9.2.8 　getPrototypeOf()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-9-setprototypeof" class="sidebar-link">9.2.9 　setPrototypeOf()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-10-isextensible" class="sidebar-link">9.2.10 　isExtensible()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-11-preventextensions" class="sidebar-link">9.2.11 　preventExtensions()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-12-apply" class="sidebar-link">9.2.12 　apply()</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-2-13-construct" class="sidebar-link">9.2.13 　construct()</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-3-代理模式" class="sidebar-link">9.3 　代理模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-3-1-跟踪属性访问" class="sidebar-link">9.3.1 　跟踪属性访问</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-3-2-隐藏属性" class="sidebar-link">9.3.2 　隐藏属性</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-3-3-属性验证" class="sidebar-link">9.3.3 　属性验证</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-3-4-函数与构造函数参数验证" class="sidebar-link">9.3.4 　函数与构造函数参数验证</a></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-3-5-数据绑定与可观察对象" class="sidebar-link">9.3.5 　数据绑定与可观察对象</a></li></ul></li><li class="sidebar-sub-header"><a href="/VuePressBlogHtml/FrontEnd/JS%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E5%9B%9B%E7%89%88/9.%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#_9-4-小结" class="sidebar-link">9.4 　小结</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>VUE</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/VUE/My-Vue-Study-1/" class="sidebar-link">My-Vue-Study-1</a></li><li><a href="/VuePressBlogHtml/FrontEnd/VUE/My-Vue-Study-2/" class="sidebar-link">My-Vue-Study-2</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>其他</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/Https%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" class="sidebar-link">Https以及前端安全</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/http%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" class="sidebar-link">http缓存机制</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%85%B6%E4%BB%96/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA/" class="sidebar-link">从输入url到界面展示</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>前端工程化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/VuePressBlogHtml/FrontEnd/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/WebPack%E5%9F%BA%E7%A1%80/" class="sidebar-link">WebPack基础</a></li><li><a href="/VuePressBlogHtml/FrontEnd/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%8E%86%E5%8F%B2%E8%BF%9B%E7%A8%8B/" class="sidebar-link">历史进程</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="第-9-章-代理与反射"><a href="#第-9-章-代理与反射" class="header-anchor">#</a> 第 9 章　代理与反射</h2> <blockquote><p><strong>本章内容</strong></p> <ul><li>代理基础</li> <li>代码捕获器与反射方法</li> <li>代理模式</li></ul></blockquote> <p>ECMAScript 6 新增的代理和反射为开发者提供了拦截并向基本操作嵌入额外行为的能力。具体地说，可以给目标对象定义一个关联的代理对象，而这个代理对象可以作为抽象的目标对象来使用。在对目标对象的各种操作影响目标对象之前，可以在代理对象中对这些操作加以控制。</p> <p>对刚刚接触这个主题的开发者而言，代理是一个比较模糊的概念，而且还夹杂着很多新术语。其实只要看几个例子，就很容易理解了。</p> <blockquote><p><strong>注意</strong>　在 ES6 之前，ECMAScript 中并没有类似代理的特性。由于代理是一种新的基础性语言能力，很多转译程序都不能把代理行为转换为之前的 ECMAScript 代码，因为代理的行为实际上是无可替代的。为此，代理和反射只在百分之百支持它们的平台上有用。可以检测代理是否存在，不存在则提供后备代码。不过这会导致代码冗余，因此并不推荐。</p></blockquote> <h2 id="_9-1-代理基础"><a href="#_9-1-代理基础" class="header-anchor">#</a> 9.1 　代理基础</h2> <p>正如本章开头所介绍的，代理是目标对象的抽象。从很多方面看，代理类似 C++指针，因为它可以用作目标对象的替身，但又完全独立于目标对象。目标对象既可以直接被操作，也可以通过代理来操作。但直接操作会绕过代理施予的行为。</p> <blockquote><p><strong>注意</strong>　 ECMAScript 代理与 C++指针有重大区别，后面会再讨论。不过作为一种有助于理解的类比，指针在概念上还是比较合适的结构。</p></blockquote> <h3 id="_9-1-1-创建空代理"><a href="#_9-1-1-创建空代理" class="header-anchor">#</a> 9.1.1 　创建空代理</h3> <p>最简单的代理是空代理，即除了作为一个抽象的目标对象，什么也不做。默认情况下，在代理对象上执行的所有操作都会无障碍地传播到目标对象。因此，在任何可以使用目标对象的地方，都可以通过同样的方式来使用与之关联的代理对象。</p> <p>代理是使用<code>Proxy</code>构造函数创建的。这个构造函数接收两个参数：目标对象和处理程序对象。缺少其中任何一个参数都会抛出<code>TypeError</code>。要创建空代理，可以传一个简单的对象字面量作为处理程序对象，从而让所有操作畅通无阻地抵达目标对象。</p> <p>如下面的代码所示，在代理对象上执行的任何操作实际上都会应用到目标对象。唯一可感知的不同就是代码中操作的是代理对象。</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  id: 'target'
+};
+
+const handler = {};
+
+const proxy = new Proxy(target, handler);
+
+// id属性会访问同一个值
+console.log(target.id);  // target
+console.log(proxy.id);   // target
+
+// 给目标属性赋值会反映在两个对象上
+// 因为两个对象访问的是同一个值
+target.id = 'foo';
+console.log(target.id); // foo
+console.log(proxy.id);  // foo
+
+// 给代理属性赋值会反映在两个对象上
+// 因为这个赋值会转移到目标对象
+proxy.id = 'bar';
+console.log(target.id); // bar
+console.log(proxy.id);  // bar
+
+// hasOwnProperty()方法在两个地方
+// 都会应用到目标对象
+console.log(target.hasOwnProperty('id')); // true
+console.log(proxy.hasOwnProperty('id'));  // true
+
+// Proxy.prototype是undefined
+// 因此不能使用instanceof操作符
+console.log(target instanceof Proxy); // TypeError: Function has non-object prototype 'undefined' in instanceof check
+console.log(proxy instanceof Proxy);  // TypeError: Function has non-object prototype 'undefined' in instanceof check
+
+// 严格相等可以用来区分代理和目标
+console.log(target === proxy); // false
+</code></pre></div><h3 id="_9-1-2-定义捕获器"><a href="#_9-1-2-定义捕获器" class="header-anchor">#</a> 9.1.2 　定义捕获器</h3> <p>使用代理的主要目的是可以定义<strong>捕获器</strong>（trap）。捕获器就是在处理程序对象中定义的“基本操作的拦截器”。每个处理程序对象可以包含零个或多个捕获器，每个捕获器都对应一种基本操作，可以直接或间接在代理对象上调用。每次在代理对象上调用这些基本操作时，代理可以在这些操作传播到目标对象之前先调用捕获器函数，从而拦截并修改相应的行为。</p> <blockquote><p><strong>注意</strong>　捕获器（trap）是从操作系统中借用的概念。在操作系统中，捕获器是程序流中的一个同步中断，可以暂停程序流，转而执行一段子例程，之后再返回原始程序流。</p></blockquote> <p>例如，可以定义一个<code>get()</code>捕获器，在 ECMAScript 操作以某种形式调用<code>get()</code>时触发。下面的例子定义了一个<code>get()</code>捕获器：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const handler = {
+  // 捕获器在处理程序对象中以方法名为键
+  get() {
+    return 'handler override';
+  }
+};
+
+const proxy = new Proxy(target, handler);
+</code></pre></div><p>这样，当通过代理对象执行<code>get()</code>操作时，就会触发定义的<code>get()</code>捕获器。当然，<code>get()</code>不是 ECMAScript 对象可以调用的方法。这个操作在 JavaScript 代码中可以通过多种形式触发并被<code>get()</code>捕获器拦截到。<code>proxy[property]</code>、<code>proxy.property</code>或<code>Object.create(proxy)[property]</code>等操作都会触发基本的<code>get()</code>操作以获取属性。因此所有这些操作只要发生在代理对象上，就会触发<code>get()</code>捕获器。注意，只有在代理对象上执行这些操作才会触发捕获器。在目标对象上执行这些操作仍然会产生正常的行为。</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const handler = {
+  // 捕获器在处理程序对象中以方法名为键
+  get() {
+    return 'handler override';
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(target.foo);                    // bar
+console.log(proxy.foo);                     // handler override
+
+console.log(target['foo']);                 // bar
+console.log(proxy['foo']);                  // handler override
+
+console.log(Object.create(target)['foo']);  // bar
+console.log(Object.create(proxy)['foo']);   // handler override
+</code></pre></div><h3 id="_9-1-3-捕获器参数和反射-api"><a href="#_9-1-3-捕获器参数和反射-api" class="header-anchor">#</a> 9.1.3 　捕获器参数和反射 API</h3> <p>所有捕获器都可以访问相应的参数，基于这些参数可以重建被捕获方法的原始行为。比如，<code>get()</code>捕获器会接收到目标对象、要查询的属性和代理对象三个参数。</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const handler = {
+  get(trapTarget, property, receiver) {
+    console.log(trapTarget === target);
+    console.log(property);
+    console.log(receiver === proxy);
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+proxy.foo;
+// true
+// foo
+// true
+</code></pre></div><p>有了这些参数，就可以重建被捕获方法的原始行为：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const handler = {
+  get(trapTarget, property, receiver) {
+    return trapTarget[property];
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.foo);  // bar
+console.log(target.foo); // bar
+</code></pre></div><p>所有捕获器都可以基于自己的参数重建原始操作，但并非所有捕获器行为都像<code>get()</code>那么简单。因此，通过手动写码如法炮制的想法是不现实的。实际上，开发者并不需要手动重建原始行为，而是可以通过调用全局<code>Reflect</code>对象上（封装了原始行为）的同名方法来轻松重建。</p> <p>处理程序对象中所有可以捕获的方法都有对应的反射（Reflect）API 方法。这些方法与捕获器拦截的方法具有相同的名称和函数签名，而且也具有与被拦截方法相同的行为。因此，使用反射 API 也可以像下面这样定义出空代理对象：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const handler = {
+  get() {
+    return Reflect.get(...arguments);
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.foo);   // bar
+console.log(target.foo);  // bar
+</code></pre></div><p>甚至还可以写得更简洁一些：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const handler = {
+  get: Reflect.get
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.foo);  // bar
+console.log(target.foo); // bar
+</code></pre></div><p>事实上，如果真想创建一个可以捕获所有方法，然后将每个方法转发给对应反射 API 的空代理，那么甚至不需要定义处理程序对象：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const proxy = new Proxy(target, Reflect);
+
+console.log(proxy.foo);   // bar
+console.log(target.foo);  // bar
+</code></pre></div><p>反射 API 为开发者准备好了样板代码，在此基础上开发者可以用最少的代码修改捕获的方法。比如，下面的代码在某个属性被访问时，会对返回的值进行一番修饰：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar',
+  baz: 'qux'
+};
+
+const handler = {
+  get(trapTarget, property, receiver) {
+    let decoration = '';
+    if (property === 'foo') {
+      decoration = '!!!';
+    }
+
+    return Reflect.get(...arguments) + decoration;
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.foo);   // bar!!!
+console.log(target.foo);  // bar
+
+console.log(proxy.baz);   // qux
+console.log(target.baz);  // qux
+</code></pre></div><h3 id="_9-1-4-捕获器不变式"><a href="#_9-1-4-捕获器不变式" class="header-anchor">#</a> 9.1.4 　捕获器不变式</h3> <p>使用捕获器几乎可以改变所有基本方法的行为，但也不是没有限制。根据 ECMAScript 规范，每个捕获的方法都知道目标对象上下文、捕获函数签名，而捕获处理程序的行为必须遵循“捕获器不变式”（trap invariant）。捕获器不变式因方法不同而异，但通常都会防止捕获器定义出现过于反常的行为。</p> <p>比如，如果目标对象有一个不可配置且不可写的数据属性，那么在捕获器返回一个与该属性不同的值时，会抛出<code>TypeError</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {};
+Object.defineProperty(target, 'foo', {
+  configurable: false,
+  writable: false,
+  value: 'bar'
+});
+
+const handler = {
+  get() {
+    return 'qux';
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.foo);
+// TypeError
+</code></pre></div><h3 id="_9-1-5-可撤销代理"><a href="#_9-1-5-可撤销代理" class="header-anchor">#</a> 9.1.5 　可撤销代理</h3> <p>有时候可能需要中断代理对象与目标对象之间的联系。对于使用<code>new Proxy()</code>创建的普通代理来说，这种联系会在代理对象的生命周期内一直持续存在。</p> <p><code>Proxy</code>也暴露了<code>revocable()</code>方法，这个方法支持撤销代理对象与目标对象的关联。撤销代理的操作是不可逆的。而且，撤销函数（<code>revoke()</code>）是幂等的，调用多少次的结果都一样。撤销代理之后再调用代理会抛出<code>TypeError</code>。</p> <p>撤销函数和代理对象是在实例化时同时生成的：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const handler = {
+  get() {
+    return 'intercepted';
+  }
+};
+
+const { proxy, revoke } = Proxy.revocable(target, handler);
+
+console.log(proxy.foo);   // intercepted
+console.log(target.foo);  // bar
+
+revoke();
+
+console.log(proxy.foo);   // TypeError
+</code></pre></div><h3 id="_9-1-6-实用反射-api"><a href="#_9-1-6-实用反射-api" class="header-anchor">#</a> 9.1.6 　实用反射 API</h3> <p>某些情况下应该优先使用反射 API，这是有一些理由的。</p> <ol><li><p><strong>反射 API 与对象 API</strong></p> <p>在使用反射 API 时，要记住：</p> <p>(1) 反射 API 并不限于捕获处理程序；</p> <p>(2) 大多数反射 API 方法在<code>Object</code>类型上有对应的方法。</p> <p>通常，<code>Object</code>上的方法适用于通用程序，而反射方法适用于细粒度的对象控制与操作。</p></li></ol> <ol start="2"><li><p><strong>状态标记</strong></p> <p>很多反射方法返回称作“状态标记”的布尔值，表示意图执行的操作是否成功。有时候，状态标记比那些返回修改后的对象或者抛出错误（取决于方法）的反射 API 方法更有用。例如，可以使用反射 API 对下面的代码进行重构：</p> <div class="language- extra-class"><pre class="language-text"><code>// 初始代码
+
+const o = {};
+
+try {
+  Object.defineProperty(o, 'foo', 'bar');
+  console.log('success');
+} catch(e) {
+  console.log('failure');
+}
+</code></pre></div><p>在定义新属性时如果发生问题，<code>Reflect.defineProperty()</code>会返回<code>false</code>，而不是抛出错误。因此使用这个反射方法可以这样重构上面的代码：</p> <div class="language- extra-class"><pre class="language-text"><code>// 重构后的代码
+
+const o = {};
+
+if(Reflect.defineProperty(o, 'foo', {value: 'bar'})) {
+  console.log('success');
+} else {
+  console.log('failure');
+}
+</code></pre></div><p>以下反射方法都会提供状态标记：</p> <ul><li><code>Reflect.defineProperty()</code></li> <li><code>Reflect.preventExtensions()</code></li> <li><code>Reflect.setPrototypeOf()</code></li> <li><code>Reflect.set()</code></li> <li><code>Reflect.deleteProperty()</code></li></ul></li></ol> <ol start="3"><li><p><strong>用一等函数替代操作符</strong></p> <p>以下反射方法提供只有通过操作符才能完成的操作。</p> <ul><li><code>Reflect.get()</code>：可以替代对象属性访问操作符。</li> <li><code>Reflect.set()</code>：可以替代<code>=</code>赋值操作符。</li> <li><code>Reflect.has()</code>：可以替代<code>in</code>操作符或<code>with()</code>。</li> <li><code>Reflect.deleteProperty()</code>：可以替代<code>delete</code>操作符。</li> <li><code>Reflect.construct()</code>：可以替代<code>new</code>操作符。</li></ul></li></ol> <ol start="4"><li><p><strong>安全地应用函数</strong></p> <p>在通过<code>apply</code>方法调用函数时，被调用的函数可能也定义了自己的<code>apply</code>属性（虽然可能性极小）。为绕过这个问题，可以使用定义在<code>Function</code>原型上的<code>apply</code>方法，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>Function.prototype.apply.call(myFunc, thisVal, argumentList);
+</code></pre></div><p>这种可怕的代码完全可以使用<code>Reflect.apply</code>来避免：</p> <div class="language- extra-class"><pre class="language-text"><code>Reflect.apply(myFunc, thisVal, argumentsList);
+</code></pre></div></li></ol> <h3 id="_9-1-7-代理另一个代理"><a href="#_9-1-7-代理另一个代理" class="header-anchor">#</a> 9.1.7 　代理另一个代理</h3> <p>代理可以拦截反射 API 的操作，而这意味着完全可以创建一个代理，通过它去代理另一个代理。这样就可以在一个目标对象之上构建多层拦截网：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  foo: 'bar'
+};
+
+const firstProxy = new Proxy(target, {
+  get() {
+    console.log('first proxy');
+    return Reflect.get(...arguments);
+  }
+});
+
+const secondProxy = new Proxy(firstProxy, {
+  get() {
+    console.log('second proxy');
+    return Reflect.get(...arguments);
+  }
+});
+
+console.log(secondProxy.foo);
+// second proxy
+// first proxy
+// bar
+</code></pre></div><h3 id="_9-1-8-代理的问题与不足"><a href="#_9-1-8-代理的问题与不足" class="header-anchor">#</a> 9.1.8 　代理的问题与不足</h3> <p>代理是在 ECMAScript 现有基础之上构建起来的一套新 API，因此其实现已经尽力做到最好了。很大程度上，代理作为对象的虚拟层可以正常使用。但在某些情况下，代理也不能与现在的 ECMAScript 机制很好地协同。</p> <ol><li><p><strong>代理中的 this</strong></p> <p>代理潜在的一个问题来源是<code>this</code>值。我们知道，方法中的<code>this</code>通常指向调用这个方法的对象：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  thisValEqualsProxy() {
+    return this === proxy;
+  }
+}
+
+const proxy = new Proxy(target, {});
+
+console.log(target.thisValEqualsProxy());  // false
+console.log(proxy.thisValEqualsProxy());   // true
+</code></pre></div><p>从直觉上讲，这样完全没有问题：调用代理上的任何方法，比如<code>proxy.outerMethod()</code>，而这个方法进而又会调用另一个方法，如<code>this.innerMethod()</code>，实际上都会调用<code>proxy.innerMethod()</code>。多数情况下，这是符合预期的行为。可是，如果目标对象依赖于对象标识，那就可能碰到意料之外的问题。</p> <p>还记得第 6 章中通过<code>WeakMap</code>保存私有变量的例子吧，以下是它的简化版：</p> <div class="language- extra-class"><pre class="language-text"><code>const wm = new WeakMap();
+
+class User {
+  constructor(userId) {
+    wm.set(this, userId);
+  }
+
+  set id(userId) {
+    wm.set(this, userId);
+  }
+
+  get id() {
+    return wm.get(this);
+  }
+}
+</code></pre></div><p>由于这个实现依赖<code>User</code>实例的对象标识，在这个实例被代理的情况下就会出问题：</p> <div class="language- extra-class"><pre class="language-text"><code>const user = new User(123);
+console.log(user.id); // 123
+
+const userInstanceProxy = new Proxy(user, {});
+console.log(userInstanceProxy.id); // undefined
+</code></pre></div><p>这是因为<code>User</code>实例一开始使用目标对象作为<code>WeakMap</code>的键，代理对象却尝试从<strong>自身</strong>取得这个实例。要解决这个问题，就需要重新配置代理，把代理<code>User</code>实例改为代理<code>User</code>类本身。之后再创建代理的实例就会以代理实例作为<code>WeakMap</code>的键了：</p> <div class="language- extra-class"><pre class="language-text"><code>const UserClassProxy = new Proxy(User, {});
+const proxyUser = new UserClassProxy(456);
+console.log(proxyUser.id);
+</code></pre></div></li></ol> <ol start="2"><li><p><strong>代理与内部槽位</strong></p> <p>代理与内置引用类型（比如<code>Array</code>）的实例通常可以很好地协同，但有些 ECMAScript 内置类型可能会依赖代理无法控制的机制，结果导致在代理上调用某些方法会出错。</p> <p>一个典型的例子就是<code>Date</code>类型。根据 ECMAScript 规范，<code>Date</code>类型方法的执行依赖<code>this</code>值上的内部槽位<code>[[NumberDate]]</code>。代理对象上不存在这个内部槽位，而且这个内部槽位的值也不能通过普通的<code>get()</code>和<code>set()</code>操作访问到，于是代理拦截后本应转发给目标对象的方法会抛出<code>TypeError</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = new Date();
+const proxy = new Proxy(target, {});
+
+console.log(proxy instanceof Date);  // true
+
+proxy.getDate();  // TypeError: 'this' is not a Date object
+</code></pre></div></li></ol> <h2 id="_9-2-代理捕获器与反射方法"><a href="#_9-2-代理捕获器与反射方法" class="header-anchor">#</a> 9.2 　代理捕获器与反射方法</h2> <p>代理可以捕获 13 种不同的基本操作。这些操作有各自不同的反射 API 方法、参数、关联 ECMAScript 操作和不变式。</p> <p>正如前面示例所展示的，有几种不同的 JavaScript 操作会调用同一个捕获器处理程序。不过，对于在代理对象上执行的任何一种操作，只会有一个捕获处理程序被调用。不会存在重复捕获的情况。</p> <p>只要在代理上调用，所有捕获器都会拦截它们对应的反射 API 操作。</p> <h3 id="_9-2-1-get"><a href="#_9-2-1-get" class="header-anchor">#</a> 9.2.1 　<code>get()</code></h3> <p><code>get()</code>捕获器会在获取属性值的操作中被调用。对应的反射 API 方法为<code>Reflect.get()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  get(target, property, receiver) {
+    console.log('get()');
+    return Reflect.get(...arguments)
+  }
+});
+
+proxy.foo;
+// get()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p>返回值无限制。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>proxy.property</code></li> <li><code>proxy[property]</code></li> <li><code>Object.create(proxy)[property]</code></li> <li><code>Reflect.get(proxy, property, receiver)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>property</code>：引用的目标对象上的字符串键属性。</li> <li><code>receiver</code>：代理对象或继承代理对象的对象。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果<code>target.property</code>不可写且不可配置，则处理程序返回的值必须与<code>target.property</code>匹配。</p> <p>如果<code>target.property</code>不可配置且<code>[[Get]]</code>特性为<code>undefined</code>，处理程序的返回值也必须是<code>undefined</code>。</p></li></ol> <h3 id="_9-2-2-set"><a href="#_9-2-2-set" class="header-anchor">#</a> 9.2.2 　<code>set()</code></h3> <p><code>set()</code>捕获器会在设置属性值的操作中被调用。对应的反射 API 方法为<code>Reflect.set()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  set(target, property, value, receiver) {
+    console.log('set()');
+    return Reflect.set(...arguments)
+  }
+});
+
+proxy.foo = 'bar';
+// set()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p>返回<code>true</code>表示成功；返回<code>false</code>表示失败，严格模式下会抛出<code>TypeError</code>。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>proxy.property = value</code></li> <li><code>proxy[property] = value</code></li> <li><code>Object.create(proxy)[property] = value</code></li> <li><code>Reflect.set(proxy, property, value, receiver)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>property</code>：引用的目标对象上的字符串键属性。</li> <li><code>value</code>：要赋给属性的值。</li> <li><code>receiver</code>：接收最初赋值的对象。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果<code>target.property</code>不可写且不可配置，则不能修改目标属性的值。</p> <p>如果<code>target.property</code>不可配置且<code>[[Set]]</code>特性为<code>undefined</code>，则不能修改目标属性的值。</p> <p>在严格模式下，处理程序中返回<code>false</code>会抛出<code>TypeError</code>。</p></li></ol> <h3 id="_9-2-3-has"><a href="#_9-2-3-has" class="header-anchor">#</a> 9.2.3 　<code>has()</code></h3> <p><code>has()</code>捕获器会在<code>in</code>操作符中被调用。对应的反射 API 方法为<code>Reflect.has()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  has(target, property) {
+    console.log('has()');
+    return Reflect.has(...arguments)
+  }
+});
+
+'foo' in proxy;
+// has()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>has()</code>必须返回布尔值，表示属性是否存在。返回非布尔值会被转型为布尔值。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>property in proxy</code></li> <li><code>property in Object.create(proxy)</code></li> <li><code>with(proxy) {(property);}</code></li> <li><code>Reflect.has(proxy, property)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>property</code>：引用的目标对象上的字符串键属性。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果<code>target.property</code>存在且不可配置，则处理程序必须返回<code>true</code>。</p> <p>如果<code>target.property</code>存在且目标对象不可扩展，则处理程序必须返回<code>true</code>。</p></li></ol> <h3 id="_9-2-4-defineproperty"><a href="#_9-2-4-defineproperty" class="header-anchor">#</a> 9.2.4 　<code>defineProperty()</code></h3> <p><code>defineProperty()</code>捕获器会在<code>Object.defineProperty()</code>中被调用。对应的反射 API 方法为<code>Reflect.defineProperty()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  defineProperty(target, property, descriptor) {
+    console.log('defineProperty()');
+    return Reflect.defineProperty(...arguments)
+  }
+});
+
+Object.defineProperty(proxy, 'foo', { value: 'bar' });
+// defineProperty()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>defineProperty()</code>必须返回布尔值，表示属性是否成功定义。返回非布尔值会被转型为布尔值。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>Object.defineProperty(proxy, property, descriptor)</code></li> <li><code>Reflect.defineProperty(proxy, property, descriptor)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>property</code>：引用的目标对象上的字符串键属性。</li> <li><code>descriptor</code>：包含可选的<code>enumerable</code>、<code>configurable</code>、<code>writable</code>、<code>value</code>、<code>get</code>和<code>set</code>定义的对象。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果目标对象不可扩展，则无法定义属性。</p> <p>如果目标对象有一个可配置的属性，则不能添加同名的不可配置属性。</p> <p>如果目标对象有一个不可配置的属性，则不能添加同名的可配置属性。</p></li></ol> <h3 id="_9-2-5-getownpropertydescriptor"><a href="#_9-2-5-getownpropertydescriptor" class="header-anchor">#</a> 9.2.5 　<code>getOwnPropertyDescriptor()</code></h3> <p><code>getOwnPropertyDescriptor()</code>捕获器会在<code>Object.getOwnPropertyDescriptor()</code>中被调用。对应的反射 API 方法为<code>Reflect.getOwnPropertyDescriptor()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  getOwnPropertyDescriptor(target, property) {
+    console.log('getOwnPropertyDescriptor()');
+    return Reflect.getOwnPropertyDescriptor(...arguments)
+  }
+});
+
+Object.getOwnPropertyDescriptor(proxy, 'foo');
+// getOwnPropertyDescriptor()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>getOwnPropertyDescriptor()</code>必须返回对象，或者在属性不存在时返回<code>undefined</code>。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>Object.getOwnPropertyDescriptor(proxy, property)</code></li> <li><code>Reflect.getOwnPropertyDescriptor(proxy, property)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>property</code>：引用的目标对象上的字符串键属性。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果自有的<code>target.property</code>存在且不可配置，则处理程序必须返回一个表示该属性存在的对象。</p> <p>如果自有的<code>target.property</code>存在且可配置，则处理程序必须返回表示该属性可配置的对象。</p> <p>如果自有的<code>target.property</code>存在且<code>target</code>不可扩展，则处理程序必须返回一个表示该属性存在的对象。</p> <p>如果<code>target.property</code>不存在且<code>target</code>不可扩展，则处理程序必须返回<code>undefined</code>表示该属性不存在。</p> <p>如果<code>target.property</code>不存在，则处理程序不能返回表示该属性可配置的对象。</p></li></ol> <h3 id="_9-2-6-deleteproperty"><a href="#_9-2-6-deleteproperty" class="header-anchor">#</a> 9.2.6 　<code>deleteProperty()</code></h3> <p><code>deleteProperty()</code>捕获器会在<code>delete</code>操作符中被调用。对应的反射 API 方法为<code>Reflect.deleteProperty()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  deleteProperty(target, property) {
+    console.log('deleteProperty()');
+    return Reflect.deleteProperty(...arguments)
+  }
+});
+
+delete proxy.foo
+// deleteProperty()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>deleteProperty()</code>必须返回布尔值，表示删除属性是否成功。返回非布尔值会被转型为布尔值。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>delete proxy.property</code></li> <li><code>delete proxy[property]</code></li> <li><code>Reflect.deleteProperty(proxy, property)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>property</code>：引用的目标对象上的字符串键属性。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果自有的<code>target.property</code>存在且不可配置，则处理程序不能删除这个属性。</p></li></ol> <h3 id="_9-2-7-ownkeys"><a href="#_9-2-7-ownkeys" class="header-anchor">#</a> 9.2.7 　<code>ownKeys()</code></h3> <p><code>ownKeys()</code>捕获器会在<code>Object.keys()</code>及类似方法中被调用。对应的反射 API 方法为<code>Reflect.ownKeys()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  ownKeys(target) {
+    console.log('ownKeys()');
+    return Reflect.ownKeys(...arguments)
+  }
+});
+
+Object.keys(proxy);
+// ownKeys()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>ownKeys()</code>必须返回包含字符串或符号的可枚举对象。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>Object.getOwnPropertyNames(proxy)</code></li> <li><code>Object.getOwnPropertySymbols(proxy)</code></li> <li><code>Object.keys(proxy)</code></li> <li><code>Reflect.ownKeys(proxy)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>返回的可枚举对象必须包含<code>target</code>的所有不可配置的自有属性。</p> <p>如果<code>target</code>不可扩展，则返回可枚举对象必须准确地包含自有属性键。</p></li></ol> <h3 id="_9-2-8-getprototypeof"><a href="#_9-2-8-getprototypeof" class="header-anchor">#</a> 9.2.8 　<code>getPrototypeOf()</code></h3> <p><code>getPrototypeOf()</code>捕获器会在<code>Object.getPrototypeOf()</code>中被调用。对应的反射 API 方法为<code>Reflect.getPrototypeOf()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  getPrototypeOf(target) {
+    console.log('getPrototypeOf()');
+    return Reflect.getPrototypeOf(...arguments)
+  }
+});
+
+Object.getPrototypeOf(proxy);
+// getPrototypeOf()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>getPrototypeOf()</code>必须返回对象或<code>null</code>。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>Object.getPrototypeOf(proxy)</code></li> <li><code>Reflect.getPrototypeOf(proxy)</code></li> <li><code>proxy.__proto__</code></li> <li><code>Object.prototype.isPrototypeOf(proxy)</code></li> <li><code>proxy instanceof Object</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果<code>target</code>不可扩展，则<code>Object.getPrototypeOf(proxy)</code>唯一有效的返回值就是<code>Object.getPrototypeOf(target)</code>的返回值。</p></li></ol> <h3 id="_9-2-9-setprototypeof"><a href="#_9-2-9-setprototypeof" class="header-anchor">#</a> 9.2.9 　<code>setPrototypeOf()</code></h3> <p><code>setPrototypeOf()</code>捕获器会在<code>Object.setPrototypeOf()</code>中被调用。对应的反射 API 方法为<code>Reflect.setPrototypeOf()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  setPrototypeOf(target, prototype) {
+    console.log('setPrototypeOf()');
+    return Reflect.setPrototypeOf(...arguments)
+  }
+});
+
+Object.setPrototypeOf(proxy, Object);
+// setPrototypeOf()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>setPrototypeOf()</code>必须返回布尔值，表示原型赋值是否成功。返回非布尔值会被转型为布尔值。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>Object.setPrototypeOf(proxy)</code></li> <li><code>Reflect.setPrototypeOf(proxy)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>prototype</code>：<code>target</code>的替代原型，如果是顶级原型则为<code>null</code>。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果<code>target</code>不可扩展，则唯一有效的<code>prototype</code>参数就是<code>Object.getPrototypeOf(target)</code>的返回值。</p></li></ol> <h3 id="_9-2-10-isextensible"><a href="#_9-2-10-isextensible" class="header-anchor">#</a> 9.2.10 　<code>isExtensible()</code></h3> <p><code>isExtensible()</code>捕获器会在<code>Object.isExtensible()</code>中被调用。对应的反射 API 方法为<code>Reflect.isExtensible()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  isExtensible(target) {
+    console.log('isExtensible()');
+    return Reflect.isExtensible(...arguments)
+  }
+});
+
+Object.isExtensible(proxy);
+// isExtensible()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>isExtensible()</code>必须返回布尔值，表示<code>target</code>是否可扩展。返回非布尔值会被转型为布尔值。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>Object.isExtensible(proxy)</code></li> <li><code>Reflect.isExtensible(proxy)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果<code>target</code>可扩展，则处理程序必须返回<code>true</code>。</p> <p>如果<code>target</code>不可扩展，则处理程序必须返回<code>false</code>。</p></li></ol> <h3 id="_9-2-11-preventextensions"><a href="#_9-2-11-preventextensions" class="header-anchor">#</a> 9.2.11 　<code>preventExtensions()</code></h3> <p><code>preventExtensions()</code>捕获器会在<code>Object.preventExtensions()</code>中被调用。对应的反射 API 方法为<code>Reflect.preventExtensions()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = {};
+
+const proxy = new Proxy(myTarget, {
+  preventExtensions(target) {
+    console.log('preventExtensions()');
+    return Reflect.preventExtensions(...arguments)
+  }
+});
+
+Object.preventExtensions(proxy);
+// preventExtensions()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>preventExtensions()</code>必须返回布尔值，表示<code>target</code>是否已经不可扩展。返回非布尔值会被转型为布尔值。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>Object.preventExtensions(proxy)</code></li> <li><code>Reflect.preventExtensions(proxy)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p>如果<code>Object.isExtensible(proxy)</code>是<code>false</code>，则处理程序必须返回<code>true</code>。</p></li></ol> <h3 id="_9-2-12-apply"><a href="#_9-2-12-apply" class="header-anchor">#</a> 9.2.12 　<code>apply()</code></h3> <p><code>apply()</code>捕获器会在调用函数时中被调用。对应的反射 API 方法为<code>Reflect.apply()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = () =&gt; {};
+
+const proxy = new Proxy(myTarget, {
+  apply(target, thisArg, ...argumentsList) {
+    console.log('apply()');
+    return Reflect.apply(...arguments)
+  }
+});
+
+proxy();
+// apply()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p>返回值无限制。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>proxy(...argumentsList)</code></li> <li><code>Function.prototype.apply(thisArg, argumentsList)</code></li> <li><code>Function.prototype.call(thisArg, ...argumentsList)</code></li> <li><code>Reflect.apply(target, thisArgument, argumentsList)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标对象。</li> <li><code>thisArg</code>：调用函数时的<code>this</code>参数。</li> <li><code>argumentsList</code>：调用函数时的参数列表</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p><code>target</code>必须是一个函数对象。</p></li></ol> <h3 id="_9-2-13-construct"><a href="#_9-2-13-construct" class="header-anchor">#</a> 9.2.13 　<code>construct()</code></h3> <p><code>construct()</code>捕获器会在<code>new</code>操作符中被调用。对应的反射 API 方法为<code>Reflect.construct()</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>const myTarget = function() {};
+
+const proxy = new Proxy(myTarget, {
+  construct(target, argumentsList, newTarget) {
+    console.log('construct()');
+    return Reflect.construct(...arguments)
+  }
+});
+
+new proxy;
+// construct()
+</code></pre></div><ol><li><p><strong>返回值</strong></p> <p><code>construct()</code>必须返回一个对象。</p></li></ol> <ol start="2"><li><p><strong>拦截的操作</strong></p> <ul><li><code>new proxy(...argumentsList)</code></li> <li><code>Reflect.construct(target, argumentsList, newTarget)</code></li></ul></li></ol> <ol start="3"><li><p><strong>捕获器处理程序参数</strong></p> <ul><li><code>target</code>：目标构造函数。</li> <li><code>argumentsList</code>：传给目标构造函数的参数列表。</li> <li><code>newTarget</code>：最初被调用的构造函数。</li></ul></li></ol> <ol start="4"><li><p><strong>捕获器不变式</strong></p> <p><code>target</code>必须可以用作构造函数。</p></li></ol> <h2 id="_9-3-代理模式"><a href="#_9-3-代理模式" class="header-anchor">#</a> 9.3 　代理模式</h2> <p>使用代理可以在代码中实现一些有用的编程模式。</p> <h3 id="_9-3-1-跟踪属性访问"><a href="#_9-3-1-跟踪属性访问" class="header-anchor">#</a> 9.3.1 　跟踪属性访问</h3> <p>通过捕获<code>get</code>、<code>set</code>和<code>has</code>等操作，可以知道对象属性什么时候被访问、被查询。把实现相应捕获器的某个对象代理放到应用中，可以监控这个对象何时在何处被访问过：</p> <div class="language- extra-class"><pre class="language-text"><code>const user = {
+  name: 'Jake'
+};
+
+const proxy = new Proxy(user, {
+  get(target, property, receiver) {
+    console.log('Getting ${property}');
+
+    return Reflect.get(...arguments);
+  },
+  set(target, property, value, receiver) {
+    console.log('Setting ${property}=${value}');
+
+    return Reflect.set(...arguments);
+  }
+});
+
+proxy.name;     // Getting name
+proxy.age = 27; // Setting age=27
+</code></pre></div><h3 id="_9-3-2-隐藏属性"><a href="#_9-3-2-隐藏属性" class="header-anchor">#</a> 9.3.2 　隐藏属性</h3> <p>代理的内部实现对外部代码是不可见的，因此要隐藏目标对象上的属性也轻而易举。比如：</p> <div class="language- extra-class"><pre class="language-text"><code>const hiddenProperties = ['foo', 'bar'];
+const targetObject = {
+  foo: 1,
+  bar: 2,
+  baz: 3
+};
+const proxy = new Proxy(targetObject, {
+  get(target, property) {
+    if (hiddenProperties.includes(property)) {
+      return undefined;
+    } else {
+      return Reflect.get(...arguments);
+    }
+  },
+  has(target, property) {
+    if (hiddenProperties.includes(property)) {
+      return false;
+    } else {
+      return Reflect.has(...arguments);
+    }
+  }
+});
+
+// get()
+console.log(proxy.foo);  // undefined
+console.log(proxy.bar);  // undefined
+console.log(proxy.baz);  // 3
+
+// has()
+console.log('foo' in proxy);  // false
+console.log('bar' in proxy);  // false
+console.log('baz' in proxy);  // true
+</code></pre></div><h3 id="_9-3-3-属性验证"><a href="#_9-3-3-属性验证" class="header-anchor">#</a> 9.3.3 　属性验证</h3> <p>因为所有赋值操作都会触发<code>set()</code>捕获器，所以可以根据所赋的值决定是允许还是拒绝赋值：</p> <div class="language- extra-class"><pre class="language-text"><code>const target = {
+  onlyNumbersGoHere: 0
+};
+
+const proxy = new Proxy(target, {
+  set(target, property, value) {
+    if (typeof value !== 'Number') {
+      return false;
+    } else {
+      return Reflect.set(...arguments);
+    }
+  }
+});
+
+proxy.onlyNumbersGoHere = 1;
+console.log(proxy.onlyNumbersGoHere);  // 1
+proxy.onlyNumbersGoHere = '2';
+console.log(proxy.onlyNumbersGoHere);  // 1
+</code></pre></div><h3 id="_9-3-4-函数与构造函数参数验证"><a href="#_9-3-4-函数与构造函数参数验证" class="header-anchor">#</a> 9.3.4 　函数与构造函数参数验证</h3> <p>跟保护和验证对象属性类似，也可对函数和构造函数参数进行审查。比如，可以让函数只接收某种类型的值：</p> <div class="language- extra-class"><pre class="language-text"><code>function median(...nums) {
+  return nums.sort()[Math.floor(nums.length / 2)];
+}
+
+const proxy = new Proxy(median, {
+  apply(target, thisArg, ...argumentsList) {
+    for (const arg of argumentsList) {
+      if (typeof arg !== 'number') {
+        throw 'Non-number argument provided';
+      }
+    }
+    return Reflect.apply(...arguments);
+  }
+});
+
+console.log(proxy(4, 7, 1));  // 4
+console.log(proxy(4, '7', 1));
+// Error: Non-number argument provided
+</code></pre></div><p>类似地，可以要求实例化时必须给构造函数传参：</p> <div class="language- extra-class"><pre class="language-text"><code>class User {
+  constructor(id) {
+    this.id_ = id;
+  }
+}
+
+const proxy = new Proxy(User, {
+  construct(target, argumentsList, newTarget) {
+    if (argumentsList[0] === undefined) {
+      throw 'User cannot be instantiated without id';
+    } else {
+      return Reflect.construct(...arguments);
+    }
+  }
+});
+
+new proxy(1);
+
+new proxy();
+// Error: User cannot be instantiated without id
+</code></pre></div><h3 id="_9-3-5-数据绑定与可观察对象"><a href="#_9-3-5-数据绑定与可观察对象" class="header-anchor">#</a> 9.3.5 　数据绑定与可观察对象</h3> <p>通过代理可以把运行时中原本不相关的部分联系到一起。这样就可以实现各种模式，从而让不同的代码互操作。</p> <p>比如，可以将被代理的类绑定到一个全局实例集合，让所有创建的实例都被添加到这个集合中：</p> <div class="language- extra-class"><pre class="language-text"><code>const userList = [];
+
+class User {
+  constructor(name) {
+    this.name_ = name;
+  }
+}
+
+const proxy = new Proxy(User, {
+  construct() {
+    const newUser = Reflect.construct(...arguments);
+    userList.push(newUser);
+    return newUser;
+  }
+});
+
+new proxy('John');
+new proxy('Jacob');
+new proxy('Jingleheimerschmidt');
+
+console.log(userList); // [User {}, User {}, User{}]
+</code></pre></div><p>另外，还可以把集合绑定到一个事件分派程序，每次插入新实例时都会发送消息：</p> <div class="language- extra-class"><pre class="language-text"><code>const userList = [];
+
+function emit(newValue) {
+  console.log(newValue);
+}
+
+const proxy = new Proxy(userList, {
+  set(target, property, value, receiver) {
+    const result = Reflect.set(...arguments);
+    if (result) {
+      emit(Reflect.get(target, property, receiver));
+    }
+    return result;
+  }
+});
+
+proxy.push('John');
+// John
+proxy.push('Jacob');
+// Jacob
+</code></pre></div><h2 id="_9-4-小结"><a href="#_9-4-小结" class="header-anchor">#</a> 9.4 　小结</h2> <p>代理是 ECMAScript 6 新增的令人兴奋和动态十足的新特性。尽管不支持向后兼容，但它开辟出了一片前所未有的 JavaScript 元编程及抽象的新天地。</p> <p>从宏观上看，代理是真实 JavaScript 对象的透明抽象层。代理可以定义包含<strong>捕获器</strong>的处理程序对象，而这些捕获器可以拦截绝大部分 JavaScript 的基本操作和方法。在这个捕获器处理程序中，可以修改任何基本操作的行为，当然前提是遵从<strong>捕获器不变式</strong>。</p> <p>与代理如影随形的反射 API，则封装了一整套与捕获器拦截的操作相对应的方法。可以把反射 API 看作一套基本操作，这些操作是绝大部分 JavaScript 对象 API 的基础。</p> <p>代理的应用场景是不可限量的。开发者使用它可以创建出各种编码模式，比如（但远远不限于）跟踪属性访问、隐藏属性、阻止修改或删除属性、函数参数验证、构造函数参数验证、数据绑定，以及可观察对象。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">11/16/2020, 3:12:43 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/VuePressBlogHtml/assets/js/app.a22e24ce.js" defer></script><script src="/VuePressBlogHtml/assets/js/2.273354d5.js" defer></script><script src="/VuePressBlogHtml/assets/js/58.a33d519a.js" defer></script><script src="/VuePressBlogHtml/assets/js/17.398b5375.js" defer></script>
+  </body>
+</html>
